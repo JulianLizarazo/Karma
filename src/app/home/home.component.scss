@@ -13,3 +13,13 @@
         background-position: center;
     }
 }
+
+@media screen and (min-width: 700px){
+    .main{
+        height: 92%;
+    }
+
+    app-footer{
+        display: none;
+    }
+}

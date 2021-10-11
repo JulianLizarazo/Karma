@@ -19,3 +19,39 @@
         display: none;
     }
 }
+
+@media screen and (min-width: 700px) {
+    .header{
+        &__hamburguer{
+            display: none;
+        }
+
+        &__nav{
+            display: block;
+            width: 250px;
+            margin-inline-end: 40px;
+
+            &-ul{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+
+
+                &-li{
+                    list-style: none;
+
+                    & img{
+                        width: 30px;
+                        height: 30px;
+                    }
+
+                    & a{
+                        text-decoration: none;
+                        color: $text-icons;
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+}
