@@ -12,7 +12,5 @@ $lamborghini-color: #1C1D1F;
 $bugatti-color: #BE0030;
 $aston-martin-color: #318861;
 
-@function getColor($color){
-    @return rgba($color);
-}
+
 

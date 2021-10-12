@@ -10,11 +10,13 @@ import { MaterialModule } from '../material/material.module';
 @NgModule({
     declarations: [
         MclarenComponent,
+        
     ],
     imports: [
         SharedModule,
         MclarenRoutingModule,
         MaterialModule,
+       
     ],
     
 })
