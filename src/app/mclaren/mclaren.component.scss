@@ -1,8 +1,8 @@
 @import "../shared/styles/variables";
+@import "../shared/components/header/header.component.scss";
 
 
-
-header::ng-deep{
+ .header{
     background-color: black;
 }
 

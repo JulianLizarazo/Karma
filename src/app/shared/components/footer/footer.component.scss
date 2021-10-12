@@ -52,3 +52,75 @@
         color: $text-icons;
     }
 }
+
+@media screen and (min-width: 967px){
+    .footer{
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        grid-template-rows: 97px 97px 97px;
+        
+
+        &__butifarra{
+            grid-column: 1;
+            grid-row: 1 / 4;
+            height: 100%;
+            width: 100%;
+            
+
+            &-logo{
+                width: 350px;
+                height: 180px;
+                margin-block-start: 50px;
+            }
+        }
+
+        &__contact{
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+            width: 100%;
+            height: 100%;
+            justify-content: space-around;
+            font-size: 20px;
+            align-items: center;
+            
+        }
+
+        &__siguenos{
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+            width: 50%;
+           
+            font-size: 20px;
+        }
+
+        & div{
+            
+            display: flex;
+            justify-content: space-evenly;
+            margin-inline-end: 100px;
+        }
+
+        &__socialmedia{
+            width: 50%;
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+            display: flex;
+            justify-content: flex-end;
+            
+            
+            
+            
+            &-icons{
+                width: 46px;
+                height: 46px;
+                padding-inline-end: 20px;
+                
+            }
+        }
+
+        &__credits{
+            font-size: 20px;
+            line-height: 28px;
+        }
+    }   
+}
