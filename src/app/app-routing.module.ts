@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+
 
 const routes: Routes = [
   {
@@ -16,6 +16,31 @@ const routes: Routes = [
   {
     path: "mclaren",
     loadChildren: () => import("./mclaren/mclaren.module").then(m => m.MclarenModule)
+    
+  },
+  {
+    path: "aston-martin",
+    loadChildren: () => import("./aston-martin/aston-martin.module").then(m => m.AstonMartinModule)
+    
+  },
+  {
+    path: "bugatti",
+    loadChildren: () => import("./bugatti/bugatti.module").then(m => m.BugattiModule)
+    
+  },
+  {
+    path: "ferrari",
+    loadChildren: () => import("./ferrari/ferrari.module").then(m => m.FerrariModule)
+    
+  },
+  {
+    path: "lamborghini",
+    loadChildren: () => import("./lamborghini/lamborghini.module").then(m => m.LamborghiniModule)
+    
+  },
+  {
+    path: "mercedez-benz",
+    loadChildren: () => import("./mercedez-benz/mercedez-benz.module").then(m => m.MercedezBenzModule)
     
   },
 ];
