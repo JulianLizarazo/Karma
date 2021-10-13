@@ -43,6 +43,11 @@ const routes: Routes = [
     loadChildren: () => import("./mercedez-benz/mercedez-benz.module").then(m => m.MercedezBenzModule)
     
   },
+  {
+    path: "marcas",
+    loadChildren: () => import("./marcas/marcas.module").then(m => m.MarcasModule)
+    
+  },
 ];
 
 @NgModule({
