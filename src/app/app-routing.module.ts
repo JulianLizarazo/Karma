@@ -19,6 +19,31 @@ const routes: Routes = [
     
   },
   {
+    path: "mclaren/roadster",
+    loadChildren: () => import("./mclaren/brands/mclaren-roadster/mclaren-roadster.module").then(m => m.MclarenRoadsterModule)
+    
+  },
+  {
+    path: "mclaren/altas-prestaciones",
+    loadChildren: () => import("./mclaren/brands/mclaren-altas-prestaciones/mclaren-altas-prestaciones.module").then(m => m.MclarenAltasPrestacionesModule)
+    
+  },
+  {
+    path: "mclaren/gran-turismo",
+    loadChildren: () => import("./mclaren/brands/mclaren-gran-turismo/mclaren-gran-turismo.module").then(m => m.MclarenGranTurismoModule)
+    
+  },
+  {
+    path: "mclaren/muscle-car",
+    loadChildren: () => import("./mclaren/brands/mclaren-musclecar/mclaren-musclecar.module").then(m => m.MclarenMusclecarModule)
+    
+  },
+  {
+    path: "mclaren/superdeportivo",
+    loadChildren: () => import("./mclaren/brands/mclaren-superdeportivo/mclaren-superdeportivo.module").then(m => m.MclarenSuperdeportivoModule)
+    
+  },
+  {
     path: "aston-martin",
     loadChildren: () => import("./aston-martin/aston-martin.module").then(m => m.AstonMartinModule)
     
@@ -34,8 +59,58 @@ const routes: Routes = [
     
   },
   {
+    path: "ferrari/roadster",
+    loadChildren: () => import("./ferrari/brands/ferrari-roadster/ferrari-roadster.module").then(m => m.FerrariRoadsterModule)
+    
+  },
+  {
+    path: "ferrari/muscle-car",
+    loadChildren: () => import("./ferrari/brands/ferrari-musclecar/ferrari-musclecar.module").then(m => m.FerrariMusclecarModule)
+    
+  },
+  {
+    path: "ferrari/altas-prestaciones",
+    loadChildren: () => import("./ferrari/brands/ferrari-altas-prestaciones/ferrari-altas-prestaciones.module").then(m => m.FerrariAltasPrestacionesModule)
+    
+  },
+  {
+    path: "ferrari/superdeportivo",
+    loadChildren: () => import("./ferrari/brands/ferrari-superdeportivo/ferrari-superdeportivo.module").then(m => m.FerrariSuperdeportivoModule)
+    
+  },
+  {
+    path: "ferrari/gran-turismo",
+    loadChildren: () => import("./ferrari/brands/ferrari-gran-turismo/ferrari-gran-turismo.module").then(m => m.FerrariGranTurismoModule)
+    
+  },
+  {
     path: "lamborghini",
     loadChildren: () => import("./lamborghini/lamborghini.module").then(m => m.LamborghiniModule)
+    
+  },
+  {
+    path: "lamborghini/roadster",
+    loadChildren: () => import("./lamborghini/brands/lamborghini-roadster/lamborghini-roadster.module").then(m => m.LamborghiniRoadsterModule)
+    
+  },
+  {
+    path: "lamborghini/muscle-car",
+    loadChildren: () => import("./lamborghini/brands/lamborghini-musclecar/lamborghini-musclecar.module").then(m => m.LamborghiniMusclecarModule)
+    
+  },
+  {
+    path: "lamborghini/altas-prestaciones",
+    loadChildren: () => import("./lamborghini/brands/lamborghini-altas-prestaciones/lamborghini-altas-prestaciones.module").then(m => m.LamborghiniAltasPrestacionesModule)
+    
+  },
+  {
+    path: "lamborghini/superdeportivo",
+    loadChildren: () => import("./lamborghini/brands/lamborghini-superdeportivo/lamborghini-superdeportivo.module").then(m => m.LamborghiniSuperdeportivoModule)
+    
+  },
+  {
+    path: "lamborghini/gran-turismo",
+    loadChildren: () => import("./lamborghini/brands/lamborghini-gran-turismo/lamborghini-gran-turismo.module").then(m => m.LamborghiniGranTurismoModule)
     
   },
   {

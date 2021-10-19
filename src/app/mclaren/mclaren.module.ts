@@ -7,9 +7,11 @@ import { SharedModule } from '../shared/shared.module';
 import { MclarenComponent } from './mclaren.component';
 import { MaterialModule } from '../material/material.module';
 
+
 @NgModule({
     declarations: [
         MclarenComponent,
+        
         
     ],
     imports: [

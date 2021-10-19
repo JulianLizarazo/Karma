@@ -8,9 +8,11 @@ import { SharedModule } from '../shared/shared.module';
 import { LamborghiniComponent } from './lamborghini.component';
 import { MaterialModule } from '../material/material.module';
 
+
 @NgModule({
   declarations: [
-    LamborghiniComponent
+    LamborghiniComponent,
+    
   ],
   imports: [
     CommonModule,
