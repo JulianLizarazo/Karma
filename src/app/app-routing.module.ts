@@ -54,6 +54,31 @@ const routes: Routes = [
     
   },
   {
+    path: "bugatti/roadster",
+    loadChildren: () => import("./bugatti/brands/bugatti-roadster/bugatti-roadster.module").then(m => m.BugattiRoadsterModule)
+    
+  },
+  {
+    path: "bugatti/muscle-car",
+    loadChildren: () => import("./bugatti/brands/bugatti-musclecar/bugatti-musclecar.module").then(m => m.BugattiMusclecarModule)
+    
+  },
+  {
+    path: "bugatti/altas-prestaciones",
+    loadChildren: () => import("./bugatti/brands/bugatti-altas-prestaciones/bugatti-altas-prestaciones.module").then(m => m.BugattiAltasPrestacionesModule)
+    
+  },
+  {
+    path: "bugatti/superdeportivo",
+    loadChildren: () => import("./bugatti/brands/bugatti-superdeportivo/bugatti-superdeportivo.module").then(m => m.BugattiSuperdeportivoModule)
+    
+  },
+  {
+    path: "bugatti/gran-turismo",
+    loadChildren: () => import("./bugatti/brands/bugatti-gran-turismo/bugatti-gran-turismo.module").then(m => m.BugattiGranTurismoModule)
+    
+  },
+  {
     path: "ferrari",
     loadChildren: () => import("./ferrari/ferrari.module").then(m => m.FerrariModule)
     
