@@ -49,6 +49,31 @@ const routes: Routes = [
     
   },
   {
+    path: "aston-martin/roadster",
+    loadChildren: () => import("./aston-martin/brands/aston-martin-roadster/aston-martin-roadster.module").then(m => m.AstonMartinRoadsterModule)
+    
+  },
+  {
+    path: "aston-martin/muscle-car",
+    loadChildren: () => import("./aston-martin/brands/aston-martin-musclecar/aston-martin-musclecar.module").then(m => m.AstonMartinMusclecarModule)
+    
+  },
+  {
+    path: "aston-martin/altas-prestaciones",
+    loadChildren: () => import("./aston-martin/brands/aston-martin-altas-prestaciones/aston-martin-altas-prestaciones.module").then(m => m.AstonMartinAltasPrestacionesModule)
+    
+  },
+  {
+    path: "aston-martin/superdeportivo",
+    loadChildren: () => import("./aston-martin/brands/aston-martin-superdeportivos/aston-martin-superdeportivos.module").then(m => m.AstonMartinSuperdeportivosModule)
+    
+  },
+  {
+    path: "aston-martin/gran-turismo",
+    loadChildren: () => import("./aston-martin/brands/aston-martin-superdeportivos/aston-martin-superdeportivos.module").then(m => m.AstonMartinSuperdeportivosModule)
+    
+  },
+  {
     path: "bugatti",
     loadChildren: () => import("./bugatti/bugatti.module").then(m => m.BugattiModule)
     
@@ -141,6 +166,31 @@ const routes: Routes = [
   {
     path: "mercedez-benz",
     loadChildren: () => import("./mercedez-benz/mercedez-benz.module").then(m => m.MercedezBenzModule)
+    
+  },
+  {
+    path: "mercedez-benz/roadster",
+    loadChildren: () => import("./mercedez-benz/brands/merdecez-benz-roadster/merdecez-benz-roadster.module").then(m => m.MerdecezBenzRoadsterModule)
+    
+  },
+  {
+    path: "mercedez-benz/muscle-car",
+    loadChildren: () => import("./mercedez-benz/brands/merdecez-benz-musclecar/merdecez-benz-musclecar.module").then(m => m.MerdecezBenzMusclecarModule)
+    
+  },
+  {
+    path: "mercedez-benz/altas-prestaciones",
+    loadChildren: () => import("./mercedez-benz/brands/merdecez-benz-altas-prestaciones/merdecez-benz-altas-prestaciones.module").then(m => m.MerdecezBenzAltasPrestacionesModule)
+    
+  },
+  {
+    path: "mercedez-benz/superdeportivo",
+    loadChildren: () => import("./mercedez-benz/brands/merdecez-benz-superdeportivo/merdecez-benz-superdeportivo.module").then(m => m.MerdecezBenzSuperdeportivoModule)
+    
+  },
+  {
+    path: "mercedez-benz/gran-turismo",
+    loadChildren: () => import("./mercedez-benz/brands/merdecez-benz-gran-turismo/merdecez-benz-gran-turismo.module").then(m => m.MerdecezBenzGranTurismoModule)
     
   },
   {
