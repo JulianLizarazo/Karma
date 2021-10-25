@@ -8,11 +8,14 @@ InvoiceDetailModel.getInvoiceDetails = function (callback){
     
     if (connection){
         var sql = "SELECT id_invoice_det "
-                        +", amount "
                         +", id_invoice "
                         +", price "
-                        +", id_vehicle_detail "
-                        +" FROM invoice_detail   "
+                        +", id.id_vehicle_detail "
+                        +", car_plate "
+                        +", CONCAT(brand,' ',color) as vehicle_model"
+                        +" from invoice_detail id, vehicle_detail vd"
+                        +" inner join vehicle v on v.id_vehicle = vd.id_vehicle"
+                        +" WHERE  id.id_vehicle_detail = vd.id_vehicle_detail"
                         +" ORDER BY id_invoice_det;";
         
         connection.query(sql, function (error, rows){
@@ -32,14 +35,16 @@ InvoiceDetailModel.getInvoiceDetails = function (callback){
 InvoiceDetailModel.getInvoiceDetail = function (id, callback){
     
     if (connection){
-        var sql = "select id_invoice_det, "
-                    +"amount, "
-                    +"id_invoice, "
-                    +"price, "
-                    +"id_vehicle_detail "
-                    +"from invoice_detail "
-                    +"where id_invoice_det ="
-                    + connection.escape(id) + ";";
+        var sql = "select id_invoice_det "
+                    +", id_invoice "
+                    +", price "
+                    +", id.id_vehicle_detail "
+                    +", car_plate "
+                    +", CONCAT(brand,' ',color) as vehicle_model"
+                    +" from invoice_detail id, vehicle_detail vd"
+                    +" inner join vehicle v on v.id_vehicle = vd.id_vehicle"
+                    +" where id.id_vehicle_detail = vd.id_vehicle_detail and id_invoice_det ="
+                    + connection.escape(id)
 
         //console.log(id);
         //console.log(" 31  tal  " );

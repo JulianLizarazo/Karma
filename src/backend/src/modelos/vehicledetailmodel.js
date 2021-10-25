@@ -11,7 +11,11 @@ VehicleDetailModel.getVehicleDetails = function (callback){
                         +", car_plate "
                         +", engine_num "
                         +", chassis_num "
-                        +" FROM vehicle_detail "
+                        +", v.id_vehicle "
+                        +", brand"
+                        +", color"
+                        +" FROM vehicle_detail vd,vehicle v"
+                        +" WHERE v.id_vehicle = vd.id_vehicle "
                         +" ORDER BY id_vehicle_detail;";
         
         connection.query(sql, function (error, rows){

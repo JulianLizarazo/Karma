@@ -10,10 +10,12 @@ InvoiceModel.getInvoices = function (callback){
         var sql = "SELECT id_invoice, "
                         +" VAT, "
                         +" payment_method, "
-                        +" date, "
-                        +" id_user, "
-                        +" id_campus "
-                        +" FROM invoice "
+                        +" DATE_FORMAT(date,'%d %M %Y') as date,"
+                        +" user_name1,"
+                        +" user_lastname1,"
+                        +" name_campus "
+                        +" FROM invoice i,user u,campus c"
+                        +" WHERE u.id_user= i.id_user and i.id_campus = c.id_campus"
                         +" ORDER BY id_invoice;";
         
         connection.query(sql, function (error, rows){
@@ -36,13 +38,14 @@ InvoiceModel.getInvoice = function (id, callback){
         var sql = "select id_invoice, "
                     +" VAT, "
                     +" payment_method, "
-                    +" date, "
-                    +" id_user, "
-                    +" id_campus "
-                    +" from invoice "
-                    +" where id_invoice = "
-                    + connection.escape(id) + ";";
-
+                    +" DATE_FORMAT(date,'%d %M %Y') as date,"
+                    +" user_name1,"
+                    +" user_lastname1,"
+                    +" name_campus "
+                    +" FROM invoice i,user u,campus c"
+                    +" WHERE id_invoice ="+ connection.escape(id)
+                    + "and u.id_user= i.id_user and i.id_campus = c.id_campus;"
+                    
         //console.log(id);
         //console.log(" 31  tal  " );
         connection.query(sql, function (error, row){

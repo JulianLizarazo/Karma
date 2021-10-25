@@ -11,7 +11,7 @@ VehicleTypeModel.getVehicleTypes = function (callback){
                         +" body_type, "
                         +" description "
                         +" FROM vehicle_type "
-                        +" ORDER BY id_vehicle_type;";        
+                        +" ORDER BY id_vehicle_type;";
         connection.query(sql, function (error, rows){
             if (error){
                 throw error;
