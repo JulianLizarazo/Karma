@@ -59,6 +59,65 @@ InvoiceDetailModel.getInvoiceDetail = function (id, callback){
     }
 }
 
+InvoiceDetailModel.getVehicleReport = function (id,initialDate,finalDate,callback){
+    
+    if (connection){
+        var sql = "select id_invoice_det," 
+                        +" i.id_invoice,"
+                        +" price,"
+                        +" id.id_vehicle_detail,"
+                        +" DATE_FORMAT(date,'%d %M %Y') as date, "
+                        +" CONCAT(brand,' ',color),"
+                        +" v.id_vehicle as vehicle_model"
+                        +" from invoice_detail id "
+                        +" inner join vehicle_detail vd on id.id_vehicle_detail = vd.id_vehicle_detail"
+                        +" inner join vehicle v on v.id_vehicle = vd.id_vehicle"
+                        +" inner join invoice i on i.id_invoice = id.id_invoice"
+                        +" where v.id_vehicle = "+connection.escape(id)+" and date BETWEEN"+connection.escape(initialDate)+" and "+connection.escape(finalDate)
+        
+        
+        connection.query(sql, function (error, rows){
+            if (error){
+                throw error;
+            }
+            else{
+                callback(null, rows);
+            }
+        });
+       // console.log("25  " );
+    }
+}
+InvoiceDetailModel.getVehicleTypeReport = function (id,initialDate,finalDate,callback){
+    
+    if (connection){
+        var sql = "select id_invoice_det," 
+                        +" i.id_invoice,"
+                        +" price,"
+                        +" id.id_vehicle_detail,"
+                        +" DATE_FORMAT(date,'%d %M %Y') as date, "
+                        +" CONCAT(brand,' ',color),"
+                        +" v.id_vehicle as vehicle_model,"
+                        +" body_type"
+                        +" from invoice_detail id "
+                        +" inner join vehicle_detail vd on id.id_vehicle_detail = vd.id_vehicle_detail"
+                        +" inner join vehicle v on v.id_vehicle = vd.id_vehicle"
+                        +" inner join vehicle_type vt on vt.id_vehicle_type = v.id_vehicle_type"
+                        +" inner join invoice i on i.id_invoice = id.id_invoice"
+                        +" where v.id_vehicle_type = "+connection.escape(id)+" and date BETWEEN"+connection.escape(initialDate)+" and "+connection.escape(finalDate)
+        
+        
+        connection.query(sql, function (error, rows){
+            if (error){
+                throw error;
+            }
+            else{
+                callback(null, rows);
+            }
+        });
+       // console.log("25  " );
+    }
+}
+
 //---------------------------------------------------------------
 //añadir un nuevo tipo de documento
 InvoiceDetailModel.insertInvoiceDetail = function (InvoiceDetailData, callback){

@@ -44,6 +44,57 @@ module.exports = function (){
             res.status(500).json({ "msg": "error" });
         }
     });
+    router.get("/reportv/:id/:initialDate/:finalDate", function (req, res){
+        var id = req.params.id;
+        var initialDate = req.params.initialDate;
+        var finalDate = req.params.finalDate;
+
+        //solo actualizamos si la id es un número
+        if (!isNaN(id)){
+            InvoiceDetailModel.getVehicleReport(id,initialDate,finalDate,function (error, data){
+                //si el tipo de documento existe lo mostramos en formato json
+                if (typeof data !== 'undefined' && data.length > 0){
+                    res.status(200).json(data);
+                }
+                //en otro caso mostramos una respuesta conforme no existe
+                else{
+                    res.json(404, 
+                    { 
+                        "msg": "Registro no Existe" 
+                    });
+                }
+            });
+        }
+        else //si hay algún error
+        {
+            res.status(500).json({ "msg": "error" });
+        }
+    });
+    router.get("/reportvt/:id/:initialDate/:finalDate", function (req, res){
+        var id = req.params.id;
+        var initialDate = req.params.initialDate;
+        var finalDate = req.params.finalDate;
+
+        //solo actualizamos si la id es un número
+        if (!isNaN(id)){
+            InvoiceDetailModel.getVehicleTypeReport(id,initialDate,finalDate,function (error, data){
+                //si el tipo de documento existe lo mostramos en formato json
+                if (typeof data !== 'undefined' && data.length > 0){
+                    res.status(200).json(data);
+                }
+                //en otro caso mostramos una respuesta conforme no existe
+                else{
+                    res.status(404).json({ 
+                        "msg": "Registro no Existe" 
+                    });
+                }
+            });
+        }
+        else //si hay algún error
+        {
+            res.status(500).json({ "msg": "error" });
+        }
+    });
 
     //---------------------------------------------------------------
     //Muestra y captura los datos del método CRUL crear, usando el verbo post
