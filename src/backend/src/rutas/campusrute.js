@@ -1,5 +1,5 @@
 //obtenemos el modelo InvoiceDetailModel con toda la funcionalidad
-var CampusModel = require('../modelos/CampusModel.js');
+var CampusModel = require('../modelos/campusmodel.js');
 var express = require('express');
 var router = express.Router();
 

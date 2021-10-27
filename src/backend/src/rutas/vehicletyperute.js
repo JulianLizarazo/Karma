@@ -1,5 +1,5 @@
 //obtenemos el modelo InvoiceDetailModel con toda la funcionalidad
-var VehicleTypeModel = require('../modelos/VehicleTypeModel.js');
+var VehicleTypeModel = require('../modelos/vehicletypemodel.js');
 var express = require('express');
 var router = express.Router();
 
