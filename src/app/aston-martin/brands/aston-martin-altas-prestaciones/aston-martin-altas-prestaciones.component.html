@@ -6,16 +6,11 @@
         <h2>ALTAS PRESTACIONES</h2>
     </section>
 
-    <section *ngFor="let vehicle of vehicles">
+    <section class="vehicle-list" *ngFor = "let vehicle of vehicles">
         <img [src]="vehicle.url" alt="">
-        <div>{{vehicle.id}}</div>
-        <div>{{vehicle.brand}}</div>
-        <div>{{vehicle.description}}</div>
+        <div>{{vehicle.description}}</div>   
         <div>{{vehicle.color}}</div>
-        
-        
-        
-        
+        <div>{{vehicle.brand}}</div>
         
     </section>
 </main>

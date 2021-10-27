@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PruebaService } from "../../../core/prueba.service";
+import { VehicleService } from "../../../core/services/vehicle.service";
 
 import { Vehicle } from 'src/app/core/models/vehicle.model';
 
@@ -11,27 +11,31 @@ import { Vehicle } from 'src/app/core/models/vehicle.model';
 })
 export class AstonMartinAltasPrestacionesComponent implements OnInit {
 
+ 
+
   vehicles: Vehicle[] = [];
+  
 
   constructor(
-    private pruebaService: PruebaService
+    private vehicleService: VehicleService
   ) { }
 
   ngOnInit(): void {
-    this.fetchPrueba();
+    this.fetchAltasPrestacionesVehicles();
     
   }
 
-  fetchPrueba(){
-    this.pruebaService.getAllProduts().subscribe(prueba => {
-      const array = Object.values(prueba);
+  fetchAltasPrestacionesVehicles(){
+    this.vehicleService.getAllVehicles().subscribe(vehicle => {
+      const array = Object.values(vehicle);
       for(let i = 0; i<array.length; i++){
-        if(array[i].brand === "McLaren"){
+        if(array[i].brand === "Aston Martin" && array[i].id_vehicle_type === 5){
           
           this.vehicles.push(array[i]);
+          
         }
       }
-      console.log(this.vehicles);
+      
     })
   }
 

@@ -4,5 +4,5 @@ export interface Vehicle{
     description: string,
     brand: string,
     url: string,
-    idVehicleType: number | string,
+    id_vehicle_type: number | string,
 }

@@ -21,6 +21,7 @@ import { MerdecezFooterComponent } from './components/mercedez/merdecez-footer/m
 
 
 
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -37,6 +38,7 @@ import { MerdecezFooterComponent } from './components/mercedez/merdecez-footer/m
     AstonMartinHeaderComponent,
     MerdecezHeaderComponent,
     MerdecezFooterComponent,
+
     
     
   ],
@@ -55,6 +57,7 @@ import { MerdecezFooterComponent } from './components/mercedez/merdecez-footer/m
     AstonMartinHeaderComponent,
     MerdecezHeaderComponent,
     MerdecezFooterComponent,
+    
    
     
   ],
