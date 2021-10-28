@@ -1,7 +1,8 @@
 @import "../../../shared/styles/variables";
+@import "../../../shared/styles/vehicle";
 
 .main{
-    width: 100vw;
+    padding-block-end: 60px;
     background-color: $light-primary-color;
     text-align: center;
     &__title{

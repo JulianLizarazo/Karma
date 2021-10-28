@@ -70,7 +70,7 @@ const routes: Routes = [
   },
   {
     path: "aston-martin/gran-turismo",
-    loadChildren: () => import("./aston-martin/brands/aston-martin-superdeportivos/aston-martin-superdeportivos.module").then(m => m.AstonMartinSuperdeportivosModule)
+    loadChildren: () => import("./aston-martin/brands/aston-martin-gran-turismo/aston-martin-gran-turismo.module").then(m => m.AstonMartinGranTurismoModule)
     
   },
   {

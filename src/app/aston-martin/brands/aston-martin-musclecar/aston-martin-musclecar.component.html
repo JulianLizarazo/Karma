@@ -5,6 +5,19 @@
         <img src="../../../../assets/images/aston-martin-logo.png" alt="Aston Martin Logo" />
         <h2>MUSCLE CAR</h2>
     </section>
+
+    <section class="vehicle-list" *ngFor = "let vehicle of vehicles"
+    style="background-color: rgba(255,255,255,0.25); background-image: url({{vehicle.url}});">
+       <div class="opacity-card">
+        <div class="description">{{vehicle.description}}</div>
+
+        <div class="color">Color: {{vehicle.color}}</div>
+        
+        <button class="button">Me interesa!</button>
+       </div>
+        
+        
+    </section>
 </main>
 
 <app-aston-martin-footer></app-aston-martin-footer>

@@ -1,6 +1,6 @@
 .vehicle-list{
     
-    height: 350px;
+    height: 550px;
     width: 80%;
     margin: 0 auto;
     margin-block-start: 40px;
@@ -64,7 +64,7 @@
 
 @media screen and (min-width: 900px){
     .vehicle-list{
-        
+        height: 350px;
         
         & .description{
             height: 100px;
