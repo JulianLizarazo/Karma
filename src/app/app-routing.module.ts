@@ -203,6 +203,11 @@ const routes: Routes = [
     loadChildren: () => import("./about-us/about-us.module").then(m => m.AboutUsModule)
     
   },
+  {
+    path: "admin",
+    loadChildren: () => import("./admin/admin.module").then(m => m.AdminModule)
+    
+  },
 ];
 
 @NgModule({
