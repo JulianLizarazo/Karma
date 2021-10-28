@@ -13,10 +13,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
 
 
 @NgModule({
-  declarations: [VehicleFormComponent, NavComponent],
+  declarations: [VehicleFormComponent, NavComponent, VehicleListComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

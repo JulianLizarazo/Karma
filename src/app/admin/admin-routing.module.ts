@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavComponent } from './components/nav/nav.component';
 
 import { VehicleFormComponent } from "./components/vehicle-form/vehicle-form.component";
+import { VehicleListComponent } from "./components/vehicle-list/vehicle-list.component";
 const routes: Routes = [
  
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
       {
         path: "vehicle",
         component: VehicleFormComponent
+      },
+      {
+        path: "vehicle-list",
+        component: VehicleListComponent,
       },
     ]
   },
