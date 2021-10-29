@@ -1,0 +1,32 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()" id="myform">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>Buscar Tipo Vehiculo</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Ingresa el ID del tipo de vehiculo a mostrar" formControlName="id_vehicle_type">
+              <mat-error *ngIf="addressForm.controls['id_vehicle_type'].hasError('required')">
+                El ID del tipo de vehiculo es <strong>obligatorio!</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <mat-card-actions>
+            <button mat-raised-button style="background-color: darkgreen; color: white;" type="submit">Buscar Tipo Vehiculo</button>
+            
+        </mat-card-actions>
+        <div class="card">
+            <div class="id"> <strong>ID:</strong>  {{vehicleType.id_vehicle_type}}</div>
+            <div class="brand"> <strong>Tipo:</strong>  {{vehicleType.body_type}}</div>
+            <div class="description"> <strong>Descripción:</strong>  {{vehicleType.description}}</div>
+        </div>
+       
+        
+      </mat-card-content>
+      
+    </mat-card>
+  </form>
+
