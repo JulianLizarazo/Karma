@@ -8,6 +8,7 @@ import { VehicleEditComponent } from "./components/vehicle-edit/vehicle-edit.com
 import { VehicleShowComponent } from "./components/vehicle-show/vehicle-show.component";
 import { VehicleEditSingleComponent } from "./components/vehicle-edit-single/vehicle-edit-single.component";
 import { VehicleTypeFormComponent } from "./components/vehicle-type-form/vehicle-type-form.component";
+import { VehicleTypeListComponent } from "./components/vehicle-type-list/vehicle-type-list.component";
 
 const routes: Routes = [
  
@@ -38,6 +39,10 @@ const routes: Routes = [
       {
         path: "vehicle-type/create",
         component: VehicleTypeFormComponent,
+      },
+      {
+        path: "vehicle-type/list",
+        component: VehicleTypeListComponent,
       },
     ]
   },

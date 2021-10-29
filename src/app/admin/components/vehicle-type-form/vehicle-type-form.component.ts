@@ -45,7 +45,7 @@ export class VehicleTypeFormComponent implements OnInit {
       console.log(prueba);
     });
    
-    alert('Vehiculo agregado exitosamente');
+    alert('Tipo de Vehiculo agregado exitosamente');
     
     
     
