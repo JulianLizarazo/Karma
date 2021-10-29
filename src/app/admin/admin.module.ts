@@ -15,10 +15,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
 import { VehicleEditComponent } from './components/vehicle-edit/vehicle-edit.component';
+import { VehicleShowComponent } from './components/vehicle-show/vehicle-show.component';
 
 
 @NgModule({
-  declarations: [VehicleFormComponent, NavComponent, VehicleListComponent, VehicleEditComponent],
+  declarations: [VehicleFormComponent, NavComponent, VehicleListComponent, VehicleEditComponent, VehicleShowComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
