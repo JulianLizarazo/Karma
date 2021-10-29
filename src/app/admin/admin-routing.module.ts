@@ -6,6 +6,7 @@ import { VehicleFormComponent } from "./components/vehicle-form/vehicle-form.com
 import { VehicleListComponent } from "./components/vehicle-list/vehicle-list.component";
 import { VehicleEditComponent } from "./components/vehicle-edit/vehicle-edit.component";
 import { VehicleShowComponent } from "./components/vehicle-show/vehicle-show.component";
+import { VehicleEditSingleComponent } from "./components/vehicle-edit-single/vehicle-edit-single.component";
 
 const routes: Routes = [
  
@@ -26,8 +27,8 @@ const routes: Routes = [
         component: VehicleListComponent,
       },
       {
-        path: "vehicle/edit",
-        component: VehicleEditComponent,
+        path: "vehicle/edit-single",
+        component: VehicleEditSingleComponent,
       },
       {
         path: "vehicle/list/edit/:id_vehicle",

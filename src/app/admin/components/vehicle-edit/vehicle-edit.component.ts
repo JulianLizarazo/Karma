@@ -91,4 +91,6 @@ export class VehicleEditComponent implements OnInit {
     location.href ="http://localhost:4200/admin/vehicle/list";
     
   }
+
+  
 }
