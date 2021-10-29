@@ -17,10 +17,11 @@ import { VehicleListComponent } from './components/vehicle-list/vehicle-list.com
 import { VehicleEditComponent } from './components/vehicle-edit/vehicle-edit.component';
 import { VehicleShowComponent } from './components/vehicle-show/vehicle-show.component';
 import { VehicleEditSingleComponent } from './components/vehicle-edit-single/vehicle-edit-single.component';
+import { VehicleTypeFormComponent } from './components/vehicle-type-form/vehicle-type-form.component';
 
 
 @NgModule({
-  declarations: [VehicleFormComponent, NavComponent, VehicleListComponent, VehicleEditComponent, VehicleShowComponent, VehicleEditSingleComponent],
+  declarations: [VehicleFormComponent, NavComponent, VehicleListComponent, VehicleEditComponent, VehicleShowComponent, VehicleEditSingleComponent, VehicleTypeFormComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

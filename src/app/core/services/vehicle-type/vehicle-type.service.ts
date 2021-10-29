@@ -15,4 +15,16 @@ export class VehicleTypeService {
   getAllVehicleTypes(){
     return this.http.get<VehicleType[]>(`${environment.url_db}/vehicletype`)
   }
+
+  getVehicleType(id: number){
+    return this.http.get<VehicleType>(`${environment.url_db}/vehicletype/${id}`);
+  }
+
+  updateVehicleType(id: number, changes: Partial<VehicleType>){
+    return this.http.put(`${environment.url_db}/vehicletype/${id}`, changes);
+  }
+
+  createVehicleType(vehicle: VehicleType){
+    return this.http.post(`${environment.url_db}/vehicletype`, vehicle);
+  }
 }
