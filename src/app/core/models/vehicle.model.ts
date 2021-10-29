@@ -1,5 +1,5 @@
 export interface Vehicle{
-    id?: number,
+    id_vehicle?: number | string,
     color: string,
     description: string,
     brand: string,

@@ -4,6 +4,8 @@ import { NavComponent } from './components/nav/nav.component';
 
 import { VehicleFormComponent } from "./components/vehicle-form/vehicle-form.component";
 import { VehicleListComponent } from "./components/vehicle-list/vehicle-list.component";
+import { VehicleEditComponent } from "./components/vehicle-edit/vehicle-edit.component";
+
 const routes: Routes = [
  
   {
@@ -11,12 +13,20 @@ const routes: Routes = [
     component: NavComponent,
     children: [
       {
-        path: "vehicle",
+        path: "vehicle/create",
         component: VehicleFormComponent
       },
       {
-        path: "vehicle-list",
+        path: "vehicle/list",
         component: VehicleListComponent,
+      },
+      {
+        path: "vehicle/edit",
+        component: VehicleEditComponent,
+      },
+      {
+        path: "vehicle/list/edit/:id_vehicle",
+        component: VehicleEditComponent,
       },
     ]
   },

@@ -14,7 +14,15 @@ export class VehicleService {
   ) { }
 
   getAllVehicles(){
-    return this.http.get<Vehicle[]>(`${environment.url_db}/vehicle`)
+    return this.http.get<Vehicle[]>(`${environment.url_db}/vehicle`);
+  }
+
+  getVehicle(id: number){
+    return this.http.get<Vehicle>(`${environment.url_db}/vehicle/${id}`);
+  }
+
+  updateVehicle(id: number, changes: Partial<Vehicle>){
+    return this.http.put(`${environment.url_db}/vehicle/${id}`, changes);
   }
 
   createVehicle(vehicle: Vehicle){
