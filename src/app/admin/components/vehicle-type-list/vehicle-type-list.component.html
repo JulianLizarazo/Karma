@@ -1,8 +1,8 @@
 <table mat-table [dataSource]="vehicleTypes" class="mat-elevation-z8 vehicle-table">
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef class="title"> Acciones </th>
-        <td mat-cell *matCellDef="let vehicle"> 
-            <a [routerLink]="['edit', vehicle.id_vehicle]" mat-raised-button style="background-color: gray; color: white;">Editar</a>
+        <td mat-cell *matCellDef="let vehicleType"> 
+            <a [routerLink]="['edit', vehicleType.id_vehicle_type]" mat-raised-button style="background-color: gray; color: white;">Editar</a>
         </td>
     </ng-container>
     

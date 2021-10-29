@@ -9,6 +9,7 @@ import { VehicleShowComponent } from "./components/vehicle-show/vehicle-show.com
 import { VehicleEditSingleComponent } from "./components/vehicle-edit-single/vehicle-edit-single.component";
 import { VehicleTypeFormComponent } from "./components/vehicle-type-form/vehicle-type-form.component";
 import { VehicleTypeListComponent } from "./components/vehicle-type-list/vehicle-type-list.component";
+import { VehicleTypeEditComponent } from "./components/vehicle-type-edit/vehicle-type-edit.component";
 
 const routes: Routes = [
  
@@ -43,6 +44,10 @@ const routes: Routes = [
       {
         path: "vehicle-type/list",
         component: VehicleTypeListComponent,
+      },
+      {
+        path: "vehicle-type/list/edit/:id_vehicle_type",
+        component: VehicleTypeEditComponent,
       },
     ]
   },
