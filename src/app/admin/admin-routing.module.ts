@@ -12,6 +12,11 @@ import { VehicleTypeListComponent } from "./components/vehicle-type-list/vehicle
 import { VehicleTypeEditComponent } from "./components/vehicle-type-edit/vehicle-type-edit.component";
 import { VehicleTypeShowComponent } from "./components/vehicle-type-show/vehicle-type-show.component";
 import { VehicleTypeEditSingleComponent } from "./components/vehicle-type-edit-single/vehicle-type-edit-single.component";
+import { InvoiceFormComponent } from "./components/invoice-form/invoice-form.component";
+import { InvoiceShowComponent } from "./components/invoice-show/invoice-show.component";
+import { InvoiceListComponent } from "./components/invoice-list/invoice-list.component";
+import { InvoiceEditComponent } from "./components/invoice-edit/invoice-edit.component";
+import { InvoiceEditSingleComponent } from "./components/invoice-edit-single/invoice-edit-single.component";
 
 const routes: Routes = [
  
@@ -58,6 +63,26 @@ const routes: Routes = [
       {
         path: "vehicle-type/list/edit/:id_vehicle_type",
         component: VehicleTypeEditComponent,
+      },
+      {
+        path: "invoice/create",
+        component: InvoiceFormComponent,
+      },
+      {
+        path: "invoice/show",
+        component: InvoiceShowComponent,
+      },
+      {
+        path: "invoice/list",
+        component: InvoiceListComponent,
+      },
+      {
+        path: "invoice/edit-single",
+        component: InvoiceEditSingleComponent,
+      },
+      {
+        path: "invoice/list/edit/:id_invoice",
+        component: InvoiceEditComponent,
       },
     ]
   },
