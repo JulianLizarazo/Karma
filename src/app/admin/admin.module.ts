@@ -27,11 +27,16 @@ import { InvoiceShowComponent } from './components/invoice-show/invoice-show.com
 import { InvoiceListComponent } from './components/invoice-list/invoice-list.component';
 import { InvoiceEditComponent } from './components/invoice-edit/invoice-edit.component';
 import { InvoiceEditSingleComponent } from './components/invoice-edit-single/invoice-edit-single.component';
+import { InvoiceDetailFormComponent } from './components/invoice-detail-form/invoice-detail-form.component';
+import { InvoiceDetailListComponent } from './components/invoice-detail-list/invoice-detail-list.component';
+import { InvoiceDetailEditComponent } from './components/invoice-detail-edit/invoice-detail-edit.component';
+import { InvoiceDetailEditSingleComponent } from './components/invoice-detail-edit-single/invoice-detail-edit-single.component';
+import { InvoiceDetailShowComponent } from './components/invoice-detail-show/invoice-detail-show.component';
 
 
 
 @NgModule({
-  declarations: [VehicleFormComponent, NavComponent, VehicleListComponent, VehicleEditComponent, VehicleShowComponent, VehicleEditSingleComponent, VehicleTypeFormComponent, VehicleTypeListComponent, VehicleTypeEditComponent, VehicleTypeShowComponent, VehicleTypeEditSingleComponent, InvoiceFormComponent, InvoiceShowComponent, InvoiceListComponent, InvoiceEditComponent, InvoiceEditSingleComponent],
+  declarations: [VehicleFormComponent, NavComponent, VehicleListComponent, VehicleEditComponent, VehicleShowComponent, VehicleEditSingleComponent, VehicleTypeFormComponent, VehicleTypeListComponent, VehicleTypeEditComponent, VehicleTypeShowComponent, VehicleTypeEditSingleComponent, InvoiceFormComponent, InvoiceShowComponent, InvoiceListComponent, InvoiceEditComponent, InvoiceEditSingleComponent, InvoiceDetailFormComponent, InvoiceDetailListComponent, InvoiceDetailEditComponent, InvoiceDetailEditSingleComponent, InvoiceDetailShowComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

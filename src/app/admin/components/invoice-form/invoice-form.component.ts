@@ -48,7 +48,7 @@ export class InvoiceFormComponent implements OnInit {
 
     console.log(newInvoice)
    
-    alert('Vehiculo agregado exitosamente');
+    alert('Factura agregada exitosamente');
     
     this.invoiceService.createInvoice(newInvoice).subscribe(prueba => {
       console.log(prueba);

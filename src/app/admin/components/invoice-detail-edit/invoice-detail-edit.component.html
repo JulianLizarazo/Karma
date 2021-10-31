@@ -1,0 +1,44 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()" id="myform">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>Editar Detalle de Factura</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="ID Factura" formControlName="id_invoice">
+              <mat-error *ngIf="addressForm.controls['id_invoice'].hasError('required')">
+                El ID de la Factura es <strong>obligatorio!</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Precio" formControlName="price">
+              <mat-error *ngIf="addressForm.controls['price'].hasError('required')">
+                El precio es <strong>obligatorio!</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="ID detalle del vehiculo" formControlName="id_vehicle_detail">
+              <mat-error *ngIf="addressForm.controls['id_vehicle_detail'].hasError('required')">
+                El ID del detalle del vehiculo es <strong>obligatorio!</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        
+      </mat-card-content>
+      <mat-card-actions>
+         <button mat-raised-button style="background-color: darkgreen; color: white;" type="submit">Editar Detalle de Factura</button>
+        
+       
+      </mat-card-actions>
+    </mat-card>
+  </form>
+  
