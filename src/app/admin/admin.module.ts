@@ -32,11 +32,16 @@ import { InvoiceDetailListComponent } from './components/invoice-detail-list/inv
 import { InvoiceDetailEditComponent } from './components/invoice-detail-edit/invoice-detail-edit.component';
 import { InvoiceDetailEditSingleComponent } from './components/invoice-detail-edit-single/invoice-detail-edit-single.component';
 import { InvoiceDetailShowComponent } from './components/invoice-detail-show/invoice-detail-show.component';
+import { UserFormComponent } from './components/user-form/user-form.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { UserEditSingleComponent } from './components/user-edit-single/user-edit-single.component';
+import { UserShowComponent } from './components/user-show/user-show.component';
 
 
 
 @NgModule({
-  declarations: [VehicleFormComponent, NavComponent, VehicleListComponent, VehicleEditComponent, VehicleShowComponent, VehicleEditSingleComponent, VehicleTypeFormComponent, VehicleTypeListComponent, VehicleTypeEditComponent, VehicleTypeShowComponent, VehicleTypeEditSingleComponent, InvoiceFormComponent, InvoiceShowComponent, InvoiceListComponent, InvoiceEditComponent, InvoiceEditSingleComponent, InvoiceDetailFormComponent, InvoiceDetailListComponent, InvoiceDetailEditComponent, InvoiceDetailEditSingleComponent, InvoiceDetailShowComponent],
+  declarations: [VehicleFormComponent, NavComponent, VehicleListComponent, VehicleEditComponent, VehicleShowComponent, VehicleEditSingleComponent, VehicleTypeFormComponent, VehicleTypeListComponent, VehicleTypeEditComponent, VehicleTypeShowComponent, VehicleTypeEditSingleComponent, InvoiceFormComponent, InvoiceShowComponent, InvoiceListComponent, InvoiceEditComponent, InvoiceEditSingleComponent, InvoiceDetailFormComponent, InvoiceDetailListComponent, InvoiceDetailEditComponent, InvoiceDetailEditSingleComponent, InvoiceDetailShowComponent, UserFormComponent, UserListComponent, UserEditComponent, UserEditSingleComponent, UserShowComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

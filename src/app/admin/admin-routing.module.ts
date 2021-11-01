@@ -22,6 +22,11 @@ import { InvoiceDetailListComponent } from "./components/invoice-detail-list/inv
 import { InvoiceDetailEditComponent } from "./components/invoice-detail-edit/invoice-detail-edit.component";
 import { InvoiceDetailEditSingleComponent } from "./components/invoice-detail-edit-single/invoice-detail-edit-single.component";
 import { InvoiceDetailShowComponent } from "./components/invoice-detail-show/invoice-detail-show.component";
+import { UserFormComponent } from "./components/user-form/user-form.component";
+import { UserListComponent } from "./components/user-list/user-list.component";
+import { UserEditComponent } from "./components/user-edit/user-edit.component";
+import { UserEditSingleComponent } from "./components/user-edit-single/user-edit-single.component";
+import { UserShowComponent } from "./components/user-show/user-show.component";
 
 const routes: Routes = [
  
@@ -108,6 +113,26 @@ const routes: Routes = [
       {
         path: "invoice-detail/show",
         component: InvoiceDetailShowComponent,
+      },
+      {
+        path: "user/create",
+        component: UserFormComponent,
+      },
+      {
+        path: "user/list",
+        component: UserListComponent,
+      },
+      {
+        path: "user/list/edit/:id_user",
+        component: UserEditComponent,
+      },
+      {
+        path: "user/edit-single",
+        component: UserEditSingleComponent,
+      },
+      {
+        path: "user/show",
+        component: UserShowComponent,
       },
     ]
   },

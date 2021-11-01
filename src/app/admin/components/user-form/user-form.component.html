@@ -1,0 +1,69 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()" id="myform">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>Agregar Nuevo Usuario</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Primer Nombre" formControlName="user_name1">
+              <mat-error *ngIf="addressForm.controls['user_name1'].hasError('required')">
+                El Primer nombre es <strong>obligatorio!</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Segundo Nombre" formControlName="user_name2">
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Primer Apellido" formControlName="user_lastname1">
+              <mat-error *ngIf="addressForm.controls['user_lastname1'].hasError('required')">
+                El primer apellido es <strong>obligatorio!</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <textarea matInput placeholder="Segundo Apellido" formControlName="user_lastname2"></textarea>
+              <mat-error *ngIf="addressForm.controls['user_lastname2'].hasError('required')">
+                El segundo apellido es  <strong>obligatorio!</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <textarea matInput placeholder="Celular" formControlName="user_phone"></textarea>
+              <mat-error *ngIf="addressForm.controls['user_phone'].hasError('required')">
+                El número de celular es  <strong>obligatorio!</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Correo electrónico" formControlName="user_email">
+                <mat-error *ngIf="addressForm.controls['user_email'].hasError('required')">
+                  El correo electrónico es <strong>obligatorio!</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        
+        
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button style="background-color: darkgreen; color: white;" type="submit">Agregar Usuario</button>
+        <input type="reset" value="Limpiar Campos">
+      </mat-card-actions>
+    </mat-card>
+  </form>
+  
