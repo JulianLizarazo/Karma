@@ -37,11 +37,16 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { UserEditSingleComponent } from './components/user-edit-single/user-edit-single.component';
 import { UserShowComponent } from './components/user-show/user-show.component';
+import { CampusFormComponent } from './components/campus-form/campus-form.component';
+import { CampusListComponent } from './components/campus-list/campus-list.component';
+import { CampusEditComponent } from './components/campus-edit/campus-edit.component';
+import { CampusEditSingleComponent } from './components/campus-edit-single/campus-edit-single.component';
+import { CampusShowComponent } from './components/campus-show/campus-show.component';
 
 
 
 @NgModule({
-  declarations: [VehicleFormComponent, NavComponent, VehicleListComponent, VehicleEditComponent, VehicleShowComponent, VehicleEditSingleComponent, VehicleTypeFormComponent, VehicleTypeListComponent, VehicleTypeEditComponent, VehicleTypeShowComponent, VehicleTypeEditSingleComponent, InvoiceFormComponent, InvoiceShowComponent, InvoiceListComponent, InvoiceEditComponent, InvoiceEditSingleComponent, InvoiceDetailFormComponent, InvoiceDetailListComponent, InvoiceDetailEditComponent, InvoiceDetailEditSingleComponent, InvoiceDetailShowComponent, UserFormComponent, UserListComponent, UserEditComponent, UserEditSingleComponent, UserShowComponent],
+  declarations: [VehicleFormComponent, NavComponent, VehicleListComponent, VehicleEditComponent, VehicleShowComponent, VehicleEditSingleComponent, VehicleTypeFormComponent, VehicleTypeListComponent, VehicleTypeEditComponent, VehicleTypeShowComponent, VehicleTypeEditSingleComponent, InvoiceFormComponent, InvoiceShowComponent, InvoiceListComponent, InvoiceEditComponent, InvoiceEditSingleComponent, InvoiceDetailFormComponent, InvoiceDetailListComponent, InvoiceDetailEditComponent, InvoiceDetailEditSingleComponent, InvoiceDetailShowComponent, UserFormComponent, UserListComponent, UserEditComponent, UserEditSingleComponent, UserShowComponent, CampusFormComponent, CampusListComponent, CampusEditComponent, CampusEditSingleComponent, CampusShowComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

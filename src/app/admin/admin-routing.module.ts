@@ -27,6 +27,11 @@ import { UserListComponent } from "./components/user-list/user-list.component";
 import { UserEditComponent } from "./components/user-edit/user-edit.component";
 import { UserEditSingleComponent } from "./components/user-edit-single/user-edit-single.component";
 import { UserShowComponent } from "./components/user-show/user-show.component";
+import { CampusFormComponent } from "./components/campus-form/campus-form.component";
+import { CampusListComponent } from "./components/campus-list/campus-list.component";
+import { CampusEditComponent } from "./components/campus-edit/campus-edit.component";
+import { CampusEditSingleComponent } from "./components/campus-edit-single/campus-edit-single.component";
+import { CampusShowComponent } from "./components/campus-show/campus-show.component";
 
 const routes: Routes = [
  
@@ -133,6 +138,26 @@ const routes: Routes = [
       {
         path: "user/show",
         component: UserShowComponent,
+      },
+      {
+        path: "campus/create",
+        component: CampusFormComponent,
+      },
+      {
+        path: "campus/list",
+        component: CampusListComponent,
+      },
+      {
+        path: "campus/list/edit/:id_campus",
+        component: CampusEditComponent,
+      },
+      {
+        path: "campus/edit-single",
+        component: CampusEditSingleComponent,
+      },
+      {
+        path: "campus/show",
+        component: CampusShowComponent,
       },
     ]
   },

@@ -1,0 +1,32 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()" id="myform">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>Buscar Sede</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Ingresa el ID de la sede a mostrar" formControlName="id_campus">
+              <mat-error *ngIf="addressForm.controls['id_campus'].hasError('required')">
+                El ID es <strong>obligatorio!</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <mat-card-actions>
+            <button mat-raised-button style="background-color: darkgreen; color: white;" type="submit">Buscar Sede</button>
+            
+        </mat-card-actions>
+        <div class="card">
+            <div class="id"> <strong>ID:</strong>  {{campus.id_campus}}</div>
+            <div class="description"> <strong>Ciudad:</strong>  {{campus.name_campus}}</div>
+            <div class="brand"> <strong>Dirección:</strong>  {{campus.address}}</div>
+           
+        </div>
+       
+        
+      </mat-card-content>
+      
+    </mat-card>
+  </form>

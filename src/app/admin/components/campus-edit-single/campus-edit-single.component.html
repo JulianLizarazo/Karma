@@ -1,0 +1,61 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()" id="myform">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>Buscar Sede</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Ingresa el ID de la sede a editar" formControlName="id_campus">
+              <mat-error *ngIf="addressForm.controls['id_campus'].hasError('required')">
+                El ID es <strong>obligatorio!</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <mat-card-actions>
+            <button mat-raised-button style="background-color: darkgreen; color: white;" type="submit">Buscar Sede</button>
+            
+        </mat-card-actions>
+
+        <mat-card-header>
+            <mat-card-title>Editar Sede</mat-card-title>
+          </mat-card-header>
+        
+        <mat-card-content>
+            <div class="row">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Ciudad" formControlName="name_campus">
+                  <mat-error *ngIf="addressForm.controls['name_campus'].hasError('required')">
+                    La ciudad es <strong>obligatoria!</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Dirección" formControlName="address">
+                  <mat-error *ngIf="addressForm.controls['address'].hasError('required')">
+                    La dirección es <strong>obligatoria!</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              
+            </div>
+            
+          </mat-card-content>
+        
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button style="background-color: darkgreen; color: white;" (click)="updateVehicle()">Editar Sede</button>
+       
+      
+     </mat-card-actions>
+      
+    </mat-card>
+  </form>
+
