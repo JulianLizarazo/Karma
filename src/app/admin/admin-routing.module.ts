@@ -32,6 +32,7 @@ import { CampusListComponent } from "./components/campus-list/campus-list.compon
 import { CampusEditComponent } from "./components/campus-edit/campus-edit.component";
 import { CampusEditSingleComponent } from "./components/campus-edit-single/campus-edit-single.component";
 import { CampusShowComponent } from "./components/campus-show/campus-show.component";
+import { ReportVehicleTypeComponent } from "./components/report-vehicle-type/report-vehicle-type.component";
 
 const routes: Routes = [
  
@@ -158,6 +159,10 @@ const routes: Routes = [
       {
         path: "campus/show",
         component: CampusShowComponent,
+      },
+      {
+        path: "reports/vehicle-type",
+        component: ReportVehicleTypeComponent,
       },
     ]
   },

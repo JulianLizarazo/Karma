@@ -42,11 +42,12 @@ import { CampusListComponent } from './components/campus-list/campus-list.compon
 import { CampusEditComponent } from './components/campus-edit/campus-edit.component';
 import { CampusEditSingleComponent } from './components/campus-edit-single/campus-edit-single.component';
 import { CampusShowComponent } from './components/campus-show/campus-show.component';
+import { ReportVehicleTypeComponent } from './components/report-vehicle-type/report-vehicle-type.component';
 
 
 
 @NgModule({
-  declarations: [VehicleFormComponent, NavComponent, VehicleListComponent, VehicleEditComponent, VehicleShowComponent, VehicleEditSingleComponent, VehicleTypeFormComponent, VehicleTypeListComponent, VehicleTypeEditComponent, VehicleTypeShowComponent, VehicleTypeEditSingleComponent, InvoiceFormComponent, InvoiceShowComponent, InvoiceListComponent, InvoiceEditComponent, InvoiceEditSingleComponent, InvoiceDetailFormComponent, InvoiceDetailListComponent, InvoiceDetailEditComponent, InvoiceDetailEditSingleComponent, InvoiceDetailShowComponent, UserFormComponent, UserListComponent, UserEditComponent, UserEditSingleComponent, UserShowComponent, CampusFormComponent, CampusListComponent, CampusEditComponent, CampusEditSingleComponent, CampusShowComponent],
+  declarations: [VehicleFormComponent, NavComponent, VehicleListComponent, VehicleEditComponent, VehicleShowComponent, VehicleEditSingleComponent, VehicleTypeFormComponent, VehicleTypeListComponent, VehicleTypeEditComponent, VehicleTypeShowComponent, VehicleTypeEditSingleComponent, InvoiceFormComponent, InvoiceShowComponent, InvoiceListComponent, InvoiceEditComponent, InvoiceEditSingleComponent, InvoiceDetailFormComponent, InvoiceDetailListComponent, InvoiceDetailEditComponent, InvoiceDetailEditSingleComponent, InvoiceDetailShowComponent, UserFormComponent, UserListComponent, UserEditComponent, UserEditSingleComponent, UserShowComponent, CampusFormComponent, CampusListComponent, CampusEditComponent, CampusEditSingleComponent, CampusShowComponent, ReportVehicleTypeComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
