@@ -43,11 +43,12 @@ import { CampusEditComponent } from './components/campus-edit/campus-edit.compon
 import { CampusEditSingleComponent } from './components/campus-edit-single/campus-edit-single.component';
 import { CampusShowComponent } from './components/campus-show/campus-show.component';
 import { ReportVehicleTypeComponent } from './components/report-vehicle-type/report-vehicle-type.component';
+import { ReportVehicleType2Component } from './components/report-vehicle-type2/report-vehicle-type2.component';
 
 
 
 @NgModule({
-  declarations: [VehicleFormComponent, NavComponent, VehicleListComponent, VehicleEditComponent, VehicleShowComponent, VehicleEditSingleComponent, VehicleTypeFormComponent, VehicleTypeListComponent, VehicleTypeEditComponent, VehicleTypeShowComponent, VehicleTypeEditSingleComponent, InvoiceFormComponent, InvoiceShowComponent, InvoiceListComponent, InvoiceEditComponent, InvoiceEditSingleComponent, InvoiceDetailFormComponent, InvoiceDetailListComponent, InvoiceDetailEditComponent, InvoiceDetailEditSingleComponent, InvoiceDetailShowComponent, UserFormComponent, UserListComponent, UserEditComponent, UserEditSingleComponent, UserShowComponent, CampusFormComponent, CampusListComponent, CampusEditComponent, CampusEditSingleComponent, CampusShowComponent, ReportVehicleTypeComponent],
+  declarations: [VehicleFormComponent, NavComponent, VehicleListComponent, VehicleEditComponent, VehicleShowComponent, VehicleEditSingleComponent, VehicleTypeFormComponent, VehicleTypeListComponent, VehicleTypeEditComponent, VehicleTypeShowComponent, VehicleTypeEditSingleComponent, InvoiceFormComponent, InvoiceShowComponent, InvoiceListComponent, InvoiceEditComponent, InvoiceEditSingleComponent, InvoiceDetailFormComponent, InvoiceDetailListComponent, InvoiceDetailEditComponent, InvoiceDetailEditSingleComponent, InvoiceDetailShowComponent, UserFormComponent, UserListComponent, UserEditComponent, UserEditSingleComponent, UserShowComponent, CampusFormComponent, CampusListComponent, CampusEditComponent, CampusEditSingleComponent, CampusShowComponent, ReportVehicleTypeComponent, ReportVehicleType2Component],
   imports: [
     CommonModule,
     AdminRoutingModule,

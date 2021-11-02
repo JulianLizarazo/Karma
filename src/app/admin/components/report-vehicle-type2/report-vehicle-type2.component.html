@@ -1,7 +1,7 @@
 <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()" id="myform">
     <mat-card class="shipping-card">
       <mat-card-header>
-        <mat-card-title>Reporte por Vehiculo y periodo de tiempo</mat-card-title>
+        <mat-card-title>Reporte por Tipo Vehiculo y periodo de tiempo</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <div class="row">
@@ -9,7 +9,7 @@
             <mat-form-field class="full-width">
               <input matInput placeholder="Ingresa el ID del vehiculo" formControlName="vehicle_model">
               <mat-error *ngIf="addressForm.controls['vehicle_model'].hasError('required')">
-                El ID del vehiculo es <strong>obligatorio!</strong>
+                El ID del tipo vehiculo es <strong>obligatorio!</strong>
               </mat-error>
             </mat-form-field>
           </div>
@@ -72,21 +72,13 @@
             <th mat-header-cell *matHeaderCellDef class="title"> Vehiculo </th>
             <td mat-cell *matCellDef="let report"> {{report.vehicle}} </td>
         </ng-container>
-        <ng-container matColumnDef="car_plate">
-            <th mat-header-cell *matHeaderCellDef class="title"> Placa </th>
-            <td mat-cell *matCellDef="let report"> {{report.car_plate}} </td>
-        </ng-container>
-        <ng-container matColumnDef="engine_num">
-            <th mat-header-cell *matHeaderCellDef class="title"> Numero Motor </th>
-            <td mat-cell *matCellDef="let report"> {{report.engine_num}} </td>
-        </ng-container>
-        <ng-container matColumnDef="chassis_num">
-            <th mat-header-cell *matHeaderCellDef class="title"> Numero Chasis </th>
-            <td mat-cell *matCellDef="let report"> {{report.chassis_num}} </td>
-        </ng-container>
         <ng-container matColumnDef="vehicle_model">
             <th mat-header-cell *matHeaderCellDef class="title"> Modelo del Vehiculo </th>
             <td mat-cell *matCellDef="let report"> {{report.vehicle_model}} </td>
+        </ng-container>
+        <ng-container matColumnDef="body_type">
+            <th mat-header-cell *matHeaderCellDef class="title"> Tipo de Vehiculo </th>
+            <td mat-cell *matCellDef="let report"> {{report.body_type}} </td>
         </ng-container>
        
         
@@ -94,3 +86,4 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </form>
+
