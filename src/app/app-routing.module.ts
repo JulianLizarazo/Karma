@@ -208,6 +208,11 @@ const routes: Routes = [
     loadChildren: () => import("./admin/admin.module").then(m => m.AdminModule)
     
   },
+  {
+    path: "vehicle/:id_vehicle",
+    loadChildren: () => import("./vehicle-detail/vehicle-detail.module").then(m => m.VehicleDetailModule)
+    
+  },
 ];
 
 @NgModule({

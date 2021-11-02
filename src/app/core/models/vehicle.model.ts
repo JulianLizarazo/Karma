@@ -5,4 +5,5 @@ export interface Vehicle{
     brand: string,
     url: string,
     id_vehicle_type: number | string,
+    body_type?: string,
 }
