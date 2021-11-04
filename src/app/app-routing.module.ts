@@ -213,6 +213,11 @@ const routes: Routes = [
     loadChildren: () => import("./vehicle-detail/vehicle-detail.module").then(m => m.VehicleDetailModule)
     
   },
+  {
+    path: "order/:id_vehicle",
+    loadChildren: () => import("./order/order.module").then(m => m.OrderModule)
+    
+  },
 ];
 
 @NgModule({

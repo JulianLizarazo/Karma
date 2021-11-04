@@ -55,6 +55,8 @@
             text-decoration: none;
             color: white;
         }
+
+
         
     }
 
@@ -94,6 +96,10 @@
                 height: 80px;
                 text-decoration: none;
                 color: white;
+            }
+
+            &:hover{
+                background-color: rgb(14, 177, 14);
             }
             
         }

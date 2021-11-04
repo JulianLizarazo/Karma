@@ -57,15 +57,26 @@
 @media screen and (min-width: 876px){
     
     .vehicle-detail{
-
+        width: 60%;
+        height: 950px;
+        border: 1px solid darkgray;
+        margin: 100px auto;
+        border-radius: 10px;
+        background-color: $light-primary-color;
+        -webkit-box-shadow: 2px 3px 32px 5px #686363; 
+        box-shadow: 2px 3px 32px 5px #686363;
+        
         & img{
             width: 750px;
             height: 350px;
             border-radius: 5px;
+            margin-block-start: 25px;
+            border:  1px solid darkgray;
         }
 
         & .description{
-            
+            border-block-start: 1px solid black;
+            padding-block-start: 25px;
             width: 700px;
             
         }
@@ -80,7 +91,10 @@
                 height: 80px;
                 font-size: 18px;
                 
+                
             }
+
+           
             
         }
 

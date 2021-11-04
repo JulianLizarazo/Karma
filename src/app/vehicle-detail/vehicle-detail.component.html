@@ -9,7 +9,7 @@
         <div class="vehicle_type">Tipo de Vehiculo: {{vehicle.body_type}}</div>
 
         <button class="button">
-            <a href="">Comprar</a>
+            <a [routerLink]="['/order', vehicle.id_vehicle]">Comprar</a>
         </button>
         
     </div>
