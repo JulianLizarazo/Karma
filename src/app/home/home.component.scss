@@ -3,14 +3,39 @@
 .main{
     width: 100vw;
     height: 350px;
+    
+    & .card{
+        display: flex;
+        margin: 0 auto;
+        margin-block-start: 350px;
+        background-color:rgba(255,255,255,0.5);
+        border: 2px solid lightgray;
+        border-radius: 10px;
+        width: 1200px;
+        height: 250px;
+        text-align: center;
+        font-size: 18px;
+        & div{
+            width: 70%;
+            margin: 0 auto;
+            margin-block-start: 30px;
+        }
 
-    &__slide{
-        width: 100%;
-        height: 100%;
-        background-image: url("../../assets/images/car-slide1.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
+        & button{
+            margin-block-start: 80px;
+            margin-inline-end: 40px;
+            width: 200px;
+            height: 50px;
+            background-color: darkblue;
+            border-radius: 10px;
+            
+            & a{
+                color: white;
+                font-size: 18px;
+                text-decoration: none;
+                
+            }
+        }
     }
 }
 
@@ -21,5 +46,22 @@
 
     app-footer{
         display: none;
+    }
+
+    .swiper {
+        width: 600px;
+        height: 300px;
+    }
+
+    .swiper-container{
+        width: 100%;
+        height: 100%;
+        
+    }
+
+    .swiper-slide{
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
     }
 }
