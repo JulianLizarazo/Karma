@@ -1,0 +1,37 @@
+@import "../shared/styles/variables";
+
+.main{
+    width: 100%;
+    background-color: $light-primary-color;
+    &__marcas{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        
+        
+        & a{
+            margin-block-start: 20px;
+            margin-block-end: 20px;
+            padding: 10px;
+            border: 2px solid gray;
+            border-radius: 8px; 
+            box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+            background: rgba($dark-primary-color, 0.1);
+            
+
+            & img{
+                width: 150px;
+                height: 150px;
+            }
+        }
+        
+
+    }
+}
+
+#mercedez{
+    width: 200px;
+    height: 100px;
+}
+

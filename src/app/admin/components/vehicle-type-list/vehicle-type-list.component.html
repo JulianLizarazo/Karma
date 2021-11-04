@@ -1,0 +1,27 @@
+<table mat-table [dataSource]="vehicleTypes" class="mat-elevation-z8 vehicle-table">
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="title"> Acciones </th>
+        <td mat-cell *matCellDef="let vehicleType"> 
+            <a [routerLink]="['edit', vehicleType.id_vehicle_type]" mat-raised-button style="background-color: gray; color: white;">Editar</a>
+        </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="id_vehicle_type">
+        <th mat-header-cell *matHeaderCellDef class="title"> ID </th>
+        <td mat-cell *matCellDef="let vehicleType"> {{vehicleType.id_vehicle_type}} </td>
+    </ng-container>
+    <ng-container matColumnDef="body_type">
+        <th mat-header-cell *matHeaderCellDef class="title"> Tipo Vehiculo </th>
+        <td mat-cell *matCellDef="let vehicleType" class="color"> {{vehicleType.body_type}} </td>
+    </ng-container>
+    <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef class="title"> Descripcion </th>
+        <td mat-cell *matCellDef="let vehicleType"> {{vehicleType.description}} </td>
+    </ng-container>
+   
+    
+   
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

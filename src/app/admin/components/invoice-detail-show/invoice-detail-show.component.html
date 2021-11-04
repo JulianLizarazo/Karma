@@ -1,0 +1,36 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()" id="myform">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>Buscar Detalle de Factura</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Ingresa el ID del detalle de factura a mostrar" formControlName="id_invoice_det">
+              <mat-error *ngIf="addressForm.controls['id_invoice_det'].hasError('required')">
+                El ID es <strong>obligatorio!</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <mat-card-actions>
+            <button mat-raised-button style="background-color: darkgreen; color: white;" type="submit">Buscar Detalle de Factura</button>
+            
+        </mat-card-actions>
+        <div class="card">
+            <div class="id"> <strong>ID Detalle Factura:</strong>  {{invoiceDetail.id_invoice_det}}</div>
+            <div class="description"> <strong>Cantidad:</strong>  {{invoiceDetail.amount}}</div>
+            <div class="brand"> <strong>ID Factura:</strong>  {{invoiceDetail.id_invoice}}</div>
+            <div class="id_vehicle_type"> <strong>Precio: </strong>  {{invoiceDetail.price | currency}}</div>
+            <div class="id_vehicle_type"> <strong>ID Detalle del Vehiculo: </strong>  {{invoiceDetail.id_vehicle_detail}}</div>
+            <div class="id_vehicle_type"> <strong>Placa: </strong>  {{invoiceDetail.car_plate}}</div>
+            <div class="id_vehicle_type"> <strong>Número de motor: </strong>  {{invoiceDetail.engine_num}}</div>
+            <div class="id_vehicle_type"> <strong>Modelo del Vehiculo: </strong>  {{invoiceDetail.vehicle_model}}</div>
+        </div>
+       
+        
+      </mat-card-content>
+      
+    </mat-card>
+  </form>

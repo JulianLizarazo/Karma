@@ -1,0 +1,35 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()" id="myform">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>Buscar Factura</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Ingresa el ID de la factura a mostrar" formControlName="id_invoice">
+              <mat-error *ngIf="addressForm.controls['id_invoice'].hasError('required')">
+                El ID es <strong>obligatorio!</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <mat-card-actions>
+            <button mat-raised-button style="background-color: darkgreen; color: white;" type="submit">Buscar Factura</button>
+            
+        </mat-card-actions>
+        <div class="card">
+            <div class="id"> <strong>ID:</strong>  {{invoice.id_invoice}}</div>
+            <div class="vat"> <strong>VAT:</strong>  {{invoice.VAT | percent}}</div>
+            <div class="description"> <strong>Metodo de pago:</strong>  {{invoice.payment_method}}</div>
+            <div class="brand"> <strong>Fecha:</strong>  {{invoice.date}}</div>
+            <div class="id_vehicle_type"> <strong>Primer Nombre: </strong>  {{invoice.user_name1}}</div>
+            <div class="id_vehicle_type"> <strong>Primer Apellido: </strong>  {{invoice.user_lastname1}}</div>
+            <div class="id_vehicle_type"> <strong>Sede: </strong>  {{invoice.campus}}</div>
+        </div>
+       
+        
+      </mat-card-content>
+      
+    </mat-card>
+  </form>

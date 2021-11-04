@@ -1,0 +1,28 @@
+<app-aston-martin-header></app-aston-martin-header>
+
+<main class="main">
+    <section class="main__title">
+        <img src="../../../../assets/images/aston-martin-logo.png" alt="Aston Martin Logo" />
+        <h2>ALTAS PRESTACIONES</h2>
+    </section>
+
+    <section class="vehicle-list" *ngFor = "let vehicle of vehicles"
+    style="background-color: rgba(255,255,255,0.25); background-image: url({{vehicle.url}});">
+       <div class="opacity-card">
+        <div class="description">{{vehicle.description}}</div>
+
+        <div class="color">Color: {{vehicle.color}}</div>
+        
+        <button class="button" >
+            <a [routerLink]="['/vehicle', vehicle.id_vehicle]" >Me interesa!</a>
+        </button>
+       </div>
+        
+        
+    </section>
+</main>
+
+<app-aston-martin-footer></app-aston-martin-footer>
+
+
+

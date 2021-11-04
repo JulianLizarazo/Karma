@@ -1,0 +1,27 @@
+<app-bugatti-header></app-bugatti-header>
+
+<main class="main">
+    <section class="main__title">
+        <img src="../../../../assets/images/bugatti-logo.png" alt="Bugatti Logo" />
+        <h2>ROADSTER</h2>
+    </section>
+
+    <section class="vehicle-list" *ngFor = "let vehicle of vehicles"
+    style="background-color: rgba(255,255,255,0.25); background-image: url({{vehicle.url}});">
+       <div class="opacity-card">
+        <div class="description">{{vehicle.description}}</div>
+
+        <div class="color">Color: {{vehicle.color}}</div>
+        
+        <button class="button" >
+            <a [routerLink]="['/vehicle', vehicle.id_vehicle]" >Me interesa!</a>
+        </button>
+       </div>
+        
+        
+    </section>
+</main>
+
+<app-bugatti-footer></app-bugatti-footer>
+
+

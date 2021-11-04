@@ -1,0 +1,36 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()" id="myform">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Agregar Nuevo Vehiculo</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Tipo de Vehiculo" formControlName="body_type">
+            <mat-error *ngIf="addressForm.controls['body_type'].hasError('required')">
+              Tipo de Vehiculo es <strong>obligatorio!</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Descripcion" formControlName="description">
+            <mat-error *ngIf="addressForm.controls['description'].hasError('required')">
+              Descripcion es <strong>obligatoria!</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        
+      </div>
+     
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button style="background-color: darkgreen; color: white;" type="submit">Agregar Tipo Vehiculo</button>
+      <input type="reset" value="Limpiar Campos">
+    </mat-card-actions>
+  </mat-card>
+</form>
+

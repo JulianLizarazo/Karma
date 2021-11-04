@@ -1,0 +1,78 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()" id="myform">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>Buscar Factura</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Ingresa el ID de la factura a editar" formControlName="id_invoice">
+              <mat-error *ngIf="addressForm.controls['id_invoice'].hasError('required')">
+                El ID es <strong>obligatorio!</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <mat-card-actions>
+            <button mat-raised-button style="background-color: darkgreen; color: white;" type="submit">Buscar Factura</button>
+            
+        </mat-card-actions>
+
+        <mat-card-header>
+            <mat-card-title>Editar Factura</mat-card-title>
+          </mat-card-header>
+        
+        <mat-card-content>
+            <div class="row">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Metodo de pago" formControlName="payment_method">
+                  <mat-error *ngIf="addressForm.controls['payment_method'].hasError('required')">
+                    El metodo de pago es <strong>obligatorio!</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Fecha" formControlName="date">
+                  <mat-error *ngIf="addressForm.controls['date'].hasError('required')">
+                    La fecha es <strong>obligatoria!</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="ID Sede" formControlName="id_campus">
+                  <mat-error *ngIf="addressForm.controls['id_campus'].hasError('required')">
+                    El ID de la sede es  <strong>obligatorio!</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <textarea matInput placeholder="ID Usuario" formControlName="id_user"></textarea>
+                  <mat-error *ngIf="addressForm.controls['id_user'].hasError('required')">
+                    El ID del usuario es  <strong>obligatorio!</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            
+          </mat-card-content>
+        
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button style="background-color: darkgreen; color: white;" (click)="updateVehicle()">Editar Factura</button>
+       
+      
+     </mat-card-actions>
+      
+    </mat-card>
+  </form>
+
