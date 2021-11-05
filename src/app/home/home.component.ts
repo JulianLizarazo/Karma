@@ -1,11 +1,12 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
-import Swiper from "swiper";
+import Swiper, { Autoplay } from "swiper";
+import { Navigation, Pagination } from 'swiper';
 
 import { Vehicle } from '../core/models/vehicle.model';
 import { VehicleService } from '../core/services/vehicle/vehicle.service';
 
-import { Navigation, Pagination } from 'swiper';
+
 
 
 
@@ -44,26 +45,28 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.mySwiper = new Swiper(".swiper-container", {
-    
+    Swiper.use([Navigation, Autoplay])
+    window.setTimeout(function(){
+      var mySwiper = new Swiper ('.swiper-container', {
         navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
         },
-
+        loop: true,
         autoplay: {
-          delay: 2000,
+          delay:3500,
         }
-      }
-    
-    
-    )
+        
+        
+          
+      });
+  }, 100);
     
     
   }
 
   getVehicles(){
-    Swiper.use([Navigation, Pagination]);
+   
     this.vehicleService.getAllVehicles().subscribe(vehicle => {
       this.vehicles = Object.values(vehicle);
       this.vehiclesSelect.push(this.vehicles[2])

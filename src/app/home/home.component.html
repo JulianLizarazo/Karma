@@ -6,14 +6,17 @@
             <div class="swiper-slide" *ngFor="let vehicle of vehiclesSelect"
             style="background-image: url({{vehicle.url}}); ">
                 
-                <div class="card">
-                    <div>{{vehicle.description}}</div>
-                    <button class="button" >
-                        <a [routerLink]="['/vehicle', vehicle.id_vehicle]" >Me interesa!</a>
-                    </button>
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                    <div class="card">
+                        <div>{{vehicle.description}}</div>
+                        <button class="button" >
+                            <a [routerLink]="['/vehicle', vehicle.id_vehicle]" >Me interesa!</a>
+                        </button>
+                        
+                    </div>
+                    
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                
             </div>
             
         </div>
