@@ -6,6 +6,7 @@ import { VehicleService } from "../../../core/services/vehicle/vehicle.service";
 
 import { Vehicle } from 'src/app/core/models/vehicle.model';
 import { ActivatedRoute, Params } from '@angular/router';
+import { VehicleTypeService } from 'src/app/core/services/vehicle-type/vehicle-type.service';
 
 @Component({
   selector: 'app-vehicle-edit-single',
@@ -38,22 +39,25 @@ export class VehicleEditSingleComponent implements OnInit {
 
   hasUnitNumber = false;
 
-  states = [
-    {name: "Roadster", abbreviation: 1},
-    {name: 'Muscle Car', abbreviation: 2},
-    {name: 'Altas Prestaciones', abbreviation: 5},
-    {name: 'Superdeportivo', abbreviation: 3},
-    {name: 'Gran Turismo', abbreviation: 4},
-    
-  ];
+  states: any = [];
 
   constructor(private fb: FormBuilder, 
     private vehicleService: VehicleService,
     private activeRoute: ActivatedRoute,
+    private vehicleTypeService: VehicleTypeService,
   ) {}
   
   ngOnInit(): void {
-    
+    this.vehicleTypeService.getAllVehicleTypes().subscribe(prueba => {
+      const array = Object.values(prueba);
+
+      for(let i = 0; i<array.length; i++){
+        this.states.push({
+          name: array[i].body_type,
+          abbreviation: array[i].id_vehicle_type,
+        })
+      }
+    })
       
   }
 

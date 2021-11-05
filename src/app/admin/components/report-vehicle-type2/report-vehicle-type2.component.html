@@ -7,9 +7,13 @@
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="Ingresa el ID del vehiculo" formControlName="vehicle_model">
-              <mat-error *ngIf="addressForm.controls['vehicle_model'].hasError('required')">
-                El ID del tipo vehiculo es <strong>obligatorio!</strong>
+              <mat-select placeholder="Tipo de Vehiculo" formControlName="states">
+                <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                  {{ state.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="addressForm.controls['states'].hasError('required')">
+                El tipo de vehiculo es <strong>obligatorio!</strong>
               </mat-error>
             </mat-form-field>
           </div>
@@ -17,7 +21,7 @@
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="Ingresa la fecha inicial del reporte" formControlName="first_date">
+              <input matInput placeholder="Ingresa la fecha inicial del reporte" formControlName="first_date" type="date">
               <mat-error *ngIf="addressForm.controls['first_date'].hasError('required')">
                 La fecha inicial es <strong>obligatoria!</strong>
               </mat-error>
@@ -27,7 +31,7 @@
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="Ingresa la fecha final del reporte" formControlName="last_date">
+              <input matInput placeholder="Ingresa la fecha final del reporte" formControlName="last_date" type="date">
               <mat-error *ngIf="addressForm.controls['last_date'].hasError('required')">
                 La fecha final es <strong>obligatoria!</strong>
               </mat-error>

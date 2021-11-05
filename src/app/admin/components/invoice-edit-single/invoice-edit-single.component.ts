@@ -5,6 +5,8 @@ import { InvoiceService } from "../../../core/services/invoice/invoice.service";
 
 import { Invoice } from 'src/app/core/models/invoice.model';
 import { ActivatedRoute, Params } from '@angular/router';
+import { CampusService } from 'src/app/core/services/campus/campus.service';
+import { UserService } from 'src/app/core/services/user/user.service';
 
 @Component({
   selector: 'app-invoice-edit-single',
@@ -30,23 +32,48 @@ export class InvoiceEditSingleComponent implements OnInit {
     id_invoice: [null,Validators.required],
     payment_method: [null,Validators.required],
     date: [null, Validators.required],
-    id_campus: [null, Validators.required],
-    id_user: [null, Validators.required],
+    states: [null, Validators.required],
+    userStates: [null, Validators.required],
     
    
   });
 
   hasUnitNumber = false;
 
-  
+  states: any = [];
+  userStates: any = [];
 
   constructor(private fb: FormBuilder, 
     private invoiceService: InvoiceService,
     private activeRoute: ActivatedRoute,
+    private campusService: CampusService,
+    private userService: UserService,
   ) {}
   
   ngOnInit(): void {
-    
+    this.campusService.getAllCampus().subscribe(prueba => {
+      const array = Object.values(prueba);
+      
+      for(let i = 0; i<array.length; i++){
+        this.states.push({
+          name: array[i].name_campus,
+          abbreviation: array[i].id_campus,
+        })
+      }
+      
+    })
+
+    this.userService.getAllUsers().subscribe(prueba => {
+      const array = Object.values(prueba);
+     
+      for(let i = 0; i<array.length; i++){
+        this.userStates.push({
+          name: `${array[i].id_user}. ${array[i].user_name1} ${array[i].user_lastname1}`,
+          abbreviation: array[i].id_user,
+        })
+      }
+      
+    })
       
   }
 
@@ -76,12 +103,13 @@ export class InvoiceEditSingleComponent implements OnInit {
             {
               payment_method: array[0].payment_method,
               date: array[0].date,
-              id_campus: array[0].id_campus,
-              id_user: array[0].id_user,
+              states: array[0].id_campus,
+              userStates: array[0].id_user,
               
             }
           );
         });
+       
       })
 
       console.log(this.invoice)
@@ -100,8 +128,8 @@ export class InvoiceEditSingleComponent implements OnInit {
       VAT: 0.19,
       payment_method: this.addressForm.controls.payment_method.value,
       date: this.addressForm.controls.date.value,
-      id_campus: this.addressForm.controls.id_campus.value,
-      id_user: this.addressForm.controls.id_user.value,
+      id_campus: this.addressForm.controls.states.value,
+      id_user: this.addressForm.controls.userStates.value,
       
     }
 

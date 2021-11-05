@@ -38,17 +38,27 @@ export class HomeComponent implements OnInit, AfterViewInit {
    }
 
   ngOnInit(): void {
-    this.getVehicles();
+   this.getVehicles();
+    
    
   }
 
   ngAfterViewInit() {
     this.mySwiper = new Swiper(".swiper-container", {
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
-    }
-    });
+    
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+
+        autoplay: {
+          delay: 2000,
+        }
+      }
+    
+    
+    )
+    
     
   }
 

@@ -19,7 +19,8 @@ export class VehicleShowComponent implements OnInit {
     description: "",
     color: "",
     url: "",
-    id_vehicle_type: 0
+    id_vehicle_type: 0,
+    body_type: "",
   };
 
   addressForm = this.fb.group({
@@ -62,7 +63,8 @@ export class VehicleShowComponent implements OnInit {
         brand: array[0].brand,
         color: array[0].color,
         url: array[0].url,
-        id_vehicle_type: array[0].id_vehicle_type
+        id_vehicle_type: array[0].id_vehicle_type,
+        body_type: array[0].body_type,
 
       };
 

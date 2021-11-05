@@ -17,27 +17,37 @@
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="Fecha" formControlName="date">
+              <input matInput placeholder="Fecha" formControlName="date" type="date">
               <mat-error *ngIf="addressForm.controls['date'].hasError('required')">
                 La fecha es <strong>obligatoria!</strong>
               </mat-error>
             </mat-form-field>
           </div>
           <div class="col">
-            <mat-form-field class="full-width">
-              <input matInput placeholder="ID Sede" formControlName="id_campus">
-              <mat-error *ngIf="addressForm.controls['id_campus'].hasError('required')">
-                El ID de la sede es <strong>obligatorio!</strong>
-              </mat-error>
-            </mat-form-field>
+            <div class="col">
+              <mat-form-field class="full-width">
+                <mat-select placeholder="Sede" formControlName="states">
+                  <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                    {{ state.name }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="addressForm.controls['states'].hasError('required')">
+                  La Sede es <strong>obligatoria!</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
-              <textarea matInput placeholder="Id Usuario" formControlName="id_user"></textarea>
-              <mat-error *ngIf="addressForm.controls['id_user'].hasError('required')">
-                El ID del usuario es  <strong>obligatorio!</strong>
+              <mat-select placeholder="Usuario" formControlName="userStates">
+                <mat-option *ngFor="let state of userStates" [value]="state.abbreviation">
+                  {{ state.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="addressForm.controls['userStates'].hasError('required')">
+                El usuario es es <strong>obligatorio!</strong>
               </mat-error>
             </mat-form-field>
           </div>

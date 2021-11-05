@@ -7,9 +7,13 @@
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="ID Factura" formControlName="id_invoice">
-              <mat-error *ngIf="addressForm.controls['id_invoice'].hasError('required')">
-                El ID de la Factura es <strong>obligatorio!</strong>
+              <mat-select placeholder="Factura" formControlName="states">
+                <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                  {{ state.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="addressForm.controls['states'].hasError('required')">
+                La Factura es <strong>obligatoria!</strong>
               </mat-error>
             </mat-form-field>
           </div>
@@ -25,9 +29,13 @@
           </div>
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="ID detalle del vehiculo" formControlName="id_vehicle_detail">
-              <mat-error *ngIf="addressForm.controls['id_vehicle_detail'].hasError('required')">
-                El ID del detalle del vehiculo es <strong>obligatorio!</strong>
+              <mat-select placeholder="Detalle del Vehiculo" formControlName="vehicleStates">
+                <mat-option *ngFor="let state of vehicleStates" [value]="state.abbreviation">
+                  {{ state.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="addressForm.controls['vehicleStates'].hasError('required')">
+                El Detalle del Vehiculo es <strong>obligatorio!</strong>
               </mat-error>
             </mat-form-field>
           </div>

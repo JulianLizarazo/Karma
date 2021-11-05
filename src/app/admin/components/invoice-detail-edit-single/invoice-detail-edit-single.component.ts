@@ -5,6 +5,8 @@ import { InvoiceDetailService } from "../../../core/services/invoice-detail/invo
 
 import { InvoiceDetail } from 'src/app/core/models/invoiceDetail.model';
 import { ActivatedRoute, Params } from '@angular/router';
+import { InvoiceService } from 'src/app/core/services/invoice/invoice.service';
+import { VehicleDetailService } from 'src/app/core/services/vehicle-detail/vehicle-detail.service';
 
 @Component({
   selector: 'app-invoice-detail-edit-single',
@@ -28,23 +30,47 @@ export class InvoiceDetailEditSingleComponent implements OnInit {
 
   addressForm = this.fb.group({
     id_invoice_det: [null,Validators.required],
-    id_invoice: [null, Validators.required],
+    states: [null, Validators.required],
     price: [null, Validators.required],
-    id_vehicle_detail: [null, Validators.required],
+    vehicleStates: [null, Validators.required],
     
    
   });
 
   hasUnitNumber = false;
 
+  states: any = [];
+  vehicleStates: any = [];
 
   constructor(private fb: FormBuilder, 
     private invoiceDetailService: InvoiceDetailService,
     private activeRoute: ActivatedRoute,
+    private invoiceService: InvoiceService,
+    private vehicleDetailService: VehicleDetailService,
   ) {}
   
   ngOnInit(): void {
-    
+    this.invoiceService.getAllInvoices().subscribe(prueba => {
+      const array = Object.values(prueba);
+
+      for(let i = 0; i<array.length; i++){
+        this.states.push({
+          name: `${array[i].id_invoice}. MP:${array[i].payment_method} Fecha: ${array[i].date} Nombre:${array[i].user_name1} ${array[i].user_lastname1}`,
+          abbreviation: array[i].id_invoice,
+        })
+      }
+    })
+
+    this.vehicleDetailService.getAllVehicleDetails().subscribe(prueba => {
+      const array = Object.values(prueba);
+
+      for(let i = 0; i<array.length; i++){
+        this.vehicleStates.push({
+          name: `${array[i].id_vehicle_detail}. Vehiculo: ${array[i].id_vehicle} Placa: ${array[i].car_plate}`,
+          abbreviation: array[i].id_vehicle_detail,
+        })
+      }
+    })
       
   }
 
@@ -72,9 +98,9 @@ export class InvoiceDetailEditSingleComponent implements OnInit {
           this.addressForm.patchValue(
             {
               amount: array[0].amount,
-              id_invoice: array[0].id_invoice,
+              states: array[0].id_invoice,
               price: array[0].price,
-              id_vehicle_detail: array[0].id_vehicle_detail,
+              vehicleStates: array[0].id_vehicle_detail,
               
             }
           );
@@ -95,9 +121,9 @@ export class InvoiceDetailEditSingleComponent implements OnInit {
     const newInvoiceDetail: InvoiceDetail = {
       id_invoice_det: this.newId,
       amount: 1,
-      id_invoice: this.addressForm.controls.id_invoice.value,
+      id_invoice: this.addressForm.controls.states.value,
       price: this.addressForm.controls.price.value,
-      id_vehicle_detail: this.addressForm.controls.id_vehicle_detail.value,
+      id_vehicle_detail: this.addressForm.controls.vehicleStates.value,
       
     }
 

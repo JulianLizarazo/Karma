@@ -4,6 +4,7 @@ import { ReportVehicleType2Service } from "../../../core/services/report-vehicle
 
 
 import { VehicleType2} from 'src/app/core/models/vehicleType2.model';
+import { VehicleTypeService } from 'src/app/core/services/vehicle-type/vehicle-type.service';
 
 @Component({
   selector: 'app-report-vehicle-type2',
@@ -24,28 +25,39 @@ export class ReportVehicleType2Component implements OnInit {
   };
 
   addressForm = this.fb.group({
-    vehicle_model: [null,Validators.required],
+    states: [null,Validators.required],
     first_date: [null, Validators.required],
     last_date: [null, Validators.required],
    
   });
 
   hasUnitNumber = false;
-
+  states: any = [];
   
 
   constructor(private fb: FormBuilder, 
     private reportVehicleType2Service: ReportVehicleType2Service,
+    private vehicleTypeService: VehicleTypeService
   ) {}
   
   ngOnInit(): void {
-    
+    this.vehicleTypeService.getAllVehicleTypes().subscribe(prueba => {
+      const array = Object.values(prueba);
+
+      for(let i = 0; i<array.length; i++){
+        this.states.push({
+          name: array[i].body_type,
+          abbreviation: array[i].id_vehicle_type,
+        })
+      }
+    })
+
       
   }
 
   onSubmit(): void {
     
-    this.reportVehicleType2Service.getAllReportTypeVehicles(this.addressForm.controls.vehicle_model.value,
+    this.reportVehicleType2Service.getAllReportTypeVehicles(this.addressForm.controls.states.value,
       this.addressForm.controls.first_date.value, this.addressForm.controls.last_date.value,)
       .subscribe(report =>{
       const array = Object.values(report);
@@ -78,7 +90,7 @@ export class ReportVehicleType2Component implements OnInit {
 
   getReports(){
     this.reportVehicleType2Service.getAllReportTypeVehicles(
-      this.addressForm.controls.vehicle_model.value,
+      this.addressForm.controls.states.value,
       this.addressForm.controls.first_date.value, 
       this.addressForm.controls.last_date.value,
     ).subscribe(reports => {

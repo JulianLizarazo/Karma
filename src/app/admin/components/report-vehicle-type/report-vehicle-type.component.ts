@@ -5,6 +5,7 @@ import { ReportTypeVehicleService } from "../../../core/services/report-type-veh
 
 
 import { ReportTypeVehicle} from 'src/app/core/models/reportTypeVehicle.model';
+import { VehicleService } from 'src/app/core/services/vehicle/vehicle.service';
 
 @Component({
   selector: 'app-report-vehicle-type',
@@ -26,7 +27,7 @@ export class ReportVehicleTypeComponent implements OnInit {
   };
 
   addressForm = this.fb.group({
-    vehicle_model: [null,Validators.required],
+    states: [null,Validators.required],
     first_date: [null, Validators.required],
     last_date: [null, Validators.required],
    
@@ -34,20 +35,30 @@ export class ReportVehicleTypeComponent implements OnInit {
 
   hasUnitNumber = false;
 
-  
+  states: any = [];
 
   constructor(private fb: FormBuilder, 
     private reportVehicleTypeService: ReportTypeVehicleService,
+    private vehicleService: VehicleService,
   ) {}
   
   ngOnInit(): void {
-    
+    this.vehicleService.getAllVehicles().subscribe(prueba => {
+      const array = Object.values(prueba);
+
+      for(let i = 0; i<array.length; i++){
+        this.states.push({
+          name: `${array[i].id_vehicle}. Marca: ${array[i].brand} Tipo: ${array[i].body_type} Color: ${array[i].color}`,
+          abbreviation: array[i].id_vehicle_type,
+        })
+      }
+    })
       
   }
 
   onSubmit(): void {
     
-    this.reportVehicleTypeService.getAllReportTypeVehicles(this.addressForm.controls.vehicle_model.value,
+    this.reportVehicleTypeService.getAllReportTypeVehicles(this.addressForm.controls.states.value,
       this.addressForm.controls.first_date.value, this.addressForm.controls.last_date.value,)
       .subscribe(report =>{
       const array = Object.values(report);
@@ -82,7 +93,7 @@ export class ReportVehicleTypeComponent implements OnInit {
 
   getReports(){
     this.reportVehicleTypeService.getAllReportTypeVehicles(
-      this.addressForm.controls.vehicle_model.value,
+      this.addressForm.controls.states.value,
       this.addressForm.controls.first_date.value, 
       this.addressForm.controls.last_date.value,
     ).subscribe(reports => {

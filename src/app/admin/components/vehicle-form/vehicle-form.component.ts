@@ -25,7 +25,7 @@ export class VehicleFormComponent {
   });
 
   hasUnitNumber = false;
-
+/*
   states = [
     {name: "Roadster", abbreviation: 1},
     {name: 'Muscle Car', abbreviation: 2},
@@ -34,11 +34,24 @@ export class VehicleFormComponent {
     {name: 'Gran Turismo', abbreviation: 4},
     
   ];
+*/
 
+  states: any = [];
   constructor(private fb: FormBuilder, private vehicleService: VehicleService,
   private vehicleTypeService: VehicleTypeService) {}
   
   ngOnInit(): void {
+    this.vehicleTypeService.getAllVehicleTypes().subscribe(prueba => {
+      const array = Object.values(prueba);
+
+      for(let i = 0; i<array.length; i++){
+        this.states.push({
+          name: array[i].body_type,
+          abbreviation: array[i].id_vehicle_type,
+        })
+      }
+    })
+
     
       
   }

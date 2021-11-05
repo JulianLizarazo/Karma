@@ -33,14 +33,7 @@ export class VehicleEditComponent implements OnInit {
 
   hasUnitNumber = false;
 
-  states = [
-    {name: "Roadster", abbreviation: 1},
-    {name: 'Muscle Car', abbreviation: 2},
-    {name: 'Altas Prestaciones', abbreviation: 5},
-    {name: 'Superdeportivo', abbreviation: 3},
-    {name: 'Gran Turismo', abbreviation: 4},
-    
-  ];
+  states: any = [];
 
   constructor(private fb: FormBuilder, private vehicleService: VehicleService,
   private vehicleTypeService: VehicleTypeService,
@@ -64,6 +57,17 @@ export class VehicleEditComponent implements OnInit {
           }
         );
       });
+    })
+
+    this.vehicleTypeService.getAllVehicleTypes().subscribe(prueba => {
+      const array = Object.values(prueba);
+
+      for(let i = 0; i<array.length; i++){
+        this.states.push({
+          name: array[i].body_type,
+          abbreviation: array[i].id_vehicle_type,
+        })
+      }
     })
       
   }
