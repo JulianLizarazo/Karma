@@ -1,5 +1,5 @@
 var connection = require('../conexion')
-//creamos un objeto para ir almacenandotodo lo que necesitemos
+//creamos un objeto para ir almacenandotodo lo que necesitemosafsjkafsjkasfjk
 var VehicleModel = {};
 
 //---------------------------------------------------------------
@@ -7,13 +7,15 @@ var VehicleModel = {};
 VehicleModel.getVehicles = function (callback){
     
     if (connection){
-        var sql = "SELECT id_vehicle, "
-                        +" color, "
-                        +" description, "
-                        +" brand, "
-                        +" url, "
-                        +" id_vehicle_type "
-                        +" FROM vehicle "
+        var sql = "SELECT v.id_vehicle, "
+                        +" v.color, "
+                        +" v.description, "
+                        +" v.brand, "
+                        +" v.url, "
+                        +" v.id_vehicle_type, "
+                        +" vd.body_type "
+                        +" FROM vehicle v "
+                        +" inner join vehicle_type vd on v.id_vehicle_type = vd.id_vehicle_type"
                         +" ORDER BY id_vehicle;";        
         connection.query(sql, function (error, rows){
             if (error){
@@ -32,13 +34,15 @@ VehicleModel.getVehicles = function (callback){
 VehicleModel.getVehicle = function (id, callback){
     
     if (connection){
-        var sql = "SELECT id_vehicle, "
-                        +" color, "
-                        +" description, "
-                        +" brand, "
-                        +" url, "
-                        +" id_vehicle_type "
-                        +" FROM vehicle "
+        var sql = "SELECT v.id_vehicle, "
+                        +" v.color, "
+                        +" v.description, "
+                        +" v.brand, "
+                        +" v.url, "
+                        +" v.id_vehicle_type, "
+                        +" vd.body_type "
+                        +" FROM vehicle v"
+                        +" inner join vehicle_type vd on v.id_vehicle_type = vd.id_vehicle_type"
                         +" where id_vehicle ="
                     + connection.escape(id) + ";";
 
@@ -86,6 +90,7 @@ VehicleModel.updateVehicle = function (VehicleData, callback){
                     + ", brand = " + connection.escape(VehicleData.brand)
                     + ", url = " + connection.escape(VehicleData.url)
                     + ", id_vehicle_type = " + connection.escape(VehicleData.id_vehicle_type)
+
                     + " WHERE  id_vehicle  =  " + connection.escape(VehicleData.id_vehicle)+";";
         
         ///console.log(" 37  tal  " + sql);

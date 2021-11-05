@@ -5,13 +5,11 @@ var connection;
 function connectDatabase(){
     if(!connection){
         connection = mysql.createConnection(settings)
-        connection.connect(function(err, result){
+        connection.connect(function(err){
             if(!err){
                 console.log("Conectada")
             }else{
-                throw err;
-                console.log(result.rows[0])
-                
+                console.log("Error Conexion")
             }
         });
         return connection;

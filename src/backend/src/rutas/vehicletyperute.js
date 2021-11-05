@@ -1,5 +1,5 @@
 //obtenemos el modelo InvoiceDetailModel con toda la funcionalidad
-var VehicleTypeModel = require('../modelos/vehicletypemodel.js');
+var VehicleTypeModel = require('../modelos/VehicleTypeModel.js');
 var express = require('express');
 var router = express.Router();
 
@@ -70,7 +70,7 @@ module.exports = function (){
 
     //---------------------------------------------------------------
     //Muestra y captura los datos para el método CRUL update (actualizar), usando el verbo put
-    router.put("/", function (req, res){
+    router.put("/:id_vehicle_type", function (req, res){
         //almacenamos los datos de la petición en un objeto
         //console.log(" 38");
         var VehicleTypeData =

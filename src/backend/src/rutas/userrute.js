@@ -74,7 +74,7 @@ module.exports = function (){
 
     //---------------------------------------------------------------
     //Muestra y captura los datos para el método CRUL update (actualizar), usando el verbo put
-    router.put("/", function (req, res){
+    router.put("/:id_user", function (req, res){
         //almacenamos los datos de la petición en un objeto
         //console.log(" 38");
         var UserData =
