@@ -8,6 +8,7 @@ VehicleModel.getVehicles = function (callback){
     
     if (connection){
         var sql = "SELECT v.id_vehicle, "
+                        +" v.name, "
                         +" v.color, "
                         +" v.description, "
                         +" v.brand, "
@@ -35,6 +36,7 @@ VehicleModel.getVehicle = function (id, callback){
     
     if (connection){
         var sql = "SELECT v.id_vehicle, "
+                        +" v.name, "
                         +" v.color, "
                         +" v.description, "
                         +" v.brand, "
@@ -86,6 +88,7 @@ VehicleModel.updateVehicle = function (VehicleData, callback){
 
     if (connection){
         var sql = "UPDATE vehicle SET color = " + connection.escape(VehicleData.color)
+                    + ", name = " + connection.escape(VehicleData.name)
                     + ", description = " + connection.escape(VehicleData.description)
                     + ", brand = " + connection.escape(VehicleData.brand)
                     + ", url = " + connection.escape(VehicleData.url)

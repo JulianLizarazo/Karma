@@ -1,5 +1,6 @@
 export interface Vehicle{
     id_vehicle?: number | string,
+    name: string,
     color: string,
     description: string,
     brand: string,

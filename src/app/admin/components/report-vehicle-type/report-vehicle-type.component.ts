@@ -48,7 +48,7 @@ export class ReportVehicleTypeComponent implements OnInit {
 
       for(let i = 0; i<array.length; i++){
         this.states.push({
-          name: `${array[i].id_vehicle}. Marca: ${array[i].brand} Tipo: ${array[i].body_type} Color: ${array[i].color}`,
+          name: `${array[i].id_vehicle}. Nombre: ${array[i].name} Marca: ${array[i].brand} Tipo: ${array[i].body_type} Color: ${array[i].color}`,
           abbreviation: array[i].id_vehicle_type,
         })
       }

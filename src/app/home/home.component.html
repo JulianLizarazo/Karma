@@ -5,6 +5,11 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide" *ngFor="let vehicle of vehiclesSelect"
             style="background-image: url({{vehicle.url}}); ">
+                    
+                    <div class="div-title">
+                        <h2 class="title">{{vehicle.name}}</h2>
+                    </div>
+                    
                 
                     <div class="card">
                         <div>{{vehicle.description}}</div>

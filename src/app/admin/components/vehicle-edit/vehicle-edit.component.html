@@ -17,6 +17,14 @@
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
+              <input matInput placeholder="Nombre" formControlName="name">
+              <mat-error *ngIf="addressForm.controls['name'].hasError('required')">
+                Nombre es <strong>obligatorio</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
               <input matInput placeholder="Color" formControlName="color">
               <mat-error *ngIf="addressForm.controls['color'].hasError('required')">
                 Color es <strong>obligatorio</strong>

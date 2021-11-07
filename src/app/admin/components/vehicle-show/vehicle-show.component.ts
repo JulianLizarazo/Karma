@@ -15,6 +15,7 @@ export class VehicleShowComponent implements OnInit {
 
   vehicle: Vehicle = {
     id_vehicle: 0,
+    name:"",
     brand: "",
     description: "",
     color: "",
@@ -25,6 +26,7 @@ export class VehicleShowComponent implements OnInit {
 
   addressForm = this.fb.group({
     id: [null,Validators.required],
+    name: [null,Validators.required],
     color: [null, Validators.required],
     brand: [null, Validators.required],
     image: [null, Validators.required],
@@ -59,6 +61,7 @@ export class VehicleShowComponent implements OnInit {
       
       this.vehicle = {
         id_vehicle: array[0].id_vehicle,
+        name: array[0].name,
         description: array[0].description,
         brand: array[0].brand,
         color: array[0].color,

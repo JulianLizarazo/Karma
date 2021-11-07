@@ -17,6 +17,7 @@ export class VehicleFormComponent {
 
   addressForm = this.fb.group({
     description: [null,Validators.required],
+    name: [null, Validators.required],
     color: [null, Validators.required],
     brand: [null, Validators.required],
     image: [null, Validators.required],
@@ -59,6 +60,7 @@ export class VehicleFormComponent {
   onSubmit(): void {
 
     const newVehicle: Vehicle = {
+      name: this.addressForm.controls.name.value,
       color: this.addressForm.controls.color.value,
       description: this.addressForm.controls.description.value,
       brand: this.addressForm.controls.brand.value,

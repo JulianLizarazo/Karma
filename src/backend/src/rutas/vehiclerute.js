@@ -52,6 +52,7 @@ module.exports = function (){
         var VehicleData =
             {
                 id_vehicle: null,
+                name: req.body.name,
                 color: req.body.color,
                 description: req.body.description,
                 brand: req.body.brand,
@@ -79,6 +80,7 @@ module.exports = function (){
         var VehicleData =
             {
                 id_vehicle: req.body.id_vehicle,
+                name: req.body.name,
                 color: req.body.color,
                 description: req.body.description,
                 brand: req.body.brand,

@@ -24,6 +24,7 @@ export class VehicleEditComponent implements OnInit {
  
   addressForm = this.fb.group({
     description: [null,Validators.required],
+    name: [null, Validators.required],
     color: [null, Validators.required],
     brand: [null, Validators.required],
     image: [null, Validators.required],
@@ -50,6 +51,7 @@ export class VehicleEditComponent implements OnInit {
         this.addressForm.patchValue(
           {
             description: array[0].description,
+            name: array[0].name,
             color: array[0].color,
             brand: array[0].brand,
             image: array[0].url,
@@ -76,6 +78,7 @@ export class VehicleEditComponent implements OnInit {
 
     const newVehicle: Vehicle = {
       id_vehicle: this.newId,
+      name: this.addressForm.controls.name.value,
       color: this.addressForm.controls.color.value,
       description: this.addressForm.controls.description.value,
       brand: this.addressForm.controls.brand.value,
