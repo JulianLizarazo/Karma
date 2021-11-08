@@ -27,7 +27,7 @@
     flex-direction: column;
 
     &--card{
-      background-color: black;
+      
       width: 250px;
       height: 150px;
       margin-block-end: 10px;
@@ -47,6 +47,33 @@
     }
   }
 }
+
+.roadster{
+  background-image: url("https://phantom-marca.unidadeditorial.es/59626522f7091bdf432951ab7b51c830/resize/1320/f/jpg/assets/multimedia/imagenes/2021/04/19/16188291428147.jpg");
+  
+}
+
+.muscle-car{
+ background-image: url("http://www.motor.com.co/files/article_multimedia/uploads/2018/06/28/5b35389f95763.jpeg"); 
+}
+
+.altas-prestaciones{
+  background-image: url("https://i.blogs.es/7d7fa7/13112019_mclaren-elva_image-02/1366_2000.jpg");
+}
+
+.superdeportivo{
+  background-image: url("https://mclaren.scene7.com/is/image/mclaren/765lt-3-1200x1200-1:crop-4x3?wid=1920&hei=1440");
+}
+
+.gran-turismo{
+  background-image: url("https://cdn.motor1.com/images/mgl/x0lwP/s1/mclaren-ultimate-vision-gt-scale-model.jpg");
+}
+
+.roadster, .muscle-car, .altas-prestaciones, .superdeportivo, .gran-turismo{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 @media screen and (min-width: 900px){
   .main-mclaren{
     
@@ -54,7 +81,7 @@
       
 
       &--card{
-        
+        font-size: 30px;
          & p{
             opacity: 0%;
 
@@ -89,7 +116,7 @@
     }
 
     to {
-      opacity: 60%;
+      opacity: 40%;
       
     }
   }

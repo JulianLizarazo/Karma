@@ -32,14 +32,16 @@ export class OrderComponent implements OnInit {
     user_phone: [null, Validators.required],
    
   });
-
+  
+  
   addressForm2 = this.fb2.group({
     payment_method: [null,Validators.required],
     date: [null, Validators.required],
-    id_campus: [null, Validators.required],
+    states: [null, Validators.required],
    
    
   });
+
 
   invoiceDetail: InvoiceDetail = {
     id_invoice_det: 0,
@@ -109,8 +111,8 @@ export class OrderComponent implements OnInit {
     id_vehicle: 0,
   };
 
-
-
+  hasUnitNumber = false;
+  states: any = [];
   constructor(
     private vehicleService: VehicleService,
     private route: ActivatedRoute,
@@ -124,8 +126,18 @@ export class OrderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
    
-   
+    this.campusService.getAllCampus().subscribe(prueba => {
+      const array = Object.values(prueba);
+
+      for(let i = 0; i<array.length; i++){
+        this.states.push({
+          name: array[i].name_campus,
+          abbreviation: array[i].id_campus,
+        })
+      }
+    });
     
 
     this.route.params.subscribe((params: Params) => {
@@ -135,9 +147,14 @@ export class OrderComponent implements OnInit {
          const array = Object.values(prueba)
          this.vehicle = array[0];
          
+         
        });
+
+       
       
     });
+
+    
     
   }
 
@@ -165,6 +182,9 @@ export class OrderComponent implements OnInit {
   }
 
   onSubmitInvoice(): void {
+    const date = new Date;
+   
+    const dateConvert = date.toISOString().split('T')[0];
     let prueba: User[] = []; 
     this.userService.getAllUsers().subscribe(users => {
       prueba = Object.values(users);
@@ -176,8 +196,8 @@ export class OrderComponent implements OnInit {
               
               payment_method: this.addressForm2.controls.payment_method.value,
               VAT: 0.19,
-              date: this.addressForm2.controls.date.value,
-              id_campus: this.addressForm2.controls.id_campus.value,
+              date: dateConvert,
+              id_campus: this.addressForm2.controls.states.value,
               id_user: prueba[i].id_user,
             }
             
@@ -218,6 +238,9 @@ export class OrderComponent implements OnInit {
             this.newInvoiceDetail.amount = 1;
             this.newInvoiceDetail.price = 123456789;
             this.newInvoiceDetail.id_vehicle_detail = 6;
+
+            console.log("Detalle de factura")
+            console.log(this.newInvoiceDetail);
             
             this.invoiceDetailService.createInvoiceDetail(this.newInvoiceDetail).subscribe(prueba => {
               console.log(prueba);

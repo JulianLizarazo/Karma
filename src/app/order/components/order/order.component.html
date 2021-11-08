@@ -117,17 +117,13 @@
                 <div class="row">
                   <div class="col">
                     <mat-form-field class="full-width">
-                      <input matInput placeholder="Fecha" formControlName="date">
-                      <mat-error *ngIf="addressForm2.controls['date'].hasError('required')">
-                        La fecha es <strong>obligatoria!</strong>
-                      </mat-error>
-                    </mat-form-field>
-                  </div>
-                  <div class="col">
-                    <mat-form-field class="full-width">
-                      <input matInput placeholder="ID Sede" formControlName="id_campus">
-                      <mat-error *ngIf="addressForm2.controls['id_campus'].hasError('required')">
-                        El ID de la sede es <strong>obligatorio!</strong>
+                      <mat-select placeholder="Sede a recoger" formControlName="states">
+                        <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                          {{ state.name }}
+                        </mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="addressForm2.controls['states'].hasError('required')">
+                        La Sede es <strong>obligatoria!</strong>
                       </mat-error>
                     </mat-form-field>
                   </div>
