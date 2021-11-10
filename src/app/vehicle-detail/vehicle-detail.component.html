@@ -2,16 +2,19 @@
 
 <main>
     <div class="vehicle-detail">
-        <div class="brand">{{vehicle.name}}</div>
         <img [src]="vehicle.url" alt="">
-        <div class="description">{{vehicle.description}}</div>
-        <div class="brand">Marca: {{vehicle.brand}}</div>
-        <div class="color">Color: {{vehicle.color}}</div>
-        <div class="vehicle_type">Tipo de Vehiculo: {{vehicle.body_type}}</div>
+        <div class="vehicle-detail__info">
+            <div class="brand">{{vehicle.name}}</div>
+            <div class="description">{{vehicle.description}}</div>
+            <div class="brand">Marca: {{vehicle.brand}}</div>
+            <div class="color">Color: {{vehicle.color}}</div>
+            <div class="vehicle_type">Tipo de Vehiculo: {{vehicle.body_type}}</div>
 
-        <button class="button">
-            <a [routerLink]="['/order', vehicle.id_vehicle]">Comprar</a>
-        </button>
+            <button class="button">
+                <a [routerLink]="['/order', vehicle.id_vehicle]">Comprar</a>
+            </button>
+        </div>
+        
         
     </div>
 </main>
