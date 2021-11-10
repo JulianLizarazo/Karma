@@ -37,10 +37,12 @@
         height: 250px;
         text-align: center;
         font-size: 18px;
-        & div{
+        &__description{
+            display: flex;
             width: 70%;
             margin: 0 auto;
-            margin-block-start: 30px;
+            align-items: center;
+            line-height: 27px;
         }
 
         & button{

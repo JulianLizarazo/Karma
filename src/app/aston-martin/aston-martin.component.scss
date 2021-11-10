@@ -28,7 +28,7 @@
     flex-direction: column;
 
     &--card{
-      background-color: black;
+     
       width: 250px;
       height: 150px;
       margin-block-end: 10px;
@@ -49,6 +49,33 @@
   }
 }
 
+.roadster{
+  background-image: url("https://cdn.autobild.es/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2016/03/517445-aston-martin-db11-2016.jpg?itok=Tf_uVE6K");
+  
+}
+
+.muscle-car{
+ background-image: url("https://cdn.motor1.com/images/mgl/op290/s1/first-aston-martin-db5-goldfinger-continuation-car.jpg"); 
+}
+
+.altas-prestaciones{
+  background-image: url("https://www.autobild.es/sites/autobild.es/public/dc/fotos/Aston_Martin-DB11_2017_C01.jpg");
+}
+
+.superdeportivo{
+  background-image: url("https://i.ytimg.com/vi/RNXEnyj7Ywk/maxresdefault.jpg");
+}
+
+.gran-turismo{
+  background-image: url("https://cdn.motor1.com/images/mgl/1X4x9/s1/2019-aston-martin-dbs-superleggera.jpg");
+}
+
+.roadster, .muscle-car, .altas-prestaciones, .superdeportivo, .gran-turismo{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 
 @media screen and (min-width: 900px){
     .main-aston-martin{
@@ -57,7 +84,7 @@
         
   
         &--card{
-          
+          font-size: 30px;
            & p{
               opacity: 0%;
   
@@ -92,7 +119,7 @@
       }
   
       to {
-        opacity: 60%;
+        opacity: 40%;
         
       }
     }
