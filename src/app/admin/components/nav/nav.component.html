@@ -57,7 +57,11 @@
       
     </mat-toolbar>
     
-    <router-outlet></router-outlet>
+    <router-outlet>
+      <div *ngIf="router.url === '/admin'">
+        <img src="https://horapiko.com/wp-content/uploads/2020/11/Enrzss9XUAIe_lI.jpeg" alt="" class="img">
+      </div>
+    </router-outlet>
   </mat-sidenav-content>
  
 </mat-sidenav-container>
