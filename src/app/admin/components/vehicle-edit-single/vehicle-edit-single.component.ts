@@ -29,6 +29,7 @@ export class VehicleEditSingleComponent implements OnInit {
   };
 
   addressForm = this.fb.group({
+    statesId: [null, Validators.required],
     id: [null,Validators.required],
     name: [null,Validators.required],
     description: [null,Validators.required],
@@ -42,6 +43,7 @@ export class VehicleEditSingleComponent implements OnInit {
   hasUnitNumber = false;
 
   states: any = [];
+  statesId: any = [];
 
   constructor(private fb: FormBuilder, 
     private vehicleService: VehicleService,
@@ -50,6 +52,18 @@ export class VehicleEditSingleComponent implements OnInit {
   ) {}
   
   ngOnInit(): void {
+
+    this.vehicleService.getAllVehicles().subscribe(prueba => {
+      const array = Object.values(prueba);
+      
+      for(let i = 0; i<array.length; i++){
+        this.statesId.push({
+          name: `${array[i].id_vehicle}. ${array[i].name}`,
+          abbreviation: array[i].id_vehicle,
+        })
+      }
+    })
+    console.log(this.statesId)
     this.vehicleTypeService.getAllVehicleTypes().subscribe(prueba => {
       const array = Object.values(prueba);
 
@@ -65,7 +79,7 @@ export class VehicleEditSingleComponent implements OnInit {
 
   onSubmit(): void {
     
-    this.vehicleService.getVehicle(this.addressForm.controls.id.value).subscribe(vehicle =>{
+    this.vehicleService.getVehicle(this.addressForm.controls.statesId.value).subscribe(vehicle =>{
       const array = Object.values(vehicle);
       
       this.vehicle = {

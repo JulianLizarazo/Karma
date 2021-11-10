@@ -7,9 +7,13 @@
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="Ingresa el ID del tipo de vehiculo a mostrar" formControlName="id_vehicle_type">
-              <mat-error *ngIf="addressForm.controls['id_vehicle_type'].hasError('required')">
-                El ID del tipo de vehiculo es <strong>obligatorio!</strong>
+              <mat-select placeholder="ID Tipo Vehiculo" formControlName="statesId">
+                <mat-option *ngFor="let state of statesId" [value]="state.abbreviation">
+                  {{ state.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="addressForm.controls['statesId'].hasError('required')">
+                El ID es <strong>obligatorio!</strong>
               </mat-error>
             </mat-form-field>
           </div>

@@ -26,6 +26,7 @@ export class CampusEditSingleComponent implements OnInit {
   };
 
   addressForm = this.fb.group({
+    statesId: [null, Validators.required],
     id_campus: [null,Validators.required],
     name_campus: [null,Validators.required],
     address: [null, Validators.required],
@@ -34,6 +35,7 @@ export class CampusEditSingleComponent implements OnInit {
   });
 
   hasUnitNumber = false;
+  statesId: any = [];
 
   
 
@@ -44,12 +46,21 @@ export class CampusEditSingleComponent implements OnInit {
   
   ngOnInit(): void {
     
+    this.campusService.getAllCampus().subscribe(prueba => {
+      const array = Object.values(prueba);
       
+      for(let i = 0; i<array.length; i++){
+        this.statesId.push({
+          name: `${array[i].id_campus}. ${array[i].name_campus}`,
+          abbreviation: array[i].id_campus,
+        })
+      }
+    })
   }
 
   onSubmit(): void {
     
-    this.campusService.getCampus(this.addressForm.controls.id_campus.value)
+    this.campusService.getCampus(this.addressForm.controls.statesId.value)
     .subscribe(campus =>{
       const array = Object.values(campus);
       

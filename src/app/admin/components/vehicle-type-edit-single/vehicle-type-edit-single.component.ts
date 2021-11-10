@@ -24,6 +24,7 @@ export class VehicleTypeEditSingleComponent implements OnInit {
   };
 
   addressForm = this.fb.group({
+    statesId: [null, Validators.required],
     id_vehicle_type: [null,Validators.required],
     body_type: [null, Validators.required],
     description: [null,Validators.required],
@@ -33,7 +34,7 @@ export class VehicleTypeEditSingleComponent implements OnInit {
 
   hasUnitNumber = false;
 
-  
+  statesId: any = [];
 
   constructor(private fb: FormBuilder, 
     private vehicleTypeService: VehicleTypeService,
@@ -41,13 +42,22 @@ export class VehicleTypeEditSingleComponent implements OnInit {
   ) {}
   
   ngOnInit(): void {
-    
+    this.vehicleTypeService.getAllVehicleTypes().subscribe(prueba => {
+      const array = Object.values(prueba);
+      
+      for(let i = 0; i<array.length; i++){
+        this.statesId.push({
+          name: `${array[i].id_vehicle_type}. ${array[i].body_type}`,
+          abbreviation: array[i].id_vehicle_type,
+        })
+      }
+    })
       
   }
 
   onSubmit(): void {
     
-    this.vehicleTypeService.getVehicleType(this.addressForm.controls.id_vehicle_type.value)
+    this.vehicleTypeService.getVehicleType(this.addressForm.controls.statesId.value)
     .subscribe(vehicleType =>{
       const array = Object.values(vehicleType);
       

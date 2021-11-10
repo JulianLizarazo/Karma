@@ -29,6 +29,7 @@ export class InvoiceDetailEditSingleComponent implements OnInit {
   };
 
   addressForm = this.fb.group({
+    statesId: [null, Validators.required],
     id_invoice_det: [null,Validators.required],
     states: [null, Validators.required],
     price: [null, Validators.required],
@@ -41,6 +42,7 @@ export class InvoiceDetailEditSingleComponent implements OnInit {
 
   states: any = [];
   vehicleStates: any = [];
+  statesId: any = [];
 
   constructor(private fb: FormBuilder, 
     private invoiceDetailService: InvoiceDetailService,
@@ -50,6 +52,17 @@ export class InvoiceDetailEditSingleComponent implements OnInit {
   ) {}
   
   ngOnInit(): void {
+    this.invoiceDetailService.getAllInvoiceDetails().subscribe(prueba => {
+      const array = Object.values(prueba);
+      
+      for(let i = 0; i<array.length; i++){
+        this.statesId.push({
+          name: `${array[i].id_invoice_det}. Factura número: ${array[i].id_invoice}, $${array[i].price}, ${array[i].vehicle_model}`,
+          abbreviation: array[i].id_invoice_det,
+        })
+      }
+    })
+
     this.invoiceService.getAllInvoices().subscribe(prueba => {
       const array = Object.values(prueba);
 
@@ -76,7 +89,7 @@ export class InvoiceDetailEditSingleComponent implements OnInit {
 
   onSubmit(): void {
     
-    this.invoiceDetailService.getInvoiceDetail(this.addressForm.controls.id_invoice_det.value)
+    this.invoiceDetailService.getInvoiceDetail(this.addressForm.controls.statesId.value)
     .subscribe(invoiceDetail =>{
       const array = Object.values(invoiceDetail);
       

@@ -25,38 +25,42 @@ export class VehicleShowComponent implements OnInit {
   };
 
   addressForm = this.fb.group({
-    id: [null,Validators.required],
+    statesId: [null, Validators.required],
+    id: [null, Validators.required],
     name: [null,Validators.required],
     color: [null, Validators.required],
     brand: [null, Validators.required],
     image: [null, Validators.required],
-    state: [null, Validators.required],
+   
    
   });
 
   hasUnitNumber = false;
 
-  states = [
-    {name: "Roadster", abbreviation: 1},
-    {name: 'Muscle Car', abbreviation: 2},
-    {name: 'Altas Prestaciones', abbreviation: 5},
-    {name: 'Superdeportivo', abbreviation: 3},
-    {name: 'Gran Turismo', abbreviation: 4},
-    
-  ];
+
+  statesId: any = [];
 
   constructor(private fb: FormBuilder, 
     private vehicleService: VehicleService,
   ) {}
   
   ngOnInit(): void {
-    
+    this.vehicleService.getAllVehicles().subscribe(prueba => {
+      const array = Object.values(prueba);
       
+      for(let i = 0; i<array.length; i++){
+        this.statesId.push({
+          name: `${array[i].id_vehicle}. ${array[i].name}`,
+          abbreviation: array[i].id_vehicle,
+        })
+      }
+    })
+    console.log(this.statesId)
   }
 
   onSubmit(): void {
     
-    this.vehicleService.getVehicle(this.addressForm.controls.id.value).subscribe(vehicle =>{
+    this.vehicleService.getVehicle(this.addressForm.controls.statesId.value).subscribe(vehicle =>{
       const array = Object.values(vehicle);
       
       this.vehicle = {

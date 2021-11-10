@@ -50,6 +50,33 @@
   }
 }
 
+.roadster{
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Bugatti_EB_118_1.jpg/1024px-Bugatti_EB_118_1.jpg");
+  
+}
+
+.muscle-car{
+ background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/47/2007-06-15_18_Bugatti_EB_110_%28bearb_-_kl%29.jpg"); 
+}
+
+.altas-prestaciones{
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/BUGATTI_VEYRON_SUPERSPORT_16.4_AT_THE_BUGATTI_DEALERSHIP_IN_BERLIN_GERMANY_JUNE_2013_%289057992400%29.jpg/800px-BUGATTI_VEYRON_SUPERSPORT_16.4_AT_THE_BUGATTI_DEALERSHIP_IN_BERLIN_GERMANY_JUNE_2013_%289057992400%29.jpg");
+}
+
+.superdeportivo{
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Bugatti_La_Voiture_Noire%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS0951%29.jpg/1024px-Bugatti_La_Voiture_Noire%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS0951%29.jpg");
+}
+
+.gran-turismo{
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Bugatti_Vision_at_IAA_2015_in_Frankfurt.JPG/1024px-Bugatti_Vision_at_IAA_2015_in_Frankfurt.JPG");
+}
+
+.roadster, .muscle-car, .altas-prestaciones, .superdeportivo, .gran-turismo{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 
 @media screen and (min-width: 900px){
     .main-bugatti{
@@ -58,7 +85,7 @@
         
   
         &--card{
-          
+          font-size: 30px;
            & p{
               opacity: 0%;
   

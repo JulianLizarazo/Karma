@@ -25,6 +25,7 @@ export class InvoiceShowComponent implements OnInit {
   };
 
   addressForm = this.fb.group({
+    statesId: [null, Validators.required],
     id_invoice: [null,Validators.required],
     payment_method: [null, Validators.required],
     date: [null, Validators.required],
@@ -36,20 +37,29 @@ export class InvoiceShowComponent implements OnInit {
 
   hasUnitNumber = false;
 
-  
+  statesId: any = [];
 
   constructor(private fb: FormBuilder, 
     private invoiceService: InvoiceService,
   ) {}
   
   ngOnInit(): void {
-    
+    this.invoiceService.getAllInvoices().subscribe(prueba => {
+      const array = Object.values(prueba);
+      
+      for(let i = 0; i<array.length; i++){
+        this.statesId.push({
+          name: `${array[i].id_invoice}. ${array[i].user_name1} ${array[i].user_lastname1} ${array[i].date}`,
+          abbreviation: array[i].id_invoice,
+        })
+      }
+    })
       
   }
 
   onSubmit(): void {
     
-    this.invoiceService.getInvoice(this.addressForm.controls.id_invoice.value).subscribe(invoice =>{
+    this.invoiceService.getInvoice(this.addressForm.controls.statesId.value).subscribe(invoice =>{
       const array = Object.values(invoice);
       
       this.invoice = {

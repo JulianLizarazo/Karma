@@ -23,6 +23,7 @@ export class UserShowComponent implements OnInit {
   };
 
   addressForm = this.fb.group({
+    statesId: [null, Validators.required],
     id_user: [null,Validators.required],
     user_name1: [null, Validators.required],
     user_name2: [null, Validators.required],
@@ -34,20 +35,29 @@ export class UserShowComponent implements OnInit {
   });
 
   hasUnitNumber = false;
-
+  statesId: any = [];
 
   constructor(private fb: FormBuilder, 
     private userService: UserService,
   ) {}
   
   ngOnInit(): void {
-    
+    this.userService.getAllUsers().subscribe(prueba => {
+      const array = Object.values(prueba);
+      
+      for(let i = 0; i<array.length; i++){
+        this.statesId.push({
+          name: `${array[i].id_user}. ${array[i].user_name1} ${array[i].user_name2} ${array[i].user_lastname1} ${array[i].user_lastname2}`,
+          abbreviation: array[i].id_user,
+        })
+      }
+    })
       
   }
 
   onSubmit(): void {
     
-    this.userService.getUser(this.addressForm.controls.id_user.value).subscribe(user =>{
+    this.userService.getUser(this.addressForm.controls.statesId.value).subscribe(user =>{
       const array = Object.values(user);
       
       this.user = {
