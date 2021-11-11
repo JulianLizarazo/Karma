@@ -20,6 +20,7 @@ export class UserShowComponent implements OnInit {
     user_lastname2: "",
     user_email: "",
     user_phone: 0,
+    document: 0,
   };
 
   addressForm = this.fb.group({
@@ -68,7 +69,7 @@ export class UserShowComponent implements OnInit {
         user_lastname2: array[0].user_lastname2,
         user_email: array[0].user_email,
         user_phone: array[0].user_phone,
-
+        document: array[0].document,
       };
 
     })

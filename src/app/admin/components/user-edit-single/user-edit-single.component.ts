@@ -26,6 +26,7 @@ export class UserEditSingleComponent implements OnInit {
     user_lastname2: "",
     user_email: "",
     user_phone: 0,
+    document: 0,
   };
 
   addressForm = this.fb.group({
@@ -37,6 +38,7 @@ export class UserEditSingleComponent implements OnInit {
     user_lastname2: [null, Validators.required],
     user_email: [null, Validators.required],
     user_phone: [null, Validators.required],
+    document: [null, Validators.required],
    
   });
 
@@ -76,6 +78,7 @@ export class UserEditSingleComponent implements OnInit {
         user_lastname2: array[0].user_lastname2,
         user_email: array[0].user_email,
         user_phone: array[0].user_phone,
+        document: array[0].document,
 
       };
 
@@ -93,6 +96,7 @@ export class UserEditSingleComponent implements OnInit {
               user_lastname2: array[0].user_lastname2,
               user_email: array[0].user_email,
               user_phone: array[0].user_phone,
+              document: array[0].document,
             }
           );
         });
@@ -117,6 +121,7 @@ export class UserEditSingleComponent implements OnInit {
       user_lastname2: this.addressForm.controls.user_lastname2.value,
       user_email: this.addressForm.controls.user_email.value,
       user_phone: this.addressForm.controls.user_phone.value,
+      document: this.addressForm.controls.document.value,
     }
 
     

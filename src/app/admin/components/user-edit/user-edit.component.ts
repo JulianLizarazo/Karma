@@ -21,6 +21,7 @@ export class UserEditComponent implements OnInit {
 
  
   addressForm = this.fb.group({
+    document: [null, Validators.required],
     user_name1: [null,Validators.required],
     user_name2: [null, Validators.required],
     user_lastname1: [null, Validators.required],
@@ -53,6 +54,7 @@ export class UserEditComponent implements OnInit {
             user_lastname2: array[0].user_lastname2,
             user_email: array[0].user_email,
             user_phone: array[0].user_phone,
+            document: array[0].document,
           }
         );
       });
@@ -70,9 +72,10 @@ export class UserEditComponent implements OnInit {
       user_lastname2: this.addressForm.controls.user_lastname2.value,
       user_email: this.addressForm.controls.user_email.value,
       user_phone: this.addressForm.controls.user_phone.value,
+      document: this.addressForm.controls.document.value,
     }
 
-    
+    console.log(newUser);
     this.userService.updateUser(this.id, newUser).subscribe(user => {
       console.log(user);
       

@@ -14,7 +14,7 @@ export class UserListComponent implements OnInit {
 
   users: User[] = [];
 
-  displayedColumns: string[] = ['actions', 'id_user', 'user_name1', 'user_name2', 'user_lastname1', 'user_lastname2', 'user_email', 'user_phone'];
+  displayedColumns: string[] = ['actions', 'id_user', 'user_document', 'user_name1', 'user_name2', 'user_lastname1', 'user_lastname2', 'user_email', 'user_phone'];
 
   constructor(
     private userService: UserService,

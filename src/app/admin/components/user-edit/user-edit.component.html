@@ -7,6 +7,16 @@
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
+              <input matInput placeholder="Documento" formControlName="document">
+              <mat-error *ngIf="addressForm.controls['document'].hasError('required')">
+                El Número de documento es <strong>obligatorio!</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
               <input matInput placeholder="Primer Nombre" formControlName="user_name1">
               <mat-error *ngIf="addressForm.controls['user_name1'].hasError('required')">
                 El Primer Nombre es <strong>obligatorio!</strong>

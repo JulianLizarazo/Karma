@@ -21,6 +21,7 @@ export class UserFormComponent implements OnInit {
     user_lastname2: [null, Validators.required],
     user_email: [null, Validators.required],
     user_phone: [null, Validators.required],
+    document: [null, Validators.required],
    
   });
 
@@ -45,6 +46,7 @@ export class UserFormComponent implements OnInit {
       user_lastname2: this.addressForm.controls.user_lastname2.value,
       user_email: this.addressForm.controls.user_email.value,
       user_phone: this.addressForm.controls.user_phone.value,
+      document: this.addressForm.controls.document.value,
     }
    
     alert('Usuario agregado exitosamente');
