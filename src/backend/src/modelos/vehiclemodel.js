@@ -12,6 +12,7 @@ VehicleModel.getVehicles = function (callback){
                         +" v.color, "
                         +" v.description, "
                         +" v.brand, "
+                        +" price, "
                         +" v.url, "
                         +" v.id_vehicle_type, "
                         +" vd.body_type "
@@ -40,6 +41,7 @@ VehicleModel.getVehicle = function (id, callback){
                         +" v.color, "
                         +" v.description, "
                         +" v.brand, "
+                        +" price, "
                         +" v.url, "
                         +" v.id_vehicle_type, "
                         +" vd.body_type "
@@ -91,6 +93,7 @@ VehicleModel.updateVehicle = function (VehicleData, callback){
                     + ", name = " + connection.escape(VehicleData.name)
                     + ", description = " + connection.escape(VehicleData.description)
                     + ", brand = " + connection.escape(VehicleData.brand)
+                    + ", price = " + connection.escape(VehicleData.price)
                     + ", url = " + connection.escape(VehicleData.url)
                     + ", id_vehicle_type = " + connection.escape(VehicleData.id_vehicle_type)
 

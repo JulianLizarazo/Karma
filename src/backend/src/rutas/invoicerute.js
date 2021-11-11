@@ -56,6 +56,7 @@ module.exports = function (){
                 payment_method: req.body.payment_method,
                 date: req.body.date,
                 id_user: req.body.id_user,
+                price: req.body.price,
                 id_campus: req.body.id_campus,
             };
 
@@ -73,15 +74,16 @@ module.exports = function (){
 
     //---------------------------------------------------------------
     //Muestra y captura los datos para el método CRUL update (actualizar), usando el verbo put
-    router.put("/:id_invoice", function (req, res){
+    router.put("/:id", function (req, res){
         //almacenamos los datos de la petición en un objeto
         //console.log(" 38");
         var InvoiceData =
             {
-                id_invoice: req.body.id_invoice,
+                id_invoice: req.params.id,
                 VAT: req.body.VAT,
                 payment_method: req.body.payment_method,
                 date: req.body.date,
+                price: req.body.price,
                 id_user: req.body.id_user,
                 id_campus: req.body.id_campus,
             };
@@ -93,7 +95,7 @@ module.exports = function (){
             if (data && data.msg){
                 res.status(200).json(data);
             }else{
-                res.status(500).send(
+                res.status(500).json(
                 { 
                     error: "boo:(" 
                 });

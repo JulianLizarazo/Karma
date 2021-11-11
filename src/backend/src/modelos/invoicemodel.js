@@ -14,6 +14,7 @@ InvoiceModel.getInvoices = function (callback){
                         +" user_name1,"
                         +" user_lastname1,"
                         +" name_campus,"
+                        +" price,"
                         +" i.id_user"
                         +" FROM invoice i,user u,campus c"
                         +" WHERE u.id_user= i.id_user and i.id_campus = c.id_campus"
@@ -92,6 +93,7 @@ InvoiceModel.updateInvoice = function (InvoiceData, callback){
                     + ", payment_method = " + connection.escape(InvoiceData.payment_method)
                     + ", date = " + connection.escape(InvoiceData.date)
                     + ", id_user = " + connection.escape(InvoiceData.id_user)
+                    + ", price = " + connection.escape(InvoiceData.price)
                     + ", id_campus = " + connection.escape(InvoiceData.id_campus)
                     + " WHERE  id_invoice  =  " + connection.escape(InvoiceData.id_invoice)+";";
         

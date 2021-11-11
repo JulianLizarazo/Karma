@@ -105,7 +105,6 @@ module.exports = function (){
                 id_invoice_det: null,
                 amount: req.body.amount,
                 id_invoice: req.body.id_invoice,
-                price: req.body.price,
                 id_vehicle_detail: req.body.id_vehicle_detail,
             };
 
@@ -123,15 +122,14 @@ module.exports = function (){
 
     //---------------------------------------------------------------
     //Muestra y captura los datos para el método CRUL update (actualizar), usando el verbo put
-    router.put("/:id_invoice_det", function (req, res){
+    router.put("/:id", function (req, res){
         //almacenamos los datos de la petición en un objeto
         //console.log(" 38");
         var InvoiceDetailData =
             {
-                id_invoice_det: req.body.id_invoice_det,
+                id_invoice_det: req.params.id,
                 amount: req.body.amount,
                 id_invoice: req.body.id_invoice,
-                price: req.body.price,
                 id_vehicle_detail: req.body.id_vehicle_detail,
             };
 

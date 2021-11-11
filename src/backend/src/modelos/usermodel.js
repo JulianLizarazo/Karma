@@ -13,7 +13,8 @@ UserModel.getUsers = function (callback){
                         +" user_lastname1, "
                         +" user_lastname2, "
                         +" user_email, "
-                        +" user_phone "
+                        +" user_phone, "
+                        +" document"
                         +" FROM user "
                         +" ORDER BY id_user;";        
         connection.query(sql, function (error, rows){
@@ -39,7 +40,8 @@ UserModel.getUser = function (id, callback){
                         +" user_lastname1, "
                         +" user_lastname2, "
                         +" user_email, "
-                        +" user_phone "
+                        +" user_phone, "
+                        +" document"
                         +" FROM user   "
                         +" where id_user ="
                     + connection.escape(id) + ";";
@@ -89,6 +91,7 @@ UserModel.updateUser = function (UserData, callback){
                     + ", user_lastname2 = " + connection.escape(UserData.user_lastname2)
                     + ", user_email = " + connection.escape(UserData.user_email)
                     + ", user_phone = " + connection.escape(UserData.user_phone)
+                    + ", document = " + connection.escape(UserData.document)
                     + " WHERE  id_user  =  " + connection.escape(UserData.id_user)+";";
         
         ///console.log(" 37  tal  " + sql);

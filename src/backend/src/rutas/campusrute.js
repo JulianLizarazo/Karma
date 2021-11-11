@@ -70,12 +70,12 @@ module.exports = function (){
 
     //---------------------------------------------------------------
     //Muestra y captura los datos para el método CRUL update (actualizar), usando el verbo put
-    router.put("/:id_campus", function (req, res){
+    router.put("/:id", function (req, res){
         //almacenamos los datos de la petición en un objeto
         //console.log(" 38");
         var CampusData =
             {
-                id_campus: req.body.id_campus,
+                id_campus: req.params.id,
                 name_campus: req.body.name_campus,
                 address: req.body.address,
             };

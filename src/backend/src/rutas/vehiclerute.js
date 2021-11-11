@@ -56,42 +56,44 @@ module.exports = function (){
                 color: req.body.color,
                 description: req.body.description,
                 brand: req.body.brand,
+                price: req.body.price,
                 url: req.body.url,
                 id_vehicle_type: req.body.id_vehicle_type,
             };
-
-
-        //usamos la funcion para insertar
-        VehicleModel.insertVehicle(VehicleData, function (error, data){
-            //se muestra el mensaje correspondiente
-            if (data){
-                res.status(200).json(data);
-            }else{
-                res.status(500).send({ error: "boo:(" });
-            }
+            
+            
+            //usamos la funcion para insertar
+            VehicleModel.insertVehicle(VehicleData, function (error, data){
+                //se muestra el mensaje correspondiente
+                if (data){
+                    res.status(200).json(data);
+                }else{
+                    res.status(500).send({ error: "boo:(" });
+                }
+            });
         });
-    });
-
-    //---------------------------------------------------------------
-    //Muestra y captura los datos para el método CRUL update (actualizar), usando el verbo put
+        
+        //---------------------------------------------------------------
+        //Muestra y captura los datos para el método CRUL update (actualizar), usando el verbo put
     router.put("/:id", function (req, res){
         //almacenamos los datos de la petición en un objeto
         //console.log(" 38");
         var VehicleData =
-            {
-                id_vehicle: req.body.id_vehicle,
-                name: req.body.name,
-                color: req.body.color,
-                description: req.body.description,
+        {
+            id_vehicle: req.params.id,
+            name: req.body.name,
+            color: req.body.color,
+            description: req.body.description,
                 brand: req.body.brand,
+                price: req.body.price,
                 url: req.body.url,
                 id_vehicle_type: req.body.id_vehicle_type,
             };
-
-        //usamos la funcion para actualizar
-        VehicleModel.updateVehicle(VehicleData, function (error, data){
-            //se muestra el mensaje correspondiente
-            if (data && data.msg){
+            
+            //usamos la funcion para actualizar
+            VehicleModel.updateVehicle(VehicleData, function (error, data){
+                //se muestra el mensaje correspondiente
+                if (data && data.msg){
                 res.status(200).json(data);
             }else{
                 res.status(500).send(

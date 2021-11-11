@@ -9,7 +9,6 @@ InvoiceDetailModel.getInvoiceDetails = function (callback){
     if (connection){
         var sql = "SELECT id_invoice_det "
                         +", id_invoice "
-                        +", price "
                         +", id.id_vehicle_detail "
                         +", vd.car_plate "
                         +", vd.engine_num "
@@ -40,7 +39,6 @@ InvoiceDetailModel.getInvoiceDetail = function (id, callback){
     if (connection){
         var sql = "select id_invoice_det "
                     +", id_invoice "
-                    +", price "
                     +", id.id_vehicle_detail "
                     +", vd.car_plate "
                     +", vd.engine_num "
@@ -154,7 +152,6 @@ InvoiceDetailModel.updateInvoiceDetail = function (InvoiceDetailData, callback){
 
     if (connection){
         var sql = "UPDATE invoice_detail SET amount = " + connection.escape(InvoiceDetailData.amount)
-                    + ", price = " + connection.escape(InvoiceDetailData.price)
                     + ", id_invoice = " + connection.escape(InvoiceDetailData.id_invoice)
                     + ", id_vehicle_detail = " + connection.escape(InvoiceDetailData.id_vehicle_detail)
                     + " WHERE  id_invoice_det  =  " + connection.escape(InvoiceDetailData.id_invoice_det)+";";

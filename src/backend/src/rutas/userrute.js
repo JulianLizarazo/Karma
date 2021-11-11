@@ -58,6 +58,7 @@ module.exports = function (){
                 user_lastname2: req.body.user_lastname2,
                 user_email: req.body.user_email,
                 user_phone: req.body.user_phone,
+                document: req.body.document,
             };
 
 
@@ -79,13 +80,14 @@ module.exports = function (){
         //console.log(" 38");
         var UserData =
             {
-                id_user: req.body.id_user,
+                id_user: req.params.id_user,
                 user_name1: req.body.user_name1,
                 user_name2: req.body.user_name2,
                 user_lastname1: req.body.user_lastname1,
                 user_lastname2: req.body.user_lastname2,
                 user_email: req.body.user_email,
                 user_phone: req.body.user_phone,
+                document: req.body.document,
             };
 
 

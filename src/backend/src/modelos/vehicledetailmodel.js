@@ -39,8 +39,11 @@ VehicleDetailModel.getVehicleDetail = function (id, callback){
                     +", car_plate "
                     +", engine_num "
                     +", chassis_num "
-                    +" FROM vehicle_detail "
-                    +"where id_vehicle_detail ="
+                    +", v.id_vehicle "
+                    +", brand"
+                    +", color"
+                    +" FROM vehicle_detail vd,vehicle v"
+                    +" WHERE v.id_vehicle = vd.id_vehicle and id_vehicle_detail ="
                     + connection.escape(id) + ";";
 
         //console.log(id);
@@ -85,6 +88,7 @@ VehicleDetailModel.updateVehicleDetail = function (InvoiceDetailData, callback){
         var sql = "UPDATE vehicle_detail SET car_plate = " + connection.escape(InvoiceDetailData.car_plate)
                     + ", engine_num = " + connection.escape(InvoiceDetailData.engine_num)
                     + ", chassis_num = " + connection.escape(InvoiceDetailData.chassis_num)
+                    + ", id_vehicle = " + connection.escape(InvoiceDetailData.id_vehicle)
                     + " WHERE  id_vehicle_detail  =  " + connection.escape(InvoiceDetailData.id_vehicle_detail)+";";
         
         ///console.log(" 37  tal  " + sql);

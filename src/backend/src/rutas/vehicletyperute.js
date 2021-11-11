@@ -75,7 +75,7 @@ module.exports = function (){
         //console.log(" 38");
         var VehicleTypeData =
             {
-                id_vehicle_type: req.body.id_vehicle_type,
+                id_vehicle_type: req.params.id_vehicle_type,
                 body_type: req.body.body_type,
                 description: req.body.description,
             };
