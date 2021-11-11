@@ -45,7 +45,8 @@ InvoiceModel.getInvoice = function (id, callback){
                     +" i.id_campus,"
                     +" user_name1,"
                     +" user_lastname1,"
-                    +" name_campus "
+                    +" name_campus, "
+                    +" price "
                     +" FROM invoice i,user u,campus c"
                     +" WHERE id_invoice ="+ connection.escape(id)
                     + "and u.id_user= i.id_user and i.id_campus = c.id_campus;"
