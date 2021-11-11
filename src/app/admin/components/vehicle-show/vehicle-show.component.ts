@@ -21,6 +21,7 @@ export class VehicleShowComponent implements OnInit {
     color: "",
     url: "",
     id_vehicle_type: 0,
+    price: 0,
     body_type: "",
   };
 
@@ -71,6 +72,7 @@ export class VehicleShowComponent implements OnInit {
         color: array[0].color,
         url: array[0].url,
         id_vehicle_type: array[0].id_vehicle_type,
+        price: array[0].price,
         body_type: array[0].body_type,
 
       };

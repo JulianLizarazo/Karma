@@ -21,6 +21,7 @@ export class VehicleFormComponent {
     color: [null, Validators.required],
     brand: [null, Validators.required],
     image: [null, Validators.required],
+    price: [null, Validators.required],
     state: [null, Validators.required],
    
   });
@@ -65,6 +66,7 @@ export class VehicleFormComponent {
       description: this.addressForm.controls.description.value,
       brand: this.addressForm.controls.brand.value,
       url: this.addressForm.controls.image.value,
+  price: this.addressForm.controls.price.value,
       id_vehicle_type: this.addressForm.controls.state.value,
     }
    

@@ -11,7 +11,7 @@
        <div class="opacity-card">
         <div class="description">{{vehicle.description}}</div>
 
-        <div class="color">Color: {{vehicle.color}}</div>
+        <div class="color">Precio: {{vehicle.price | currency}}</div>
         
         <button class="button" >
             <a [routerLink]="['/vehicle', vehicle.id_vehicle]" >Me interesa!</a>

@@ -13,7 +13,7 @@ export class VehicleListComponent implements OnInit {
 
   vehicles: Vehicle[] = [];
 
-  displayedColumns: string[] = ['actions', 'id_vehicle', 'name', 'color', 'brand', 'description', 'url', 'body_type'];
+  displayedColumns: string[] = ['actions', 'id_vehicle', 'name', 'color', 'brand', 'description', 'url', 'price', 'body_type'];
 
   constructor(
     private vehicleService: VehicleService,

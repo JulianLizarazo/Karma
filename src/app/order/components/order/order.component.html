@@ -10,6 +10,7 @@
                 <div class="brand">Nombre: {{vehicle.name}}</div>
                 <div class="brand">Marca: {{vehicle.brand}}</div>
                 <div class="color">Color: {{vehicle.color}}</div>
+                <div class="color">Precio: {{vehicle.price | currency}}</div>
                 <div class="vehicle_type">Tipo de Vehiculo: {{vehicle.body_type}}</div>
                 <div>
           
@@ -177,7 +178,7 @@
                       <div class="brand"> <strong>Número de motor:</strong>  {{vehicleDetail.engine_num}}</div>
                       <div class="brand"> <strong>Número de chasis:</strong>  {{vehicleDetail.chassis_num}}</div>
                       <div class="brand"> <strong>Cantidad:</strong>  {{newInvoiceDetail.amount}}</div>
-                      <div class="brand"> <strong>Precio:</strong>  {{newInvoiceDetail.price | currency}}</div>
+                      <div class="brand"> <strong>Precio:</strong>  {{vehicle.price | currency}}</div>
                     </div>
                     
                     

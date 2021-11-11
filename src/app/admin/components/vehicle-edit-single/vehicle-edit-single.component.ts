@@ -25,6 +25,7 @@ export class VehicleEditSingleComponent implements OnInit {
     description: "",
     color: "",
     url: "",
+    price: 0,
     id_vehicle_type: 0
   };
 
@@ -89,6 +90,7 @@ export class VehicleEditSingleComponent implements OnInit {
         brand: array[0].brand,
         color: array[0].color,
         url: array[0].url,
+        price: array[0].price,
         id_vehicle_type: array[0].id_vehicle_type
 
       };
@@ -106,6 +108,7 @@ export class VehicleEditSingleComponent implements OnInit {
               name: array[0].name,
               brand: array[0].brand,
               image: array[0].url,
+              price: array[0].price,
               state: array[0].id_vehicle_type,
             }
           );
@@ -130,6 +133,7 @@ export class VehicleEditSingleComponent implements OnInit {
       description: this.addressForm.controls.description.value,
       brand: this.addressForm.controls.brand.value,
       url: this.addressForm.controls.image.value,
+      price: this.addressForm.controls.price.value,
       id_vehicle_type: this.addressForm.controls.state.value,
     }
 

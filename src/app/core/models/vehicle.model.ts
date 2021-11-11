@@ -6,5 +6,6 @@ export interface Vehicle{
     brand: string,
     url: string,
     id_vehicle_type: number | string,
+    price: number,
     body_type?: string,
 }

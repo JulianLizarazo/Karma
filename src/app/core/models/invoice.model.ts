@@ -7,5 +7,6 @@ export interface Invoice{
     id_user?: number,
     user_name1?: string,
     user_lastname1?: string,
-    campus?: string
+    campus?: string,
+    
 }
