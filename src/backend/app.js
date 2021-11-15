@@ -5,12 +5,13 @@ let path = require('path');//direccion
 
 
 let invoiceDetail = require('./src/rutas/invoicedetailrute');//detalle factura
-let invoice = require('./src/rutas/invoicerute');//detalle factura
-let user = require('./src/rutas/userrute');//detalle factura
-let vehicle = require('./src/rutas/vehiclerute');//detalle factura
-let vehicleType = require('./src/rutas/vehicletyperute');//detalle factura
-let campus = require('./src/rutas/campusrute');//detalle factura
-let vehicleDet = require('./src/rutas/vehicledetailrute');//detalle factura
+let invoice = require('./src/rutas/invoicerute');//factura
+let user = require('./src/rutas/userrute');//usuario
+let vehicle = require('./src/rutas/vehiclerute');//modelo de vehiculo
+let vehicleType = require('./src/rutas/vehicletyperute');//tipo de vehiculo
+let campus = require('./src/rutas/campusrute');//sede
+let vehicleDet = require('./src/rutas/vehicledetailrute');//detalle de vehiculo
+let documentType = require('./src/rutas/documenttyperute');//detalle de vehiculo
 
 
 let app = express();//recibe un constructor
@@ -53,6 +54,7 @@ app.use(function (req, res, next)
  app.use('/vehicletype', vehicleType());//ruta para el tipo de vehiculo
  app.use('/vehicledet', vehicleDet());//ruta para el tipo de vehiculo
  app.use('/campus', campus());//ruta para el sede
+ app.use('/document', documentType());//ruta para el sede
 
 
 http.createServer(app).listen(app.get('port'), function ( )

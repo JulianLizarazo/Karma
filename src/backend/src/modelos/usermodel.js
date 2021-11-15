@@ -14,8 +14,10 @@ UserModel.getUsers = function (callback){
                         +" user_lastname2, "
                         +" user_email, "
                         +" user_phone, "
-                        +" document"
-                        +" FROM user "
+                        +" u.id_document, "
+                        +" user_document"
+                        +" FROM user u"
+                        +" INNER JOIN document_type dt on u.id_document =  dt.id_document";
                         +" ORDER BY id_user;";        
         connection.query(sql, function (error, rows){
             if (error){

@@ -28,7 +28,7 @@ InvoiceModel.getInvoices = function (callback){
                 callback(null, rows);
             }
         });
-       // console.log("25  " );
+       
     }
 }
 
