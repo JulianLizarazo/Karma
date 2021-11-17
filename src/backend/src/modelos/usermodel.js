@@ -15,6 +15,7 @@ UserModel.getUsers = function (callback){
                         +" user_email, "
                         +" user_phone, "
                         +" u.id_document, "
+                        +" document_initials, "
                         +" user_document"
                         +" FROM user u"
                         +" INNER JOIN document_type dt on u.id_document =  dt.id_document";
@@ -43,10 +44,13 @@ UserModel.getUser = function (id, callback){
                         +" user_lastname2, "
                         +" user_email, "
                         +" user_phone, "
-                        +" document"
-                        +" FROM user   "
+                        +" u.id_document, "
+                        +" document_initials, "
+                        +" user_document"
+                        +" FROM user u "
+                        +" INNER JOIN document_type dt on u.id_document =  dt.id_document";
                         +" where id_user ="
-                    + connection.escape(id) + ";";
+                        + connection.escape(id)+";" 
 
         //console.log(id);
         //console.log(" 31  tal  " );
@@ -93,7 +97,7 @@ UserModel.updateUser = function (UserData, callback){
                     + ", user_lastname2 = " + connection.escape(UserData.user_lastname2)
                     + ", user_email = " + connection.escape(UserData.user_email)
                     + ", user_phone = " + connection.escape(UserData.user_phone)
-                    + ", document = " + connection.escape(UserData.document)
+                    + ", user_document = " + connection.escape(UserData.user_document)
                     + " WHERE  id_user  =  " + connection.escape(UserData.id_user)+";";
         
         ///console.log(" 37  tal  " + sql);

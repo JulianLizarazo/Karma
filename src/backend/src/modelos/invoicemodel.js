@@ -13,11 +13,10 @@ InvoiceModel.getInvoices = function (callback){
                         +" DATE_FORMAT(date,'%d %M %Y') as date,"
                         +" user_name1,"
                         +" user_lastname1,"
-                        +" name_campus,"
                         +" price,"
                         +" i.id_user"
-                        +" FROM invoice i,user u,campus c"
-                        +" WHERE u.id_user= i.id_user and i.id_campus = c.id_campus"
+                        +" FROM invoice i,user u"
+                        +" WHERE u.id_user= i.id_user"
                         +" ORDER BY id_invoice;";
         
         connection.query(sql, function (error, rows){
@@ -41,15 +40,13 @@ InvoiceModel.getInvoice = function (id, callback){
                     +" VAT, "
                     +" payment_method, "
                     +" DATE_FORMAT(date,'%Y-%m-%d') as date,"
-                    +" i.id_user,"
-                    +" i.id_campus,"
+                    +" i.id_user,"                    
                     +" user_name1,"
-                    +" user_lastname1,"
-                    +" name_campus, "
+                    +" user_lastname1,"                    
                     +" price "
-                    +" FROM invoice i,user u,campus c"
+                    +" FROM invoice i,user u"
                     +" WHERE id_invoice ="+ connection.escape(id)
-                    + "and u.id_user= i.id_user and i.id_campus = c.id_campus;"
+                    + "and u.id_user= i.id_user;"
                     
         //console.log(id);
         //console.log(" 31  tal  " );
@@ -95,7 +92,6 @@ InvoiceModel.updateInvoice = function (InvoiceData, callback){
                     + ", date = " + connection.escape(InvoiceData.date)
                     + ", id_user = " + connection.escape(InvoiceData.id_user)
                     + ", price = " + connection.escape(InvoiceData.price)
-                    + ", id_campus = " + connection.escape(InvoiceData.id_campus)
                     + " WHERE  id_invoice  =  " + connection.escape(InvoiceData.id_invoice)+";";
         
         ///console.log(" 37  tal  " + sql);

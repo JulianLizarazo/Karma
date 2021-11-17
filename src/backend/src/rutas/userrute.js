@@ -58,7 +58,7 @@ module.exports = function (){
                 user_lastname2: req.body.user_lastname2,
                 user_email: req.body.user_email,
                 user_phone: req.body.user_phone,
-                document: req.body.document,
+                user_document: req.body.user_document,
             };
 
 
@@ -87,7 +87,7 @@ module.exports = function (){
                 user_lastname2: req.body.user_lastname2,
                 user_email: req.body.user_email,
                 user_phone: req.body.user_phone,
-                document: req.body.document,
+                user_document: req.body.user_document,
             };
 
 

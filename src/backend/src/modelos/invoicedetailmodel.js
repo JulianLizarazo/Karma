@@ -7,17 +7,20 @@ var InvoiceDetailModel = {};
 InvoiceDetailModel.getInvoiceDetails = function (callback){
     
     if (connection){
-        var sql = "SELECT id_invoice_det "
-                        +", id_invoice "
-                        +", id.id_vehicle_detail "
-                        +", vd.car_plate "
-                        +", vd.engine_num "
-                        +", vd.chassis_num "
-                        +", CONCAT(brand,' ', vt.body_type, ' ', color) as vehicle_model"
-                        +" from invoice_detail id, vehicle_detail vd"
+        var sql = "SELECT id_invoice_det"
+                        +", id_invoice"
+                        +", id.id_vehicle_detail"
+                        +", vd.car_plate"
+                        +", vd.engine_num"
+                        +", vd.chassis_num"
+                        +", id.id_campus"
+                        +", name_campus"
+                        +", CONCAT(brand,' ',name,' ',vt.body_type, ' ', color) as vehicle_model"
+                        +" from invoice_detail id"
+                        +" inner join campus c on c.id_campus = id.id_campus"
+                        +" inner join vehicle_detail vd on id.id_vehicle_detail = vd.id_vehicle_detail"
                         +" inner join vehicle v on v.id_vehicle = vd.id_vehicle"
                         +" inner join vehicle_type vt on v.id_vehicle_type = vt.id_vehicle_type"
-                        +" WHERE  id.id_vehicle_detail = vd.id_vehicle_detail"
                         +" ORDER BY id_invoice_det;";
         
         connection.query(sql, function (error, rows){
@@ -38,16 +41,20 @@ InvoiceDetailModel.getInvoiceDetail = function (id, callback){
     
     if (connection){
         var sql = "select id_invoice_det "
-                    +", id_invoice "
-                    +", id.id_vehicle_detail "
-                    +", vd.car_plate "
-                    +", vd.engine_num "
-                    +", vd.chassis_num "
-                    +", CONCAT(brand,' ', vt.body_type, ' ', color) as vehicle_model"
-                    +" from invoice_detail id, vehicle_detail vd"
+                    +", id_invoice"
+                    +", id.id_vehicle_detail"
+                    +", vd.car_plate"
+                    +", vd.engine_num"
+                    +", vd.chassis_num"
+                    +", id.id_campus"
+                    +", name_campus"
+                    +", CONCAT(brand,' ',name,' ',vt.body_type, ' ', color) as vehicle_model"
+                    +" from invoice_detail id"
+                    +" inner join campus c on c.id_campus = id.id_campus"
+                    +" inner join vehicle_detail vd on id.id_vehicle_detail = vd.id_vehicle_detail"
                     +" inner join vehicle v on v.id_vehicle = vd.id_vehicle"
                     +" inner join vehicle_type vt on v.id_vehicle_type = vt.id_vehicle_type"
-                    +" where id.id_vehicle_detail = vd.id_vehicle_detail and id_invoice_det ="
+                    +" where id_invoice_det ="
                     + connection.escape(id)
 
         //console.log(id);
@@ -68,7 +75,7 @@ InvoiceDetailModel.getVehicleReport = function (id,initialDate,finalDate,callbac
     if (connection){
         var sql = "select id_invoice_det," 
                         +" i.id_invoice,"
-                        +" price,"
+                        +" v.price,"
                         +" id.id_vehicle_detail,"
                         +" DATE_FORMAT(date,'%d %M %Y') as date, "
                         +" CONCAT(name,' ',color) as vehicle,"
@@ -99,7 +106,7 @@ InvoiceDetailModel.getVehicleTypeReport = function (id,initialDate,finalDate,cal
     if (connection){
         var sql = "select id_invoice_det," 
                         +" i.id_invoice,"
-                        +" price,"
+                        +" v.price,"
                         +" id.id_vehicle_detail,"
                         +" DATE_FORMAT(date,'%d %M %Y') as date, "
                         +" CONCAT(name,' ',color) as vehicle,"

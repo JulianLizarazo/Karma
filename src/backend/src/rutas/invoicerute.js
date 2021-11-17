@@ -56,8 +56,7 @@ module.exports = function (){
                 payment_method: req.body.payment_method,
                 date: req.body.date,
                 id_user: req.body.id_user,
-                price: req.body.price,
-                id_campus: req.body.id_campus,
+                price: req.body.price,                
             };
 
 
@@ -84,8 +83,7 @@ module.exports = function (){
                 payment_method: req.body.payment_method,
                 date: req.body.date,
                 price: req.body.price,
-                id_user: req.body.id_user,
-                id_campus: req.body.id_campus,
+                id_user: req.body.id_user
             };
 
 
