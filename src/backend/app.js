@@ -4,14 +4,14 @@ let http = require('http');//protocolo de intercambio de archivos
 let path = require('path');//direccion
 
 
-let invoiceDetail = require('./src/rutas/invoicedetailrute');//detalle factura
-let invoice = require('./src/rutas/invoicerute');//factura
-let user = require('./src/rutas/userrute');//usuario
-let vehicle = require('./src/rutas/vehiclerute');//modelo de vehiculo
-let vehicleType = require('./src/rutas/vehicletyperute');//tipo de vehiculo
-let campus = require('./src/rutas/campusrute');//sede
-let vehicleDet = require('./src/rutas/vehicledetailrute');//detalle de vehiculo
-let documentType = require('./src/rutas/documenttyperute');//detalle de vehiculo
+let detallesFactura = require('./src/rutas/detallesfacturarute');//detalle factura
+let factura = require('./src/rutas/facturarute');//factura
+let usuario = require('./src/rutas/usuariorute');//usuario
+let moto = require('./src/rutas/motorute');//modelo de vehiculo
+let tipoMoto = require('./src/rutas/tipomotorute');//tipo de vehiculo
+let sede = require('./src/rutas/sederute');//sede
+let detallesMoto = require('./src/rutas/detallesmotorute');//detalle de vehiculo
+let tipoDocumento = require('./src/rutas/tipodocumentorute');//detalle de vehiculo
 
 
 let app = express();//recibe un constructor
@@ -47,14 +47,14 @@ app.use(function (req, res, next)
   //============================================================
 
 
- app.use('/invoicedet', invoiceDetail());//ruta para el detalle de factura
- app.use('/invoice', invoice());//ruta para el factura
- app.use('/user', user());//ruta para el usuario
- app.use('/vehicle', vehicle());//ruta para el vehiculo
- app.use('/vehicletype', vehicleType());//ruta para el tipo de vehiculo
- app.use('/vehicledet', vehicleDet());//ruta para el tipo de vehiculo
- app.use('/campus', campus());//ruta para el sede
- app.use('/document', documentType());//ruta para el sede
+ app.use('/detallesFactura', detallesFactura());//ruta para el detalle de factura
+ app.use('/factura', factura());//ruta para el factura
+ app.use('/usuario', usuario());//ruta para el usuario
+ app.use('/moto', moto());//ruta para el vehiculo
+ app.use('/tipoMoto', tipoMoto());//ruta para el tipo de vehiculo
+ app.use('/detallesMoto', detallesMoto());//ruta para el tipo de vehiculo
+ app.use('/sede', sede());//ruta para el sede
+ app.use('/tipoDocumento', tipoDocumento());//ruta para el sede
 
 
 http.createServer(app).listen(app.get('port'), function ( )
