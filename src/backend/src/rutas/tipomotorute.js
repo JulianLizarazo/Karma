@@ -51,9 +51,9 @@ module.exports = function (){
         //creamos un objeto Json con los datos del tipo de documento
         var TipoMotoData =
             {
-                id_vehicle_type: null,
-                body_type: req.body.body_type,
-                description: req.body.description,
+                id_tipo_moto: null,
+                tipo_carroceria: req.body.tipo_carroceria,
+                descripcion: req.body.descripcion,
             };
 
 
@@ -70,14 +70,14 @@ module.exports = function (){
 
     //---------------------------------------------------------------
     //Muestra y captura los datos para el método CRUL update (actualizar), usando el verbo put
-    router.put("/:id_vehicle_type", function (req, res){
+    router.put("/:id_tipo_moto", function (req, res){
         //almacenamos los datos de la petición en un objeto
         //console.log(" 38");
         var TipoMotoData =
             {
-                id_vehicle_type: req.params.id_vehicle_type,
-                body_type: req.body.body_type,
-                description: req.body.description,
+                id_tipo_moto: req.params.id_tipo_moto,
+                tipo_carroceria: req.body.tipo_carroceria,
+                descripcion: req.body.descripcion,
             };
 
 

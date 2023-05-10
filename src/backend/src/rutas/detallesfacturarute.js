@@ -102,10 +102,11 @@ module.exports = function (){
         //creamos un objeto Json con los datos del tipo de documento
         var DetallesFacturaData =
             {
-                id_invoice_det: null,
-                amount: req.body.amount,
-                id_invoice: req.body.id_invoice,
-                id_vehicle_detail: req.body.id_vehicle_detail,
+                id_detalles_factura: null,
+                cantidad: req.body.cantidad,
+                id_factura: req.body.id_factura,
+                id_detalles_moto: req.body.id_detalles_moto,
+                id_sede: req.body.id_sede,
             };
 
 
@@ -127,10 +128,11 @@ module.exports = function (){
         //console.log(" 38");
         var DetallesFacturaData =
             {
-                id_invoice_det: req.params.id,
-                amount: req.body.amount,
-                id_invoice: req.body.id_invoice,
-                id_vehicle_detail: req.body.id_vehicle_detail,
+                id_detalles_factura: req.params.id,
+                cantidad: req.body.cantidad,
+                id_factura: req.body.id_factura,
+                id_detalles_moto: req.body.id_detalles_moto,
+                id_sede: req.body.id_sede,
             };
 
 

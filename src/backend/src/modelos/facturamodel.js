@@ -7,17 +7,17 @@ var ModeloFactura = {};
 ModeloFactura.getFacturas = function (callback){
     
     if (connection){
-        var sql = "SELECT id_invoice, "
-                        +" VAT, "
-                        +" payment_method, "
-                        +" DATE_FORMAT(date,'%d %M %Y') as date,"
-                        +" user_name1,"
-                        +" user_lastname1,"
-                        +" price,"
-                        +" i.id_user"
-                        +" FROM invoice i,user u"
-                        +" WHERE u.id_user= i.id_user"
-                        +" ORDER BY id_invoice;";
+        var sql = "SELECT id_factura, "
+                        +" IVA, "
+                        +" metodo_pago, "
+                        +" DATE_FORMAT(fecha,'%d %M %Y') as fecha,"
+                        +" usuario_nombre1,"
+                        +" usuario_apellido1,"
+                        +" precio,"
+                        +" i.id_usuario"
+                        +" FROM factura i,usuario u"
+                        +" WHERE u.id_usuario= i.id_usuario"
+                        +" ORDER BY id_factura;";
         
         connection.query(sql, function (error, rows){
             if (error){
@@ -36,17 +36,17 @@ ModeloFactura.getFacturas = function (callback){
 ModeloFactura.getFactura = function (id, callback){
     
     if (connection){
-        var sql = "select id_invoice, "
-                    +" VAT, "
-                    +" payment_method, "
-                    +" DATE_FORMAT(date,'%Y-%m-%d') as date,"
-                    +" i.id_user,"                    
-                    +" user_name1,"
-                    +" user_lastname1,"                    
-                    +" price "
-                    +" FROM invoice i,user u"
-                    +" WHERE id_invoice ="+ connection.escape(id)
-                    + "and u.id_user= i.id_user;"
+        var sql = "select id_factura, "
+                    +" IVA, "
+                    +" metodo_pago, "
+                    +" DATE_FORMAT(fecha,'%Y-%m-%d') as fecha,"
+                    +" i.id_usuario,"                    
+                    +" usuario_nombre1,"
+                    +" usuario_apellido1,"                    
+                    +" precio "
+                    +" FROM factura i,usuario u"
+                    +" WHERE id_factura ="+ connection.escape(id)
+                    + "and u.id_usuario= i.id_usuario;"
                     
         //console.log(id);
         //console.log(" 31  tal  " );
@@ -66,7 +66,7 @@ ModeloFactura.getFactura = function (id, callback){
 ModeloFactura.insertFactura = function (FacturaData, callback){
     if (connection){
         //console.log(TipDocData)
-        var sql = "INSERT INTO invoice SET ?";
+        var sql = "INSERT INTO factura SET ?";
         //console.log("  tal  " + sql);
 
         connection.query(sql, FacturaData, function (error, result){
@@ -83,16 +83,16 @@ ModeloFactura.insertFactura = function (FacturaData, callback){
 
 //---------------------------------------------------------------
 //actualizar un tipo de documento
-ModeloFactura.updateFactura = function (Facturaata, callback){
+ModeloFactura.updateFactura = function (FacturaData, callback){
     //console.log(" 32  tal  ");
 
     if (connection){
-        var sql = "UPDATE invoice SET VAT = " + connection.escape(Facturaata.VAT)
-                    + ", payment_method = " + connection.escape(Facturaata.payment_method)
-                    + ", date = " + connection.escape(Facturaata.date)
-                    + ", id_user = " + connection.escape(Facturaata.id_user)
-                    + ", price = " + connection.escape(Facturaata.price)
-                    + " WHERE  id_invoice  =  " + connection.escape(Facturaata.id_invoice)+";";
+        var sql = "UPDATE factura SET IVA = " + connection.escape(FacturaData.IVA)
+                    + ", metodo_pago = " + connection.escape(FacturaData.metodo_pago)
+                    + ", fecha = " + connection.escape(FacturaData.fecha)
+                    + ", id_usuario = " + connection.escape(FacturaData.id_usuario)
+                    + ", precio = " + connection.escape(FacturaData.precio)
+                    + " WHERE  id_factura  =  " + connection.escape(FacturaData.id_factura)+";";
         
         ///console.log(" 37  tal  " + sql);
 

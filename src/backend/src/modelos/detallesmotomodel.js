@@ -7,16 +7,16 @@ var DetallesModeloMoto = {};
 DetallesModeloMoto.getDetallesMotos = function (callback){
     
     if (connection){
-        var sql = "SELECT id_vehicle_detail "
-                        +", car_plate "
-                        +", engine_num "
-                        +", chassis_num "
-                        +", v.id_vehicle "
-                        +", brand"
+        var sql = "SELECT id_detalles_moto "
+                        +", placa_moto "
+                        +", serie_motor "
+                        +", serie_chassis "
+                        +", v.id_moto "
+                        +", marca"
                         +", color"
-                        +" FROM vehicle_detail vd,vehicle v"
-                        +" WHERE v.id_vehicle = vd.id_vehicle "
-                        +" ORDER BY id_vehicle_detail;";
+                        +" FROM detalles_moto vd,moto v"
+                        +" WHERE v.id_moto = vd.id_moto "
+                        +" ORDER BY id_detalles_moto;";
         
         connection.query(sql, function (error, rows){
             if (error){
@@ -35,15 +35,15 @@ DetallesModeloMoto.getDetallesMotos = function (callback){
 DetallesModeloMoto.getDetallesMoto = function (id, callback){
     
     if (connection){
-        var sql = "SELECT id_vehicle_detail "
-                    +", car_plate "
-                    +", engine_num "
-                    +", chassis_num "
-                    +", v.id_vehicle "
-                    +", brand"
+        var sql = "SELECT id_detalles_moto "
+                    +", placa_moto "
+                    +", serie_motor "
+                    +", serie_chassis "
+                    +", v.id_moto "
+                    +", marca"
                     +", color"
-                    +" FROM vehicle_detail vd,vehicle v"
-                    +" WHERE v.id_vehicle = vd.id_vehicle and id_vehicle_detail ="
+                    +" FROM detalles_moto vd,moto v"
+                    +" WHERE v.id_moto = vd.id_moto and id_detalles_moto ="
                     + connection.escape(id) + ";";
 
         //console.log(id);
@@ -64,7 +64,7 @@ DetallesModeloMoto.getDetallesMoto = function (id, callback){
 DetallesModeloMoto.insertDetallesMoto = function (DetallesMotoData, callback){
     if (connection){
         //console.log(TipDocData)
-        var sql = "INSERT INTO vehicle_detail SET ?";
+        var sql = "INSERT INTO detalles_moto SET ?";
         //console.log("  tal  " + sql);
 
         connection.query(sql, DetallesMotoData, function (error, result){
@@ -85,11 +85,11 @@ DetallesModeloMoto.updateDetallesMoto = function (DetallesFacturaData, callback)
     //console.log(" 32  tal  ");
 
     if (connection){
-        var sql = "UPDATE vehicle_detail SET car_plate = " + connection.escape(DetallesFacturaData.car_plate)
-                    + ", engine_num = " + connection.escape(DetallesFacturaData.engine_num)
-                    + ", chassis_num = " + connection.escape(DetallesFacturaData.chassis_num)
-                    + ", id_vehicle = " + connection.escape(DetallesFacturaData.id_vehicle)
-                    + " WHERE  id_vehicle_detail  =  " + connection.escape(DetallesFacturaData.id_vehicle_detail)+";";
+        var sql = "UPDATE detalles_moto SET placa_moto = " + connection.escape(DetallesFacturaData.placa_moto)
+                    + ", serie_motor = " + connection.escape(DetallesFacturaData.serie_motor)
+                    + ", serie_chassis = " + connection.escape(DetallesFacturaData.serie_chassis)
+                    + ", id_moto = " + connection.escape(DetallesFacturaData.id_moto)
+                    + " WHERE  id_detalles_moto  =  " + connection.escape(DetallesFacturaData.id_detalles_moto)+";";
         
         ///console.log(" 37  tal  " + sql);
 

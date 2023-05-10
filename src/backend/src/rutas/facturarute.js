@@ -51,12 +51,12 @@ module.exports = function (){
         //creamos un objeto Json con los datos del tipo de documento
         var FacturaData =
             {
-                id_invoice: null,
-                VAT: req.body.VAT,
-                payment_method: req.body.payment_method,
-                date: req.body.date,
-                id_user: req.body.id_user,
-                price: req.body.price,                
+                id_factura: null,
+                IVA: req.body.IVA,
+                metodo_pago: req.body.metodo_pago,
+                fecha: req.body.fecha,
+                id_usuario: req.body.id_usuario,
+                precio: req.body.precio,                
             };
 
 
@@ -78,12 +78,12 @@ module.exports = function (){
         //console.log(" 38");
         var FacturaData =
             {
-                id_invoice: req.params.id,
-                VAT: req.body.VAT,
-                payment_method: req.body.payment_method,
-                date: req.body.date,
-                price: req.body.price,
-                id_user: req.body.id_user
+                id_factura: req.params.id,
+                IVA: req.body.IVA,
+                metodo_pago: req.body.metodo_pago,
+                fecha: req.body.fecha,
+                precio: req.body.precio,
+                id_usuario: req.body.id_usuario
             };
 
 

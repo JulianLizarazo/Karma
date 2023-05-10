@@ -7,11 +7,11 @@ var SedeModel = {};
 SedeModel.getSedes = function (callback){
     
     if (connection){
-        var sql = "SELECT id_campus, "
-                        +" name_campus, "
-                        +" address "
-                        +" FROM campus "
-                        +" ORDER BY id_campus;";        
+        var sql = "SELECT id_sede, "
+                        +" nombre_sede, "
+                        +" direccion "
+                        +" FROM sede "
+                        +" ORDER BY id_sede;";        
         connection.query(sql, function (error, rows){
             if (error){
                 throw error;
@@ -29,11 +29,11 @@ SedeModel.getSedes = function (callback){
 SedeModel.getSede = function (id, callback){
     
     if (connection){
-        var sql = "SELECT id_campus, "
-                        +" name_campus, "
-                        +" address "
-                        +" FROM campus "
-                        +" where id_campus ="
+        var sql = "SELECT id_sede, "
+                        +" nombre_sede, "
+                        +" direccion "
+                        +" FROM sede "
+                        +" where id_sede ="
                     + connection.escape(id) + ";";
 
         //console.log(id);
@@ -54,7 +54,7 @@ SedeModel.getSede = function (id, callback){
 SedeModel.insertSede = function (SedeData, callback){
     if (connection){
         //console.log(TipDocData)
-        var sql = "INSERT INTO campus SET ?";
+        var sql = "INSERT INTO sede SET ?";
         //console.log("  tal  " + sql);
 
         connection.query(sql, SedeData, function (error, result){
@@ -75,9 +75,9 @@ SedeModel.updateSede = function (SedeData, callback){
     //console.log(" 32  tal  ");
 
     if (connection){
-        var sql = "UPDATE campus SET name_campus = " + connection.escape(SedeData.name_campus)
-                    + ", address = " + connection.escape(SedeData.address)
-                    + " WHERE  id_campus  =  " + connection.escape(SedeData.id_campus)+";";
+        var sql = "UPDATE sede SET nombre_sede = " + connection.escape(SedeData.nombre_sede)
+                    + ", direccion = " + connection.escape(SedeData.direccion)
+                    + " WHERE  id_sede  =  " + connection.escape(SedeData.id_sede)+";";
         
         ///console.log(" 37  tal  " + sql);
 

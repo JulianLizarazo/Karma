@@ -7,18 +7,18 @@ var MotoModel = {};
 MotoModel.getMotos = function (callback){
     
     if (connection){
-        var sql = "SELECT v.id_vehicle, "
-                        +" v.name, "
+        var sql = "SELECT v.id_moto, "
+                        +" v.nombre, "
                         +" v.color, "
-                        +" v.description, "
-                        +" v.brand, "
-                        +" price, "
+                        +" v.descripcion, "
+                        +" v.marca, "
+                        +" precio, "
                         +" v.url, "
-                        +" v.id_vehicle_type, "
-                        +" vd.body_type "
-                        +" FROM vehicle v "
-                        +" inner join vehicle_type vd on v.id_vehicle_type = vd.id_vehicle_type"
-                        +" ORDER BY id_vehicle;";        
+                        +" v.id_tipo_moto, "
+                        +" vd.tipo_carroceria "
+                        +" FROM moto v "
+                        +" inner join tipo_moto vd on v.id_tipo_moto = vd.id_tipo_moto"
+                        +" ORDER BY id_moto;";        
         connection.query(sql, function (error, rows){
             if (error){
                 throw error;
@@ -36,18 +36,18 @@ MotoModel.getMotos = function (callback){
 MotoModel.getMoto = function (id, callback){
     
     if (connection){
-        var sql = "SELECT v.id_vehicle, "
-                        +" v.name, "
+        var sql = "SELECT v.id_moto, "
+                        +" v.nombre, "
                         +" v.color, "
-                        +" v.description, "
-                        +" v.brand, "
-                        +" price, "
+                        +" v.descripcion, "
+                        +" v.marca, "
+                        +" precio, "
                         +" v.url, "
-                        +" v.id_vehicle_type, "
-                        +" vd.body_type "
-                        +" FROM vehicle v"
-                        +" inner join vehicle_type vd on v.id_vehicle_type = vd.id_vehicle_type"
-                        +" where id_vehicle ="
+                        +" v.id_tipo_moto, "
+                        +" vd.tipo_carroceria "
+                        +" FROM moto v"
+                        +" inner join tipo_moto vd on v.id_tipo_moto = vd.id_tipo_moto"
+                        +" where id_moto ="
                     + connection.escape(id) + ";";
 
         //console.log(id);
@@ -68,7 +68,7 @@ MotoModel.getMoto = function (id, callback){
 MotoModel.insertMoto = function (MotoData, callback){
     if (connection){
         //console.log(TipDocData)
-        var sql = "INSERT INTO vehicle SET ?";
+        var sql = "INSERT INTO moto SET ?";
         //console.log("  tal  " + sql);
 
         connection.query(sql, MotoData, function (error, result){
@@ -89,15 +89,15 @@ MotoModel.updateMoto = function (MotoData, callback){
     //console.log(" 32  tal  ");
 
     if (connection){
-        var sql = "UPDATE vehicle SET color = " + connection.escape(MotoData.color)
-                    + ", name = " + connection.escape(MotoData.name)
-                    + ", description = " + connection.escape(MotoData.description)
-                    + ", brand = " + connection.escape(MotoData.brand)
-                    + ", price = " + connection.escape(MotoData.price)
+        var sql = "UPDATE moto SET color = " + connection.escape(MotoData.color)
+                    + ", nombre = " + connection.escape(MotoData.nombre)
+                    + ", descripcion = " + connection.escape(MotoData.descripcion)
+                    + ", marca = " + connection.escape(MotoData.marca)
+                    + ", precio = " + connection.escape(MotoData.precio)
                     + ", url = " + connection.escape(MotoData.url)
-                    + ", id_vehicle_type = " + connection.escape(MotoData.id_vehicle_type)
+                    + ", id_tipo_moto = " + connection.escape(MotoData.id_tipo_moto)
 
-                    + " WHERE  id_vehicle  =  " + connection.escape(MotoData.id_vehicle)+";";
+                    + " WHERE  id_moto  =  " + connection.escape(MotoData.id_moto)+";";
         
         ///console.log(" 37  tal  " + sql);
 

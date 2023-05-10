@@ -51,8 +51,8 @@ module.exports = function (){
         //creamos un objeto Json con los datos del tipo de documento
         var TipoDocumentoData =
             {
-                id_document: null,
-                document: req.body.document
+                id_documento: null,
+                documento: req.body.documento
             };
 
 
@@ -74,8 +74,8 @@ module.exports = function (){
         //console.log(" 38");
         var TipoDocumentoData =
             {
-                id_document: req.params.id,
-                document: req.body.document
+                id_documento: req.params.id,
+                documento: req.body.documento
             };
 
 

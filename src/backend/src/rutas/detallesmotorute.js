@@ -51,11 +51,11 @@ module.exports = function (){
         //creamos un objeto Json con los datos del tipo de documento
         var DetallesMotoData =
             {
-                id_vehicle_detail: null,
-                car_plate: req.body.car_plate,
-                engine_num: req.body.engine_num,
-                chassis_num: req.body.chassis_num,
-                id_vehicle: req.body.id_vehicle,
+                id_detalles_moto: null,
+                placa_moto: req.body.placa_moto,
+                serie_motor: req.body.serie_motor,
+                serie_chassis: req.body.serie_chassis,
+                id_moto: req.body.id_moto,
             };
 
 
@@ -77,11 +77,11 @@ module.exports = function (){
         //console.log(" 38");
         var DetallesMotoData =
             {
-                id_vehicle_detail: req.params.id,
-                car_plate: req.body.car_plate,
-                engine_num: req.body.engine_num,
-                chassis_num: req.body.chassis_num,
-                id_vehicle: req.body.id_vehicle,
+                id_detalles_moto: req.params.id,
+                placa_moto: req.body.placa_moto,
+                serie_motor: req.body.serie_motor,
+                serie_chassis: req.body.serie_chassis,
+                id_moto: req.body.id_moto,
             };
 
 

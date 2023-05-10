@@ -7,10 +7,10 @@ var TipoDocumentoModel = {};
 TipoDocumentoModel.getDocumentos = function (callback){
     
     if (connection){
-        var sql = "SELECT id_document, "
-                        +" document "
-                        +" FROM document_type "
-                        +" ORDER BY id_document;";
+        var sql = "SELECT id_documento, "
+                        +" documento "
+                        +" FROM tipo_documento "
+                        +" ORDER BY id_documento;";
         connection.query(sql, function (error, rows){
             if (error){
                 throw error;
@@ -28,10 +28,10 @@ TipoDocumentoModel.getDocumentos = function (callback){
 TipoDocumentoModel.getDocumento = function (id, callback){
     
     if (connection){
-        var sql = "SELECT id_document, "
-                        +" document "
-                        +" FROM document_type "                        
-                        +" WHERE id_document ="
+        var sql = "SELECT id_documento, "
+                        +" documento "
+                        +" FROM tipo_documento "                        
+                        +" WHERE id_documento ="
                     + connection.escape(id) + ";";
 
         //console.log(id);
@@ -52,7 +52,7 @@ TipoDocumentoModel.getDocumento = function (id, callback){
 TipoDocumentoModel.insertDocumento = function (TipoDocumentoData, callback){
     if (connection){
         //console.log(TipDocData)
-        var sql = "INSERT INTO document_type SET ?";
+        var sql = "INSERT INTO tipo_documento SET ?";
         //console.log("  tal  " + sql);
 
         connection.query(sql, TipoDocumentoData, function (error, result){
@@ -73,8 +73,8 @@ TipoDocumentoModel.updateDocumento = function (TipoDocumentoData, callback){
     //console.log(" 32  tal  ");
 
     if (connection){
-        var sql = "UPDATE document_type SET document = " + connection.escape(TipoDocumentoData.document)
-                    + " WHERE  id_document  =  " + connection.escape(TipoDocumentoData.id_document)+";";
+        var sql = "UPDATE tipo_documento SET documento = " + connection.escape(TipoDocumentoData.documento)
+                    + " WHERE  id_documento  =  " + connection.escape(TipoDocumentoData.id_documento)+";";
         
         ///console.log(" 37  tal  " + sql);
 

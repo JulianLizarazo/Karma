@@ -7,19 +7,19 @@ var UsuarioModel = {};
 UsuarioModel.getUsuarios = function (callback){
     
     if (connection){
-        var sql = "SELECT id_user, "
-                        +" user_name1, "
-                        +" user_name2, "
-                        +" user_lastname1, "
-                        +" user_lastname2, "
-                        +" user_email, "
-                        +" user_phone, "
-                        +" u.id_document, "
-                        +" document_initials, "
-                        +" user_document"
-                        +" FROM user u"
-                        +" INNER JOIN document_type dt on u.id_document =  dt.id_document";
-                        +" ORDER BY id_user;";        
+        var sql = "SELECT id_usuario, "
+                        +" usuario_nombre1, "
+                        +" usuario_nombre2, "
+                        +" usuario_apellido1, "
+                        +" usuario_apellido2, "
+                        +" usuario_email, "
+                        +" usuario_telefono, "
+                        +" u.id_documento, "
+                        +" iniciales_documento, "
+                        +" usuario_documento"
+                        +" FROM usuario u"
+                        +" INNER JOIN tipo_documento dt on u.id_documento =  dt.id_documento";
+                        +" ORDER BY id_usuario;";        
         connection.query(sql, function (error, rows){
             if (error){
                 throw error;
@@ -35,21 +35,21 @@ UsuarioModel.getUsuarios = function (callback){
 //---------------------------------------------------------------
 //obtenemos un tipo doc por su id
 UsuarioModel.getUsuario = function (id, callback){
-    
+    console.log(id);
     if (connection){
-        var sql = "SELECT id_user, "
-                        +" user_name1, "
-                        +" user_name2, "
-                        +" user_lastname1, "
-                        +" user_lastname2, "
-                        +" user_email, "
-                        +" user_phone, "
-                        +" u.id_document, "
-                        +" document_initials, "
-                        +" user_document"
-                        +" FROM user u "
-                        +" INNER JOIN document_type dt on u.id_document =  dt.id_document";
-                        +" where id_user ="
+        var sql = "SELECT id_usuario, "
+                        +" usuario_nombre1, "
+                        +" usuario_nombre2, "
+                        +" usuario_apellido1, "
+                        +" usuario_apellido2, "
+                        +" usuario_email, "
+                        +" usuario_telefono, "
+                        +" u.id_documento, "
+                        +" iniciales_documento, "
+                        +" usuario_documento"
+                        +" FROM usuario u "
+                        +" INNER JOIN tipo_documento dt on u.id_documento =  dt.id_documento"
+                        +" where id_usuario ="
                         + connection.escape(id)+";" 
 
         //console.log(id);
@@ -70,7 +70,7 @@ UsuarioModel.getUsuario = function (id, callback){
 UsuarioModel.insertUsuario = function (UsuarioData, callback){
     if (connection){
         //console.log(TipDocData)
-        var sql = "INSERT INTO user SET ?";
+        var sql = "INSERT INTO usuario SET ?";
         //console.log("  tal  " + sql);
 
         connection.query(sql, UsuarioData, function (error, result){
@@ -91,14 +91,14 @@ UsuarioModel.updateUsuario = function (UsuarioData, callback){
     //console.log(" 32  tal  ");
 
     if (connection){
-        var sql = "UPDATE user SET user_name1 = " + connection.escape(UsuarioData.user_name1)
-                    + ", user_name2 = " + connection.escape(UsuarioData.user_name2)
-                    + ", user_lastname1 = " + connection.escape(UsuarioData.user_lastname1)
-                    + ", user_lastname2 = " + connection.escape(UsuarioData.user_lastname2)
-                    + ", user_email = " + connection.escape(UsuarioData.user_email)
-                    + ", user_phone = " + connection.escape(UsuarioData.user_phone)
-                    + ", user_document = " + connection.escape(UsuarioData.user_document)
-                    + " WHERE  id_user  =  " + connection.escape(UsuarioData.id_user)+";";
+        var sql = "UPDATE usuario SET usuario_nombre1 = " + connection.escape(UsuarioData.usuario_nombre1)
+                    + ", usuario_nombre2 = " + connection.escape(UsuarioData.usuario_nombre2)
+                    + ", usuario_apellido1 = " + connection.escape(UsuarioData.usuario_apellido1)
+                    + ", usuario_apellido2 = " + connection.escape(UsuarioData.usuario_apellido2)
+                    + ", usuario_email = " + connection.escape(UsuarioData.usuario_email)
+                    + ", usuario_telefono = " + connection.escape(UsuarioData.usuario_telefono)
+                    + ", usuario_documento = " + connection.escape(UsuarioData.usuario_documento)
+                    + " WHERE  id_usuario  =  " + connection.escape(UsuarioData.id_usuario)+";";
         
         ///console.log(" 37  tal  " + sql);
 

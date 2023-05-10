@@ -1,4 +1,4 @@
-var mysql = require("pg")
+var mysql = require("mysql")
 var settings = require("./config.json")
 var connection;
 

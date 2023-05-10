@@ -51,14 +51,14 @@ module.exports = function (){
         //creamos un objeto Json con los datos del tipo de documento
         var MotoData =
             {
-                id_vehicle: null,
-                name: req.body.name,
+                id_moto: null,
+                nombre: req.body.nombre,
                 color: req.body.color,
-                description: req.body.description,
-                brand: req.body.brand,
-                price: req.body.price,
+                descripcion: req.body.descripcion,
+                marca: req.body.marca,
+                precio: req.body.precio,
                 url: req.body.url,
-                id_vehicle_type: req.body.id_vehicle_type,
+                id_tipo_moto: req.body.id_tipo_moto,
             };
             
             
@@ -80,14 +80,14 @@ module.exports = function (){
         //console.log(" 38");
         var MotoData =
         {
-            id_vehicle: req.params.id,
-            name: req.body.name,
+            id_moto: req.params.id,
+            nombre: req.body.nombre,
             color: req.body.color,
-            description: req.body.description,
-                brand: req.body.brand,
-                price: req.body.price,
+            descripcion: req.body.descripcion,
+                marca: req.body.marca,
+                precio: req.body.precio,
                 url: req.body.url,
-                id_vehicle_type: req.body.id_vehicle_type,
+                id_tipo_moto: req.body.id_tipo_moto,
             };
             
             //usamos la funcion para actualizar

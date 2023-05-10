@@ -7,11 +7,11 @@ var TipoMotoModel = {};
 TipoMotoModel.getTipoMotos = function (callback){
     
     if (connection){
-        var sql = "SELECT id_vehicle_type, "
-                        +" body_type, "
-                        +" description "
-                        +" FROM vehicle_type "
-                        +" ORDER BY id_vehicle_type;";
+        var sql = "SELECT id_tipo_moto, "
+                        +" tipo_carroceria, "
+                        +" descripcion "
+                        +" FROM tipo_moto "
+                        +" ORDER BY id_tipo_moto;";
         connection.query(sql, function (error, rows){
             if (error){
                 throw error;
@@ -29,11 +29,11 @@ TipoMotoModel.getTipoMotos = function (callback){
 TipoMotoModel.getTipoMoto = function (id, callback){
     
     if (connection){
-        var sql = "SELECT id_vehicle_type, "
-                        +" body_type, "
-                        +" description "
-                        +" FROM vehicle_type "
-                        +" where id_vehicle_type ="
+        var sql = "SELECT id_tipo_moto, "
+                        +" tipo_carroceria, "
+                        +" descripcion "
+                        +" FROM tipo_moto "
+                        +" where id_tipo_moto ="
                     + connection.escape(id) + ";";
 
         //console.log(id);
@@ -54,7 +54,7 @@ TipoMotoModel.getTipoMoto = function (id, callback){
 TipoMotoModel.insertTipoMoto = function (TipoMotoData, callback){
     if (connection){
         //console.log(TipDocData)
-        var sql = "INSERT INTO vehicle_type SET ?";
+        var sql = "INSERT INTO tipo_moto SET ?";
         //console.log("  tal  " + sql);
 
         connection.query(sql, TipoMotoData, function (error, result){
@@ -75,9 +75,9 @@ TipoMotoModel.updateTipoMoto = function (TipoMotoData, callback){
     //console.log(" 32  tal  ");
 
     if (connection){
-        var sql = "UPDATE vehicle_type SET body_type = " + connection.escape(TipoMotoData.body_type)
-                    + ", description = " + connection.escape(TipoMotoData.description)
-                    + " WHERE  id_vehicle_type  =  " + connection.escape(TipoMotoData.id_vehicle_type)+";";
+        var sql = "UPDATE tipo_moto SET tipo_carroceria = " + connection.escape(TipoMotoData.tipo_carroceria)
+                    + ", descripcion = " + connection.escape(TipoMotoData.descripcion)
+                    + " WHERE  id_tipo_moto  =  " + connection.escape(TipoMotoData.id_tipo_moto)+";";
         
         ///console.log(" 37  tal  " + sql);
 

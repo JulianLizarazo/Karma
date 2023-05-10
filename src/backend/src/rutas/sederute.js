@@ -51,9 +51,9 @@ module.exports = function (){
         //creamos un objeto Json con los datos del tipo de documento
         var SedeData =
             {
-                id_campus: null,
-                name_campus: req.body.name_campus,
-                address: req.body.address,
+                id_sede: null,
+                nombre_sede: req.body.nombre_sede,
+                direccion: req.body.direccion,
             };
 
 
@@ -75,9 +75,9 @@ module.exports = function (){
         //console.log(" 38");
         var SedeData =
             {
-                id_campus: req.params.id,
-                name_campus: req.body.name_campus,
-                address: req.body.address,
+                id_sede: req.params.id,
+                nombre_sede: req.body.nombre_sede,
+                direccion: req.body.direccion,
             };
 
 

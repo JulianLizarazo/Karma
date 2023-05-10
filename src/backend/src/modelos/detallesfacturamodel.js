@@ -7,21 +7,21 @@ var DetallesFacturaModel = {};
 DetallesFacturaModel.getDetallesFacturas = function (callback){
     
     if (connection){
-        var sql = "SELECT id_invoice_det"
-                        +", id_invoice"
-                        +", id.id_vehicle_detail"
-                        +", vd.car_plate"
-                        +", vd.engine_num"
-                        +", vd.chassis_num"
-                        +", id.id_campus"
-                        +", name_campus"
-                        +", CONCAT(brand,' ',name,' ',vt.body_type, ' ', color) as vehicle_model"
-                        +" from invoice_detail id"
-                        +" inner join campus c on c.id_campus = id.id_campus"
-                        +" inner join vehicle_detail vd on id.id_vehicle_detail = vd.id_vehicle_detail"
-                        +" inner join vehicle v on v.id_vehicle = vd.id_vehicle"
-                        +" inner join vehicle_type vt on v.id_vehicle_type = vt.id_vehicle_type"
-                        +" ORDER BY id_invoice_det;";
+        var sql = "SELECT id_detalles_factura"
+                        +", id_factura"
+                        +", id.id_detalles_moto"
+                        +", vd.placa_moto"
+                        +", vd.serie_motor"
+                        +", vd.serie_chassis"
+                        +", id.id_sede"
+                        +", nombre_sede"
+                        +", CONCAT(marca,' ',nombre,' ',vt.tipo_carroceria, ' ', color) as moto_model"
+                        +" from detalles_factura id"
+                        +" inner join sede c on c.id_sede = id.id_sede"
+                        +" inner join detalles_moto vd on id.id_detalles_moto = vd.id_detalles_moto"
+                        +" inner join moto v on v.id_moto = vd.id_moto"
+                        +" inner join tipo_moto vt on v.id_tipo_moto = vt.id_tipo_moto"
+                        +" ORDER BY id_detalles_factura;";
         
         connection.query(sql, function (error, rows){
             if (error){
@@ -40,21 +40,21 @@ DetallesFacturaModel.getDetallesFacturas = function (callback){
 DetallesFacturaModel.getDetallesFactura = function (id, callback){
     
     if (connection){
-        var sql = "select id_invoice_det "
-                    +", id_invoice"
-                    +", id.id_vehicle_detail"
-                    +", vd.car_plate"
-                    +", vd.engine_num"
-                    +", vd.chassis_num"
-                    +", id.id_campus"
-                    +", name_campus"
-                    +", CONCAT(brand,' ',name,' ',vt.body_type, ' ', color) as vehicle_model"
-                    +" from invoice_detail id"
-                    +" inner join campus c on c.id_campus = id.id_campus"
-                    +" inner join vehicle_detail vd on id.id_vehicle_detail = vd.id_vehicle_detail"
-                    +" inner join vehicle v on v.id_vehicle = vd.id_vehicle"
-                    +" inner join vehicle_type vt on v.id_vehicle_type = vt.id_vehicle_type"
-                    +" where id_invoice_det ="
+        var sql = "select id_detalles_factura "
+                    +", id_factura"
+                    +", id.id_detalles_moto"
+                    +", vd.placa_moto"
+                    +", vd.serie_motor"
+                    +", vd.serie_chassis"
+                    +", id.id_sede"
+                    +", nombre_sede"
+                    +", CONCAT(marca,' ',nombre,' ',vt.tipo_carroceria, ' ', color) as moto_model"
+                    +" from detalles_factura id"
+                    +" inner join sede c on c.id_sede = id.id_sede"
+                    +" inner join detalles_moto vd on id.id_detalles_moto = vd.id_detalles_moto"
+                    +" inner join moto v on v.id_moto = vd.id_moto"
+                    +" inner join tipo_moto vt on v.id_tipo_moto = vt.id_tipo_moto"
+                    +" where id_detalles_factura ="
                     + connection.escape(id)
 
         //console.log(id);
@@ -73,21 +73,21 @@ DetallesFacturaModel.getDetallesFactura = function (id, callback){
 DetallesFacturaModel.getReporteMoto = function (id,fechaInicial,fechaFinal,callback){
     
     if (connection){
-        var sql = "select id_invoice_det," 
-                        +" i.id_invoice,"
-                        +" v.price,"
-                        +" id.id_vehicle_detail,"
+        var sql = "select id_detalles_factura," 
+                        +" i.id_factura,"
+                        +" v.precio,"
+                        +" id.id_detalles_moto,"
                         +" DATE_FORMAT(date,'%d %M %Y') as date, "
-                        +" CONCAT(name,' ',color) as vehicle,"
-                        +" vd.car_plate,"
-                        +" vd.engine_num,"
-                        +" vd.chassis_num,"
-                        +" v.id_vehicle as vehicle_model"
-                        +" from invoice_detail id "
-                        +" inner join vehicle_detail vd on id.id_vehicle_detail = vd.id_vehicle_detail"
-                        +" inner join vehicle v on v.id_vehicle = vd.id_vehicle"
-                        +" inner join invoice i on i.id_invoice = id.id_invoice"
-                        +" where v.id_vehicle = "+connection.escape(id)+" and date BETWEEN"+connection.escape(fechaInicial)+" and "+connection.escape(fechaFinal)
+                        +" CONCAT(nombre,' ',color) as moto,"
+                        +" vd.placa_moto,"
+                        +" vd.serie_motor,"
+                        +" vd.serie_chassis,"
+                        +" v.id_moto as moto_model"
+                        +" from detalles_factura id "
+                        +" inner join detalles_moto vd on id.id_detalles_moto = vd.id_detalles_moto"
+                        +" inner join moto v on v.id_moto = vd.id_moto"
+                        +" inner join factura i on i.id_factura = id.id_factura"
+                        +" where v.id_moto = "+connection.escape(id)+" and date BETWEEN"+connection.escape(fechaInicial)+" and "+connection.escape(fechaFinal)
         
         
         connection.query(sql, function (error, rows){
@@ -104,20 +104,20 @@ DetallesFacturaModel.getReporteMoto = function (id,fechaInicial,fechaFinal,callb
 DetallesFacturaModel.getReporteTipoMoto = function (id,fechaInicial,fechaFinal,callback){
     
     if (connection){
-        var sql = "select id_invoice_det," 
-                        +" i.id_invoice,"
-                        +" v.price,"
-                        +" id.id_vehicle_detail,"
+        var sql = "select id_detalles_factura," 
+                        +" i.id_factura,"
+                        +" v.precio,"
+                        +" id.id_detalles_moto,"
                         +" DATE_FORMAT(date,'%d %M %Y') as date, "
-                        +" CONCAT(name,' ',color) as vehicle,"
-                        +" v.id_vehicle as vehicle_model,"
-                        +" body_type"
-                        +" from invoice_detail id "
-                        +" inner join vehicle_detail vd on id.id_vehicle_detail = vd.id_vehicle_detail"
-                        +" inner join vehicle v on v.id_vehicle = vd.id_vehicle"
-                        +" inner join vehicle_type vt on vt.id_vehicle_type = v.id_vehicle_type"
-                        +" inner join invoice i on i.id_invoice = id.id_invoice"
-                        +" where v.id_vehicle_type = "+connection.escape(id)+" and date BETWEEN"+connection.escape(fechaInicial)+" and "+connection.escape(fechaFinal)
+                        +" CONCAT(nombre,' ',color) as moto,"
+                        +" v.id_moto as moto_model,"
+                        +" tipo_carroceria"
+                        +" from detalles_factura id "
+                        +" inner join detalles_moto vd on id.id_detalles_moto = vd.id_detalles_moto"
+                        +" inner join moto v on v.id_moto = vd.id_moto"
+                        +" inner join tipo_moto vt on vt.id_tipo_moto = v.id_tipo_moto"
+                        +" inner join factura i on i.id_factura = id.id_factura"
+                        +" where v.id_tipo_moto = "+connection.escape(id)+" and date BETWEEN"+connection.escape(fechaInicial)+" and "+connection.escape(fechaFinal)
         
         
         connection.query(sql, function (error, rows){
@@ -137,7 +137,7 @@ DetallesFacturaModel.getReporteTipoMoto = function (id,fechaInicial,fechaFinal,c
 DetallesFacturaModel.insertDetallesFactura = function (DetallesFacturaData, callback){
     if (connection){
         //console.log(TipDocData)
-        var sql = "INSERT INTO invoice_detail SET ?";
+        var sql = "INSERT INTO detalles_factura SET ?";
         //console.log("  tal  " + sql);
 
         connection.query(sql, DetallesFacturaData, function (error, result){
@@ -158,10 +158,10 @@ DetallesFacturaModel.updateDetallesFactura = function (DetallesFacturaData, call
     //console.log(" 32  tal  ");
 
     if (connection){
-        var sql = "UPDATE invoice_detail SET amount = " + connection.escape(DetallesFacturaData.amount)
-                    + ", id_invoice = " + connection.escape(DetallesFacturaData.id_invoice)
-                    + ", id_vehicle_detail = " + connection.escape(DetallesFacturaData.id_vehicle_detail)
-                    + " WHERE  id_invoice_det  =  " + connection.escape(DetallesFacturaData.id_invoice_det)+";";
+        var sql = "UPDATE detalles_factura SET cantidad = " + connection.escape(DetallesFacturaData.cantidad)
+                    + ", id_factura = " + connection.escape(DetallesFacturaData.id_factura)
+                    + ", id_detalles_moto = " + connection.escape(DetallesFacturaData.id_detalles_moto)
+                    + " WHERE  id_detalles_factura  =  " + connection.escape(DetallesFacturaData.id_detalles_factura)+";";
         
         ///console.log(" 37  tal  " + sql);
 
