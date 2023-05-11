@@ -119,6 +119,7 @@ CREATE TABLE `moto` (
 --
 
 INSERT INTO `moto` (`id_moto`, `color`, `descripcion`, `marca`, `url`, `id_tipo_moto`, `nombre`, `precio`) VALUES
+<<<<<<< HEAD
 (1, 'Rojo', 'Moto deportiva de alta velocidad', 'Yamaha', 'https://i.ytimg.com/vi/Hi04Mt0VFAo/maxresdefault.jpg', 1, 'Modelo1', 15000.00),
 (2, 'Azul', 'Moto deportiva aerodinámica', 'Ducati', 'https://img.remediosdigitales.com/f996f7/650_1000_ducati-diavel-2014-650-013/1366_2000.jpg', 1, 'Modelo2', 16000.00),
 (3, 'Negro', 'Moto deportiva con excelente aceleración', 'Kawasaki', 'https://www.mundomotero.com/wp-content/uploads/2017/11/Kawasaki-Ninja-H2-SX-2018-7-1024x716.jpg', 1, 'Modelo3', 14000.00),
@@ -144,6 +145,7 @@ INSERT INTO `moto` (`id_moto`, `color`, `descripcion`, `marca`, `url`, `id_tipo_
 (23, 'Blanco', 'Moto touring con sistema de navegación', 'Kawasaki', 'https://apollo-virginia.akamaized.net/v1/files/j20ui35ety4c3-CO/image;s=850x0', 5, 'Modelo3', 19000.00),
 (24, 'Azul', 'Moto touring con amplio espacio de almacenamiento', 'Yamaha', 'https://i.ytimg.com/vi/fgpZhSW50js/maxresdefault.jpg', 5, 'Modelo4', 20000.00),
 (25, 'Rojo', 'Moto touring con sistema de suspensión ajustable', 'Kawasaki', 'https://gentedemoto.com/wp-content/uploads/2020/08/Kawasaki-Versys-250-Indonesia-01.jpg', 5, 'Modelo5', 19500.00);
+
 
 -- --------------------------------------------------------
 
