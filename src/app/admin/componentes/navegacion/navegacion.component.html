@@ -1,0 +1,67 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <strong>MOTO</strong>
+      <a mat-list-item href="/admin/vehicle/create">Crear Moto</a>
+      <a mat-list-item href="/admin/vehicle/show">Mostrar Moto</a>
+      <a mat-list-item href="/admin/vehicle/edit-single">Editar Moto</a>
+      <a mat-list-item href="/admin/vehicle/list">Listar Motos</a>
+      <strong>TIPO MOTO</strong>
+      <a mat-list-item href="/admin/vehicle-type/create">Crear Tipo Moto</a>
+      <a mat-list-item href="/admin/vehicle-type/show">Mostrar Tipo Moto</a>
+      <a mat-list-item href="/admin/vehicle-type/edit-single">Editar Tipo Moto</a>
+      <a mat-list-item href="/admin/vehicle-type/list">Listar Tipos Moto</a>
+      <strong>FACTURA</strong>
+      <a mat-list-item href="/admin/invoice/create">Crear Factura</a>
+      <a mat-list-item href="/admin/invoice/show">Mostrar Factura</a>
+      <a mat-list-item href="/admin/invoice/edit-single">Editar Factura</a>
+      <a mat-list-item href="/admin/invoice/list">Listar Facturas</a>
+      <STRONG>DETALLE FACTURA</STRONG>
+      <a mat-list-item href="/admin/invoice-detail/create">Crear Detalle Factura</a>
+      <a mat-list-item href="/admin/invoice-detail/show">Mostrar Detalle Factura</a>
+      <a mat-list-item href="/admin/invoice-detail/edit-single">Editar Detalle Factura</a>
+      <a mat-list-item href="/admin/invoice-detail/list">Listar Detalle Facturas</a>
+      <strong>CLIENTE</strong>
+      <a mat-list-item href="/admin/user/create">Crear Cliente</a>
+      <a mat-list-item href="/admin/user/show">Mostrar Cliente</a>
+      <a mat-list-item href="/admin/user/edit-single">Editar Cliente</a>
+      <a mat-list-item href="/admin/user/list">Listar Clientes</a>
+      <strong>SEDE</strong>
+      <a mat-list-item href="/admin/campus/create">Crear Sede</a>
+      <a mat-list-item href="/admin/campus/show">Mostrar Sede</a>
+      <a mat-list-item href="/admin/campus/edit-single">Editar Sede</a>
+      <a mat-list-item href="/admin/campus/list">Listar Sedes</a>
+      <strong>INFORMES</strong>
+      <a mat-list-item href="/admin/reports/vehicle">Moto y periodo de tiempo</a>
+      <a mat-list-item href="/admin/reports/vehicle-type">Tipo de Moto y periodo de tiempo</a>
+
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>MotorShop - Administración</span>
+      
+    </mat-toolbar>
+    
+    <router-outlet>
+      <div *ngIf="router.url === '/admin'">
+      </div>
+    </router-outlet>
+  </mat-sidenav-content>
+ 
+</mat-sidenav-container>
+
+
